@@ -1,0 +1,193 @@
+{
+  "sections": [
+    {
+      "id": "tournaments-competitive",
+      "subtitle": "COMPÉTITION E-SPORT",
+      "title": "REJOIGNEZ NOS TOURNOIS COMPÉTITIFS",
+      "paragraphs": [
+        "Participez à des tournois e-sport de haut niveau organisés dans votre région. Que vous soyez joueur solo ou en équipe, affrontez les meilleurs et remportez des prix exceptionnels.",
+        "Des compétitions régulières sur vos jeux préférés : League of Legends, Valorant, CS2, Fortnite et bien plus encore."
+      ],
+      "image": {
+        "src": "/assets/img/placeholders/1.webp",
+        "alt": "Tournois compétitifs HGC",
+        "position": "right"
+      },
+      "ctas": [
+        {
+          "text": "S'INSCRIRE",
+          "href": "/tournaments",
+          "variant": "primary",
+          "size": "lg"
+        },
+        {
+          "text": "VOIR LE CALENDRIER",
+          "href": "/calendar",
+          "variant": "secondary",
+          "size": "md"
+        }
+      ],
+      "backgroundColor": "purple"
+    },
+    {
+      "id": "gaming-events",
+      "subtitle": "ÉVÉNEMENTS GAMING",
+      "title": "DES ÉVÉNEMENTS DANS VOS VILLES",
+      "paragraphs": [
+        "Nous organisons des événements gaming de proximité adaptés aux besoins des villes et des collectivités. Animations locales, tournois amateurs, initiations e-sport : notre expertise permet de créer des expériences mémorables pour tous les publics."
+      ],
+      "image": {
+        "src": "/assets/img/placeholders/3.webp",
+        "alt": "Événements gaming dans vos villes",
+        "position": "left"
+      },
+      "ctas": [
+        {
+          "text": "DÉCOUVRIR NOS SERVICES",
+          "href": "/services",
+          "variant": "primary",
+          "size": "md"
+        }
+      ],
+      "backgroundColor": "orange"
+    },
+    {
+      "id": "youth-programs",
+      "subtitle": "POUR LES JEUNES",
+      "title": "PROGRAMMES E-SPORT POUR ADOS",
+      "paragraphs": [
+        "Des événements spécialement conçus pour les adolescents passionnés de jeux vidéo.",
+        "Que vous soyez joueur compétitif ou amateur, découvrez un environnement sain et encadré pour développer vos compétences.",
+        "Coaching, tournois amateurs, et rencontres avec des professionnels de l'e-sport."
+      ],
+      "image": {
+        "src": "/assets/img/placeholders/5.webp",
+        "alt": "Programmes e-sport pour ados",
+        "position": "right"
+      },
+      "ctas": [
+        {
+          "text": "EN SAVOIR PLUS",
+          "href": "/youth",
+          "variant": "primary",
+          "size": "md"
+        }
+      ],
+      "backgroundColor": "gray"
+    },
+    {
+      "id": "community-hub",
+      "subtitle": "COMMUNAUTÉ",
+      "title": "REJOIGNEZ LA PLUS GRANDE COMMUNAUTÉ GAMING LOCALE",
+      "paragraphs": [
+        "Plus de 62 000 joueurs nous font déjà confiance. Rejoignez une communauté passionnée, participez à des événements exclusifs et rencontrez des joueurs de votre région."
+      ],
+      "image": null,
+      "ctas": [
+        {
+          "text": "REJOINDRE LA COMMUNAUTÉ",
+          "href": "/community",
+          "variant": "primary",
+          "size": "lg"
+        }
+      ],
+      "backgroundColor": "purple"
+    },
+    {
+      "id": "streaming-setup",
+      "subtitle": "INFRASTRUCTURE",
+      "title": "ÉQUIPEMENTS PROFESSIONNELS POUR VOS ÉVÉNEMENTS",
+      "paragraphs": [
+        "Bénéficiez d'une infrastructure complète pour vos événements gaming : PC haute performance, écrans gaming, périphériques professionnels, streaming en direct et bien plus encore.",
+        "Notre équipe technique assure l'installation et le support pendant toute la durée de votre événement."
+      ],
+      "image": {
+        "src": "/assets/img/placeholders/7.webp",
+        "alt": "Équipements professionnels gaming",
+        "position": "left"
+      },
+      "ctas": [
+        {
+          "text": "DEMANDER UN DEVIS",
+          "href": "/quote",
+          "variant": "primary",
+          "size": "md"
+        },
+        {
+          "text": "VOIR NOS ÉQUIPEMENTS",
+          "href": "/equipment",
+          "variant": "secondary",
+          "size": "md"
+        }
+      ],
+      "backgroundColor": "orange"
+    },
+    {
+      "id": "coaching-programs",
+      "subtitle": "FORMATION",
+      "title": "PROGRAMMES DE COACHING E-SPORT",
+      "paragraphs": [
+        "Progressez rapidement grâce à nos programmes de coaching personnalisés. Nos coachs professionnels vous accompagnent pour améliorer votre gameplay, votre stratégie et votre mental de compétiteur."
+      ],
+      "image": {
+        "src": "/assets/img/placeholders/10.webp",
+        "alt": "Coaching e-sport professionnel",
+        "position": "right"
+      },
+      "ctas": [
+        {
+          "text": "RÉSERVER UNE SESSION",
+          "href": "/coaching",
+          "variant": "primary",
+          "size": "md"
+        }
+      ],
+      "backgroundColor": "gray"
+    },
+    {
+      "id": "lan-parties",
+      "subtitle": "ÉVÉNEMENTS SOCIAUX",
+      "title": "LAN PARTIES ET SOIRÉES GAMING",
+      "paragraphs": [
+        "Vivez l'expérience ultime des LAN parties ! Retrouvez-vous entre amis ou faites de nouvelles rencontres lors de nos soirées gaming conviviales.",
+        "Ambiance garantie, snacks et boissons sur place, et des parties endiablées jusqu'au bout de la nuit."
+      ],
+      "image": {
+        "src": "/assets/img/placeholders/12.webp",
+        "alt": "LAN parties et soirées gaming",
+        "position": "left"
+      },
+      "ctas": [],
+      "backgroundColor": "purple"
+    },
+    {
+      "id": "corporate-events",
+      "subtitle": "ENTREPRISES",
+      "title": "TEAM BUILDING GAMING POUR ENTREPRISES",
+      "paragraphs": [
+        "Renforcez la cohésion de vos équipes avec nos événements gaming sur mesure. Une approche innovante du team building qui allie fun, stratégie et esprit d'équipe.",
+        "Formats adaptables selon vos besoins : demi-journée, journée complète ou soirée d'entreprise."
+      ],
+      "image": {
+        "src": "/assets/img/placeholders/15.webp",
+        "alt": "Team building gaming entreprise",
+        "position": "right"
+      },
+      "ctas": [
+        {
+          "text": "ORGANISER UN ÉVÉNEMENT",
+          "href": "/corporate",
+          "variant": "primary",
+          "size": "lg"
+        },
+        {
+          "text": "TÉLÉCHARGER LA BROCHURE",
+          "href": "/brochure",
+          "variant": "secondary",
+          "size": "md"
+        }
+      ],
+      "backgroundColor": "orange"
+    }
+  ]
+}

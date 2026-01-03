@@ -1,0 +1,19 @@
+{
+  "title": "A Better Way to Manage Your Money",
+  "subtitle": "REJOIGNEZ-NOUS",
+  "paragraph": "Zippay enables you to achieve clarity and significant results on a large scale by linking tasks and workflows to the overarching objectives of the company",
+  "ctas": [
+    {
+      "text": "Get Started",
+      "href": "/get-started",
+      "variant": "primary",
+      "size": "lg"
+    },
+    {
+      "text": "Why Zippay",
+      "href": "/about",
+      "variant": "secondary",
+      "size": "lg"
+    }
+  ]
+}

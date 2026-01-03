@@ -1,0 +1,54 @@
+{
+  "subtitle": "NOS PARTENAIRES",
+  "title": "ILS NOUS FONT CONFIANCE",
+  "logos": [
+    {
+      "alt": "ANCT",
+      "src": "/assets/logos/partners/logo-anct.svg"
+    },
+    {
+      "alt": "Departement 62",
+      "src": "/assets/logos/partners/logo-dept-62.svg"
+    },
+    {
+      "alt": "Dominos Pizza",
+      "src": "/assets/logos/partners/logo-dominos-pizza.svg"
+    },
+    {
+      "alt": "Erazer",
+      "src": "/assets/logos/partners/logo-erazer.svg"
+    },
+    {
+      "alt": "Ville de Lens",
+      "src": "/assets/logos/partners/logo-lens-ville.svg"
+    },
+    {
+      "alt": "Pathe",
+      "src": "/assets/logos/partners/logo-pathe.svg"
+    },
+    {
+      "alt": "Polar Lens",
+      "src": "/assets/logos/partners/logo-polar-lens.png"
+    },
+    {
+      "alt": "Prefet Pas de Calais",
+      "src": "/assets/logos/partners/logo-prefet-pas-de-calais.svg"
+    },
+    {
+      "alt": "Quartiers 2030",
+      "src": "/assets/logos/partners/logo-quartiers-2030.svg"
+    },
+    {
+      "alt": "RNJA",
+      "src": "/assets/logos/partners/logo-rnja.svg"
+    },
+    {
+      "alt": "Tadao",
+      "src": "/assets/logos/partners/logo-tadao.svg"
+    },
+    {
+      "alt": "La Voix du Nord",
+      "src": "/assets/logos/partners/logo-voix-du-nord.png"
+    }
+  ]
+}
