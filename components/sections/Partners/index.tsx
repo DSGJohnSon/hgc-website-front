@@ -24,22 +24,27 @@ export default function Partners({
   return (
     <div
       className={cn(
-        "w-full overflow-hidden bg-gray-950",
-        isLastSection ? "h-[80svh]" : "h-screen"
+        "w-full overflow-hidden bg-transparent",
+        isLastSection
+          ? "h-auto min-h-[60svh] sm:min-h-[70svh] md:h-[80svh]"
+          : "h-auto min-h-screen md:h-screen"
       )}
     >
-      <div className="container mx-auto px-4 mt-32 w-screen">
-        <div className="text-center mb-16 space-y-4">
-          <p className="text-theme2 font-rajdhani uppercase tracking-wider text-base font-semibold">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 mt-16 sm:mt-24 md:mt-32 max-w-full">
+        <div className="text-center mb-8 sm:mb-12 md:mb-16 space-y-2 sm:space-y-3 md:space-y-4">
+          <p className="text-theme2 font-rajdhani uppercase tracking-wider text-sm sm:text-base font-semibold">
             {data.subtitle}
           </p>
-          <h2 className="font-rajdhani font-bold text-4xl md:text-5xl text-white uppercase">
+          <h2 className="font-rajdhani font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white uppercase px-4">
             {data.title}
           </h2>
         </div>
         <div
           className={cn(
-            "overflow-hidden w-full py-4 mask-[linear-gradient(90deg,rgba(255,255,255,0)_0%,rgba(0,0,0,1)_25%,rgba(0,0,0,1)_75%,rgba(255,255,255,0)_100%)] max-w-[calc(100vw-2rem)] self-center"
+            "overflow-hidden w-full py-3 sm:py-4 md:py-6",
+            "mask-[linear-gradient(90deg,rgba(255,255,255,0)_0%,rgba(0,0,0,1)_15%,rgba(0,0,0,1)_85%,rgba(255,255,255,0)_100%)]",
+            "sm:mask-[linear-gradient(90deg,rgba(255,255,255,0)_0%,rgba(0,0,0,1)_20%,rgba(0,0,0,1)_80%,rgba(255,255,255,0)_100%)]",
+            "md:mask-[linear-gradient(90deg,rgba(255,255,255,0)_0%,rgba(0,0,0,1)_25%,rgba(0,0,0,1)_75%,rgba(255,255,255,0)_100%)]"
           )}
         >
           <InfiniteSlider
@@ -50,7 +55,10 @@ export default function Partners({
             className="z-50"
           >
             {data.logos.map((logo, index: number) => (
-              <div key={`logo-${index}`} className="relative h-24 w-48 mx-4">
+              <div
+                key={`logo-${index}`}
+                className="relative h-16 w-32 sm:h-20 sm:w-40 md:h-24 md:w-48 mx-2 sm:mx-3 md:mx-4"
+              >
                 <Image
                   alt={logo.alt}
                   className="pointer-events-none select-none dark:brightness-0 dark:invert object-contain"
@@ -64,7 +72,7 @@ export default function Partners({
         </div>
       </div>
 
-      <div className="relative z-10 -mt-32 h-96 w-screen overflow-hidden mask-[radial-gradient(50%_50%,#030712,transparent)] before:absolute before:inset-0 before:bg-[radial-gradient(circle_at_bottom_center,#030712,transparent_70%)] before:opacity-40 after:absolute after:-left-1/2 after:top-1/2 after:aspect-[1/0.7] after:w-[200%] after:rounded-[100%] after:border-t after:border-theme after:bg-gray-900">
+      <div className="relative z-10 -mt-16 sm:-mt-24 md:-mt-32 h-48 sm:h-64 md:h-80 lg:h-96 w-full overflow-hidden mask-[radial-gradient(50%_50%,#030712,transparent)] before:absolute before:inset-0 before:bg-[radial-gradient(circle_at_bottom_center,#030712,transparent_70%)] before:opacity-40 after:absolute after:-left-1/2 after:top-1/2 after:aspect-[1/0.7] after:w-[200%] after:rounded-[100%] after:border-t after:border-theme after:bg-gray-900">
         <Sparkles
           density={1200}
           speed={0.2}

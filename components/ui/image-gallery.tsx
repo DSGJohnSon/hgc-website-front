@@ -11,18 +11,48 @@ export function ImageGallery({
   images: { src: string; alt: string }[];
 }) {
   const gridRef = React.useRef<HTMLDivElement>(null);
+  const [isDesktop, setIsDesktop] = React.useState(true);
+
+  // Détecter si on est sur desktop (>= 1024px)
+  React.useEffect(() => {
+    const checkIsDesktop = () => {
+      setIsDesktop(window.innerWidth >= 1024);
+    };
+
+    checkIsDesktop();
+    window.addEventListener("resize", checkIsDesktop);
+
+    return () => window.removeEventListener("resize", checkIsDesktop);
+  }, []);
+
   const { scrollYProgress } = useScroll({
     target: gridRef,
     offset: ["start end", "end start"],
   });
 
   const translateYFirst = useTransform(scrollYProgress, [0, 1], [0, -200]);
-  const translateXFirst = useTransform(scrollYProgress, [0, 1], [0, -200]);
-  const rotateXFirst = useTransform(scrollYProgress, [0, 1], [0, -20]);
+  const translateXFirst = useTransform(
+    scrollYProgress,
+    [0, 1],
+    [0, isDesktop ? -200 : 0]
+  );
+  const rotateXFirst = useTransform(
+    scrollYProgress,
+    [0, 1],
+    [0, isDesktop ? -20 : 0]
+  );
 
   const translateYThird = useTransform(scrollYProgress, [0, 1], [0, -200]);
-  const translateXThird = useTransform(scrollYProgress, [0, 1], [0, 200]);
-  const rotateXThird = useTransform(scrollYProgress, [0, 1], [0, 20]);
+  const translateXThird = useTransform(
+    scrollYProgress,
+    [0, 1],
+    [0, isDesktop ? 200 : 0]
+  );
+  const rotateXThird = useTransform(
+    scrollYProgress,
+    [0, 1],
+    [0, isDesktop ? 20 : 0]
+  );
 
   return (
     <div

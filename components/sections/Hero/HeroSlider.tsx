@@ -34,18 +34,18 @@ const HeroSlider: React.FC<HeroSliderProps> = ({ subtitle, title, slides }) => {
   }, [slides.length]);
 
   return (
-    <div className="relative bg-gray-950 py-32">
-      <div className="container mx-auto px-4">
+    <div className="relative bg-transparent py-32 lg:py-32">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         {(subtitle || title) && (
-          <div className="text-center mb-16 space-y-4">
+          <div className="text-center mb-8 sm:mb-12 lg:mb-16 space-y-2 sm:space-y-4">
             {subtitle && (
-              <p className="text-theme2 font-rajdhani uppercase tracking-wider text-base font-semibold">
+              <p className="text-theme2 font-rajdhani uppercase tracking-wider text-sm sm:text-base font-semibold">
                 {subtitle}
               </p>
             )}
             {title && (
-              <h2 className="font-rajdhani font-bold text-4xl md:text-5xl text-white uppercase">
+              <h2 className="font-rajdhani font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white uppercase">
                 {title}
               </h2>
             )}
@@ -70,14 +70,14 @@ const HeroSlider: React.FC<HeroSliderProps> = ({ subtitle, title, slides }) => {
 
         {/* Pagination Dots - Only show if multiple slides */}
         {slides.length > 1 && (
-          <div className="absolute bottom-40 left-1/2 transform -translate-x-1/2 flex gap-3 z-20">
+          <div className="absolute bottom-4 sm:bottom-8 md:bottom-16 lg:bottom-40 left-1/2 transform -translate-x-1/2 flex gap-2 sm:gap-3 z-20">
             {slides.map((_, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentSlide(index)}
-                className={`w-3 h-3 rounded-full transition-all ${
+                className={`h-2 w-2 sm:h-3 sm:w-3 rounded-full transition-all ${
                   index === currentSlide
-                    ? "bg-theme w-8"
+                    ? "bg-theme w-6 sm:w-8"
                     : "bg-gray-600 hover:bg-gray-400"
                 }`}
                 aria-label={`Go to slide ${index + 1}`}

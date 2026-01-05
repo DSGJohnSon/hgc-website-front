@@ -3,6 +3,7 @@ import { Rajdhani, Poppins, Goldman } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import FloatingDecorations from "@/components/ui/FloatingDecorations";
 
 const rajdhani = Rajdhani({
   variable: "--font-rajdhani",
@@ -49,9 +50,10 @@ export default function RootLayout({
       <body
         className={`${rajdhani.variable} ${poppins.variable} ${goldman.variable} antialiased`}
       >
-        <div className="page-wrapper bg-gray-950">
+        <div className="page-wrapper relative">
+          <FloatingDecorations />
           <Header />
-          <main>{children}</main>
+          <main className="relative z-10 bg-gray-950">{children}</main>
           <Footer />
         </div>
       </body>

@@ -37,7 +37,7 @@ const SimpleSection: React.FC<SimpleSectionProps> = ({ data, className }) => {
 
   return (
     <section
-      className={cn("relative w-full py-32 md:py-32 bg-gray-950", className)}
+      className={cn("relative w-full py-16 md:py-32 bg-transparent", className)}
     >
       <div className="container mx-auto px-4">
         <div
@@ -112,7 +112,7 @@ const SimpleSection: React.FC<SimpleSectionProps> = ({ data, className }) => {
 
           {/* Image */}
           {hasImage && (
-            <div className="md:w-1/2 relative">
+            <div className="w-full md:w-1/2 relative">
               <div className="relative w-full aspect-4/3 rounded-lg overflow-hidden">
                 <Image
                   src={image.src}

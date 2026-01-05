@@ -1,8 +1,24 @@
-"use client"
+"use client";
 
-import { useEffect, useId, useState } from "react"
-import Particles, { initParticlesEngine } from "@tsparticles/react"
-import { loadSlim } from "@tsparticles/slim"
+import { useEffect, useId, useState } from "react";
+import Particles, { initParticlesEngine } from "@tsparticles/react";
+import { loadSlim } from "@tsparticles/slim";
+import type { ISourceOptions } from "@tsparticles/engine";
+
+interface SparklesProps {
+  className?: string;
+  size?: number;
+  minSize?: number | null;
+  density?: number;
+  speed?: number;
+  minSpeed?: number | null;
+  opacity?: number;
+  opacitySpeed?: number;
+  minOpacity?: number | null;
+  color?: string;
+  background?: string;
+  options?: Partial<ISourceOptions>;
+}
 
 export function Sparkles({
   className,
@@ -17,18 +33,18 @@ export function Sparkles({
   color = "#FFFFFF",
   background = "transparent",
   options = {},
-}) {
-  const [isReady, setIsReady] = useState(false)
+}: SparklesProps) {
+  const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
     initParticlesEngine(async (engine) => {
-      await loadSlim(engine)
+      await loadSlim(engine);
     }).then(() => {
-      setIsReady(true)
-    })
-  }, [])
+      setIsReady(true);
+    });
+  }, []);
 
-  const id = useId()
+  const id = useId();
 
   const defaultOptions = {
     background: {
@@ -47,7 +63,7 @@ export function Sparkles({
       },
       move: {
         enable: true,
-        direction: "none",
+        direction: "none" as const,
         speed: {
           min: minSpeed || speed / 10,
           max: speed,
@@ -76,7 +92,15 @@ export function Sparkles({
       },
     },
     detectRetina: true,
-  }
+  };
 
-  return isReady && <Particles id={id} options={{ ...defaultOptions, ...options }} className={className} />
+  return (
+    isReady && (
+      <Particles
+        id={id}
+        options={{ ...defaultOptions, ...options }}
+        className={className}
+      />
+    )
+  );
 }

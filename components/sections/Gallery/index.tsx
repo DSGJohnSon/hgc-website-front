@@ -15,8 +15,8 @@ interface GalleryProps {
 
 export default function Gallery({ data }: GalleryProps) {
   return (
-    <div className="relative w-full overflow-x-hidden py-32 bg-gray-950">
-      <div className="py-32 px-16 container mx-auto">
+    <div className="relative w-full overflow-x-hidden py-0 md:py-32 bg-transparent">
+      <div className="py-0 md:py-32 px-16 container mx-auto">
         <div className="text-center mb-16 space-y-4">
           <p className="text-theme2 font-rajdhani uppercase tracking-wider text-base font-semibold">
             {data.subtitle}

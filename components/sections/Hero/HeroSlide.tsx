@@ -27,10 +27,10 @@ const HeroSlide: React.FC<HeroSlideProps> = ({
   return (
     <div className="relative">
       {/* Background Shape Container */}
-      <div className="container mx-auto px-4 py-12 sm:py-20">
-        <div className="relative min-h-[500px] flex items-center">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 md:py-16 lg:py-20">
+        <div className="relative min-h-[400px] sm:min-h-[500px] lg:min-h-[600px] flex items-center">
           {/* Decorative SVG Background */}
-          <div className="absolute inset-0 flex items-center justify-center opacity-20">
+          <div className="absolute inset-0 items-center justify-center opacity-20 hidden lg:flex">
             <svg
               viewBox="0 0 1600 520"
               fill="none"
@@ -60,10 +60,10 @@ const HeroSlide: React.FC<HeroSlideProps> = ({
           </div>
 
           {/* Content Grid */}
-          <div className="relative z-10 grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-8 items-center py-24">
+          <div className="relative z-10 grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-6 sm:gap-8 lg:gap-12 items-center py-8 sm:py-12 md:py-16 lg:py-24">
             {/* Left: Single Vertical Poster Image - Absolute positioned */}
             <div className="relative lg:absolute lg:left-12 lg:top-1/2 lg:-translate-y-1/2 flex items-center justify-center lg:justify-start lg:z-20">
-              <div className="relative w-96 sm:w-[420px] md:w-[480px] animate-slide-in-left">
+              <div className="relative w-full max-w-[280px] sm:max-w-[320px] md:max-w-[380px] lg:max-w-[420px] xl:max-w-[480px] animate-slide-in-left">
                 <Image
                   src={image}
                   alt="Event Poster"
@@ -75,49 +75,53 @@ const HeroSlide: React.FC<HeroSlideProps> = ({
             </div>
 
             {/* Right: Event Information */}
-            <div className="text-center lg:text-left lg:col-start-2 lg:pl-4 px-4 space-y-6">
-              <h2 className="text-white font-rajdhani text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight uppercase">
+            <div className="text-center lg:text-left lg:col-start-2 lg:pl-4 px-2 sm:px-4 space-y-4 sm:space-y-6">
+              <h2 className="text-white font-rajdhani text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight uppercase">
                 {title}
               </h2>
 
-              <div className="space-y-4 text-white font-rajdhani">
+              <div className="space-y-3 sm:space-y-4 text-white font-rajdhani">
                 {/* Date */}
-                <div className="flex items-center justify-center lg:justify-start gap-3">
-                  <LuCalendar className="text-theme text-2xl shrink-0" />
-                  <div className="flex items-baseline gap-2">
-                    <span className="text-theme text-lg font-bold uppercase">
+                <div className="flex flex-col lg:flex-row items-center justify-center lg:justify-start gap-2 sm:gap-3">
+                  <div className="flex flex-col lg:flex-row items-center gap-1.5 sm:gap-2">
+                    <LuCalendar className="text-theme text-xl sm:text-2xl shrink-0" />
+                    <span className="text-theme text-base sm:text-lg font-bold uppercase">
                       Date :
                     </span>
-                    <span className="text-lg font-bold uppercase">{date}</span>
                   </div>
+                  <span className="text-base sm:text-lg font-bold uppercase">
+                    {date}
+                  </span>
                 </div>
 
                 {/* Time */}
-                <div className="flex items-center justify-center lg:justify-start gap-3">
-                  <LuClock className="text-theme text-2xl shrink-0" />
-                  <div className="flex items-baseline gap-2">
-                    <span className="text-theme text-lg font-bold uppercase">
+                <div className="flex items-center justify-center lg:justify-start gap-2 sm:gap-3">
+                  <LuClock className="text-theme text-xl sm:text-2xl shrink-0 pb-1" />
+                  <div className="flex items-baseline gap-1.5 sm:gap-2">
+                    <span className="text-theme text-base sm:text-lg font-bold uppercase">
                       Heure :
                     </span>
-                    <span className="text-lg font-bold uppercase">{time}</span>
+                    <span className="text-base sm:text-lg font-bold uppercase">
+                      {time}
+                    </span>
                   </div>
                 </div>
 
                 {/* Location */}
-                <div className="flex items-center justify-center lg:justify-start gap-3">
-                  <LuMapPin className="text-theme text-2xl shrink-0" />
-                  <div className="flex items-baseline gap-2">
-                    <span className="text-theme text-lg font-bold uppercase">
+                <div className="flex flex-col lg:flex-row items-center justify-center lg:justify-start gap-2 sm:gap-3">
+                  <div className="flex flex-col lg:flex-row items-center gap-1.5 sm:gap-2">
+                    <LuMapPin className="text-theme text-xl sm:text-2xl shrink-0" />
+                    <span className="text-theme text-base sm:text-lg font-bold uppercase">
                       Lieu :
                     </span>
-                    <span className="text-lg font-bold uppercase leading-relaxed">
-                      {location}
-                    </span>
                   </div>
+                  <span className="text-base sm:text-lg font-bold uppercase leading-relaxed text-balance word-break">
+                    {location}
+                  </span>
                 </div>
               </div>
 
-              <div className="flex justify-center lg:justify-start pt-4 space-x-4">
+              <div className="flex flex-col sm:flex-row justify-center lg:justify-start pt-3 sm:pt-4 gap-3 sm:gap-4">
                 <Button
                   variant="primary"
                   asLink

@@ -42,7 +42,7 @@ const Hero: React.FC<HeroProps> = ({ data }) => {
   return (
     <section className="relative">
       <PixelBackground
-        className="relative min-h-[60vh] sm:min-h-screen flex items-center justify-center py-20 sm:py-32 bg-gray-950"
+        className="relative min-h-[60vh] sm:min-h-screen flex items-center justify-center py-20 sm:py-32 bg-transparent"
         speed={30}
         gap={10}
         colors="#111827"

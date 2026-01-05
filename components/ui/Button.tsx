@@ -50,7 +50,7 @@ const Button: React.FC<ButtonProps> = ({
   // Variant styles with clip-path
   const variantStyles = {
     primary: cn(
-      `bg-theme text-gray-950`,
+      `bg-gradient-to-r from-theme to-theme2 text-gray-950`,
       `[clip-path:polygon(15px_0%,calc(100%-15px)_0%,100%_50%,calc(100%-15px)_100%,15px_100%,0%_50%)]`,
       `hover:bg-white hover:[clip-path:polygon(0_0%,100%_0%,100%_50%,100%_100%,0_100%,0%_50%)]`,
       `before:absolute before:top-[5px] before:left-[5px] before:w-4 before:h-[calc(100%-10px)] before:bg-gray-950 before:z-[-1] before:transition-all before:duration-200 before:[clip-path:polygon(85%_0,100%_0,15%_50%,100%_100%,85%_100%,0%_50%)]`,

@@ -50,7 +50,7 @@ const CTASection: React.FC<CTASectionProps> = ({
   // Define background configurations for each color
   const backgroundConfig = {
     gray: {
-      bgClass: "bg-gray-950",
+      bgClass: "bg-transparent",
       pixelColor: "#111827", // Dark gray pixels
       glowColor: "#d97706", // Orange glow
       fadeTop: true,
@@ -104,7 +104,7 @@ const CTASection: React.FC<CTASectionProps> = ({
   return (
     <section className={cn("relative w-full", marginClasses, className)}>
       <BlinkingPixelBackground
-        className={cn("py-20 md:py-32", config.bgClass)}
+        className={cn("py-8 md:py-32", config.bgClass)}
         speed={speed}
         gap={10}
         colors={config.pixelColor}

@@ -11,6 +11,7 @@ import CTASection, {
   CTABackgroundColor,
 } from "@/components/sections/CTASection";
 import homePageData from "@/data/pages/home-page.json";
+import Ticketing, { TicketingData } from "@/components/sections/Ticketing";
 
 interface Section {
   type: string;
@@ -66,6 +67,9 @@ export default function Home() {
             isLastSection={isLastSection}
           />
         );
+
+      case "ticketing":
+        return <Ticketing key={index} data={section.data as TicketingData} />;
 
       default:
         console.warn(`Unknown section type: ${section.type}`);

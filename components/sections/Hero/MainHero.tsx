@@ -68,7 +68,7 @@ const MainHero: React.FC<MainHeroProps> = ({
         <div className="text-center max-w-5xl mx-auto animate-fade-in-up animation-delay-200 space-y-8 pt-20 pb-8">
           {/* Subtitle */}
           <TextGradient
-            className="font-rajdhani text-xl text-gray-500"
+            className="font-rajdhani text-base lg:text-xl text-gray-500"
             spread={22}
             highlightColor="#fff"
             duration={2}
@@ -78,10 +78,10 @@ const MainHero: React.FC<MainHeroProps> = ({
 
           {/* Title */}
           <h1 className="font-rajdhani font-bold text-white mb-8 sm:mb-12 uppercase">
-            <span className="block text-4xl sm:text-6xl lg:text-7xl mb-2 sm:mb-4 animate-fade-in-up uppercase">
+            <span className="block text-4xl sm:text-6xl lg:text-7xl mb-2 sm:mb-4 animate-fade-in-up uppercase text-balance">
               {title.line1}
             </span>
-            <span className="block text-5xl sm:text-7xl lg:text-8xl text-theme2 animate-fade-in-up animation-delay-200 uppercase">
+            <span className="block text-5xl sm:text-7xl lg:text-8xl text-theme2 animate-fade-in-up animation-delay-200 uppercase text-balance">
               {title.line2}
             </span>
           </h1>
@@ -97,6 +97,7 @@ const MainHero: React.FC<MainHeroProps> = ({
                 icon={<LuArrowRight />}
                 iconPosition="right"
                 textUpperCase={button.textUpperCase}
+                className="w-full lg:w-auto"
               >
                 {button.label}
               </Button>
@@ -104,7 +105,7 @@ const MainHero: React.FC<MainHeroProps> = ({
           </div>
 
           {/* Avatar Circles - Participants */}
-          <div className="animate-fade-in-up animation-delay-600 mt-8 flex items-center gap-4 justify-center">
+          <div className="animate-fade-in-up animation-delay-600 mt-8 flex flex-col lg:flex-row items-center gap-4 justify-center">
             <AvatarCircles
               numPeople={totalParticipants}
               avatarNames={displayedAvatars}
