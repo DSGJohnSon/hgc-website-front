@@ -6,29 +6,35 @@ import Gallery, { GalleryData } from "@/components/sections/Gallery";
 import SimpleSection, {
   SimpleSectionData,
 } from "@/components/sections/SimpleSection";
+import AboutHero from "@/components/sections/AboutHero";
+import TextSection, {
+  TextSectionData,
+} from "@/components/sections/TextSection";
+import FeatureGrid, {
+  FeatureGridData,
+} from "@/components/sections/FeatureGrid";
 import CTASection, {
   CTASectionData,
   CTABackgroundColor,
 } from "@/components/sections/CTASection";
-import homePageData from "@/data/pages/official/home-page.json";
+import aProposData from "@/data/pages/official/about.json";
 import Ticketing, { TicketingData } from "@/components/sections/Ticketing";
+import TrophyCarousel, {
+  TrophyCarouselData,
+} from "@/components/sections/TrophyCarousel";
 
 interface Section {
   type: string;
   data: any;
-  props?: any;
 }
 
-export default function Home() {
-  const sections = homePageData.sections as Section[];
+export default function APropos() {
+  const sections = aProposData.sections as Section[];
 
   const renderSection = (section: Section, index: number) => {
     const isLastSection = index === sections.length - 1;
 
     switch (section.type) {
-      case "hero":
-        return <Hero key={index} data={section.data as HeroData} />;
-
       case "statistics":
         return <Statistics key={index} data={section.data as StatisticsData} />;
 
@@ -37,19 +43,34 @@ export default function Home() {
           <SimpleSection key={index} data={section.data as SimpleSectionData} />
         );
 
+      case "aboutHero":
+        return (
+          <AboutHero key={index} data={section.data as SimpleSectionData} />
+        );
+
+      case "textSection":
+        return (
+          <TextSection key={index} data={section.data as TextSectionData} />
+        );
+
+      case "featureGrid":
+        return (
+          <FeatureGrid key={index} data={section.data as FeatureGridData} />
+        );
+
       case "cta":
         return (
           <CTASection
             key={index}
             data={section.data as CTASectionData}
-            glowMode={section.props?.glowMode}
+            glowMode={section.data?.glowMode}
             backgroundColor={
-              section.props?.backgroundColor as CTABackgroundColor
+              section.data?.backgroundColor as CTABackgroundColor
             }
-            speed={section.props?.speed}
-            opacity={section.props?.opacity}
-            stickyTop={section.props?.stickyTop}
-            stickyBottom={section.props?.stickyBottom}
+            speed={section.data?.speed}
+            opacity={section.data?.opacity}
+            stickyTop={section.data?.stickyTop}
+            stickyBottom={section.data?.stickyBottom}
           />
         );
 
@@ -70,6 +91,14 @@ export default function Home() {
 
       case "ticketing":
         return <Ticketing key={index} data={section.data as TicketingData} />;
+
+      case "trophyCarousel":
+        return (
+          <TrophyCarousel
+            key={index}
+            data={section.data as TrophyCarouselData}
+          />
+        );
 
       default:
         console.warn(`Unknown section type: ${section.type}`);

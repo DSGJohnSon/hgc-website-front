@@ -8,6 +8,7 @@ import {
   useSpring,
   MotionValue,
 } from "framer-motion";
+import { usePathname } from "next/navigation";
 
 interface DecorationElement {
   id: number;
@@ -25,6 +26,7 @@ interface DecorationElement {
 const FloatingDecorations: React.FC = () => {
   const [elements, setElements] = useState<DecorationElement[]>([]);
   const [isMounted, setIsMounted] = useState(false);
+  const pathname = usePathname();
   const { scrollY } = useScroll();
 
   useEffect(() => {
@@ -41,10 +43,11 @@ const FloatingDecorations: React.FC = () => {
 
       const totalSections = Math.ceil(pageHeight / viewHeight);
 
-      // Réduction du nombre d'éléments sur mobile
+      // Distribution des éléments selon le viewport
       let count;
       if (isMobile) {
-        count = Math.min(3, totalSections); // Maximum 3 éléments sur mobile
+        // Plus d'éléments sur mobile pour couvrir toute la page
+        count = 3 + Math.max(0, Math.floor((totalSections - 1) * 0.6)); // 60% des sections supplémentaires
       } else if (isTablet) {
         count = 3 + Math.max(0, Math.floor((totalSections - 1) / 2)); // Moitié moins sur tablette
       } else {
@@ -73,9 +76,8 @@ const FloatingDecorations: React.FC = () => {
         // Marges adaptées au viewport
         let xBase;
         if (isMobile) {
-          // Plus de marge sur mobile (10-20% des bords)
-          xBase =
-            side === "left" ? 10 + Math.random() * 10 : 70 + Math.random() * 10;
+          // Éléments très proches des bords sur mobile (0-8% et 92-100%)
+          xBase = side === "left" ? Math.random() * 8 : 92 + Math.random() * 8;
         } else if (isTablet) {
           // Marge intermédiaire sur tablette
           xBase =
@@ -141,19 +143,28 @@ const FloatingDecorations: React.FC = () => {
 
     setElements(getLayout());
 
-    // Recalculer le layout lors du redimensionnement
+    // Recalculer le layout lors du redimensionnement ou du changement de page
     const handleResize = () => {
       setElements(getLayout());
     };
 
+    // Un petit délai pour s'assurer que le contenu de la nouvelle page est rendu
+    // et que le scrollHeight est correct
+    const timeoutId = setTimeout(() => {
+      setElements(getLayout());
+    }, 100);
+
     window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      clearTimeout(timeoutId);
+    };
+  }, [pathname]);
 
   if (!isMounted) return null;
 
   return (
-    <div className="absolute inset-0 pointer-events-none overflow-hidden z-20 min-h-full">
+    <div className="absolute inset-0 pointer-events-none overflow-hidden z-15 min-h-full">
       {elements.map((el) => (
         <ParallaxElement key={el.id} element={el} scrollY={scrollY} />
       ))}

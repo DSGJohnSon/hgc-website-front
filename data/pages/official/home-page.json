@@ -1,0 +1,344 @@
+{
+  "sections": [
+    {
+      "type": "hero",
+      "data": {
+        "mainHero": {
+          "subtitle": "# La compétition E-Sport de proximité #",
+          "title": {
+            "line1": "L'évènement gaming qui",
+            "line2": "débarque chez toi"
+          },
+          "buttons": [
+            {
+              "label": "évènements à venir",
+              "href": "/evenements",
+              "variant": "primary",
+              "textUpperCase": true
+            },
+            {
+              "label": "découvrir hgc",
+              "href": "/a-propos",
+              "variant": "secondary",
+              "textUpperCase": true
+            }
+          ],
+          "totalParticipants": "62.000"
+        },
+        "slider": {
+          "subtitle": "Nos prochains rendez-vous",
+          "title": "Évènements à venir",
+          "events": [
+            {
+              "type": "tournoi",
+              "title": "Tournoi Gaming House Tour",
+              "date": "29 décembre 2025",
+              "time": "14h-00h",
+              "image": "/assets/img/events/thumbnail/fifa-season_1.png",
+              "categories": ["fifaSeason"],
+              "games": ["fc26"],
+              "buttonText": "S'INSCRIRE",
+              "buttonLink": "/tournaments",
+              "color": "#10b981"
+            },
+            {
+              "type": "event",
+              "title": "Free Play Gaming House Tour",
+              "date": "28 décembre 2025",
+              "time": "14h-00h",
+              "image": "/assets/img/events/thumbnail/gaming-house-tour_1.png",
+              "categories": ["gamingHouseTour"],
+              "games": ["valorant"],
+              "buttonText": "S'INSCRIRE",
+              "buttonLink": "/tournaments",
+              "color": "#fe7810"
+            },
+            {
+              "type": "event",
+              "title": "Free Play Gaming House Tour",
+              "date": "28 décembre 2025",
+              "time": "14h-00h",
+              "image": "/assets/img/events/thumbnail/polar-lens_1.png",
+              "categories": ["polarLens"],
+              "games": ["tombraider", "amongus"],
+              "buttonText": "S'INSCRIRE",
+              "buttonLink": "/tournaments",
+              "color": "#dca010"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "statistics",
+      "data": {
+        "stats": [
+          {
+            "value": 104,
+            "plus": false,
+            "label": "ÉVÉNEMENTS",
+            "sublabel": "RÉALISÉS"
+          },
+          {
+            "value": 10300,
+            "plus": true,
+            "label": "Cash Prize et Cadeaux",
+            "sublabel": "offerts (en euros)"
+          },
+          {
+            "value": 62000,
+            "plus": true,
+            "label": "Joueurs/Visiteurs",
+            "sublabel": "acceuillis"
+          },
+          {
+            "value": 10100,
+            "plus": true,
+            "label": "Visites uniques sur",
+            "sublabel": "le site WEB"
+          },
+          {
+            "value": 10000,
+            "plus": false,
+            "label": "Pic de visiteurs",
+            "sublabel": "accueillis"
+          },
+          {
+            "value": 382000,
+            "plus": true,
+            "label": "Couverture RS",
+            "sublabel": ""
+          }
+        ]
+      }
+    },
+    {
+      "type": "simpleSection",
+      "data": {
+        "id": "tournaments-competitive",
+        "subtitle": "à propos de HGC",
+        "title": "Découvrez l'association",
+        "paragraphs": [
+          "Holiday Geek Cup est une association locale basée à Grenay (35) et qui a pour objectifs de rendre plus accessible l'accès aux jeux vidéos pour tous.",
+          "Notre coeur de métier est la réalisation d'événements gaming de proximité en partenariat avec les collectivités locales et des acteurs économiques du secteur."
+        ],
+        "image": {
+          "src": "/assets/img/placeholders/1.webp",
+          "alt": "Tournois compétitifs HGC",
+          "position": "right"
+        },
+        "ctas": [
+          {
+            "text": "Voir HGC en détails",
+            "href": "/a-propos",
+            "variant": "primary",
+            "size": "lg"
+          },
+          {
+            "text": "Nous contacter",
+            "href": "/contact",
+            "variant": "secondary",
+            "size": "md"
+          }
+        ]
+      }
+    },
+    {
+      "type": "gallery",
+      "data": {
+        "title": "Retour sur l'année 2025",
+        "subtitle": "en images",
+        "images": [
+          {
+            "src": "/assets/img/placeholders/1.webp",
+            "alt": "Gallery Image 1"
+          },
+          {
+            "src": "/assets/img/placeholders/2.webp",
+            "alt": "Gallery Image 2"
+          },
+          {
+            "src": "/assets/img/placeholders/3.webp",
+            "alt": "Gallery Image 3"
+          },
+          {
+            "src": "/assets/img/placeholders/4.webp",
+            "alt": "Gallery Image 4"
+          },
+          {
+            "src": "/assets/img/placeholders/5.webp",
+            "alt": "Gallery Image 5"
+          },
+          {
+            "src": "/assets/img/placeholders/6.webp",
+            "alt": "Gallery Image 6"
+          },
+          {
+            "src": "/assets/img/placeholders/7.webp",
+            "alt": "Gallery Image 7"
+          },
+          {
+            "src": "/assets/img/placeholders/8.webp",
+            "alt": "Gallery Image 8"
+          },
+          {
+            "src": "/assets/img/placeholders/9.webp",
+            "alt": "Gallery Image 9"
+          },
+          {
+            "src": "/assets/img/placeholders/10.webp",
+            "alt": "Gallery Image 10"
+          },
+          {
+            "src": "/assets/img/placeholders/11.webp",
+            "alt": "Gallery Image 11"
+          },
+          {
+            "src": "/assets/img/placeholders/12.webp",
+            "alt": "Gallery Image 12"
+          },
+          {
+            "src": "/assets/img/placeholders/13.webp",
+            "alt": "Gallery Image 13"
+          },
+          {
+            "src": "/assets/img/placeholders/14.webp",
+            "alt": "Gallery Image 14"
+          },
+          {
+            "src": "/assets/img/placeholders/15.webp",
+            "alt": "Gallery Image 15"
+          },
+          {
+            "src": "/assets/img/placeholders/16.webp",
+            "alt": "Gallery Image 16"
+          },
+          {
+            "src": "/assets/img/placeholders/17.webp",
+            "alt": "Gallery Image 17"
+          },
+          {
+            "src": "/assets/img/placeholders/18.webp",
+            "alt": "Gallery Image 18"
+          }
+        ]
+      }
+    },
+    {
+      "type": "cta",
+      "data": {
+        "title": "REJOIGNEZ LA PLUS GRANDE COMMUNAUTÉ GAMING LOCALE",
+        "subtitle": "COMMUNAUTÉ DISCORD",
+        "paragraph": "Plus de 62 000 joueurs nous font déjà confiance. Rejoignez une communauté passionnée, participez à des événements exclusifs et rencontrez des joueurs de votre région.",
+        "ctas": [
+          {
+            "text": "REJOINDRE Le discord",
+            "href": "https://discord.gg/YtkPm7PgQJ",
+            "variant": "secondary",
+            "size": "lg"
+          }
+        ]
+      },
+      "props": {
+        "glowMode": "centerBlinking",
+        "backgroundColor": "gray",
+        "speed": 60
+      }
+    },
+    {
+      "type": "testimony",
+      "data": {
+        "title": "Ce que disent nos joueurs",
+        "subtitle": "Témoignages",
+        "testimonials": [
+          {
+            "id": 1,
+            "quote": "HGC a complètement changé ma façon de voir l'e-sport. Des événements de qualité, une ambiance incroyable !",
+            "author": "Sarah Chen",
+            "role": "Joueuse League of Legends",
+            "avatar": "https://images.unsplash.com/photo-1701615004837-40d8573b6652?q=80&w=1480&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          },
+          {
+            "id": 2,
+            "quote": "L'organisation est au top, les tournois sont passionnants. Je recommande à 100% !",
+            "author": "Marcus Johnson",
+            "role": "Streamer Valorant",
+            "avatar": "https://plus.unsplash.com/premium_photo-1671656349218-5218444643d8?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          },
+          {
+            "id": 3,
+            "quote": "Une communauté soudée et des événements mémorables. HGC, c'est la référence !",
+            "author": "Elena Rodriguez",
+            "role": "Capitaine d'équipe CS2",
+            "avatar": "https://images.unsplash.com/photo-1607746882042-944635dfe10e?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          }
+        ]
+      }
+    },
+    {
+      "type": "partners",
+      "data": {
+        "subtitle": "NOS PARTENAIRES",
+        "title": "ILS NOUS FONT CONFIANCE",
+        "logos": [
+          {
+            "alt": "ANCT",
+            "src": "/assets/logos/partners/logo-anct.svg"
+          },
+          {
+            "alt": "Departement 62",
+            "src": "/assets/logos/partners/logo-dept-62.svg"
+          },
+          {
+            "alt": "Dominos Pizza",
+            "src": "/assets/logos/partners/logo-dominos-pizza.svg"
+          },
+          {
+            "alt": "Erazer",
+            "src": "/assets/logos/partners/logo-erazer.svg"
+          },
+          {
+            "alt": "Ville de Lens",
+            "src": "/assets/logos/partners/logo-lens-ville.svg"
+          },
+          {
+            "alt": "Pathe",
+            "src": "/assets/logos/partners/logo-pathe.png"
+          },
+          {
+            "alt": "Polar Lens",
+            "src": "/assets/logos/partners/logo-polar-lens.png"
+          },
+          {
+            "alt": "Prefet Pas de Calais",
+            "src": "/assets/logos/partners/logo-prefet-pas-de-calais.svg"
+          },
+          {
+            "alt": "Quartiers 2030",
+            "src": "/assets/logos/partners/logo-quartiers-2030.svg"
+          },
+          {
+            "alt": "RNJA",
+            "src": "/assets/logos/partners/logo-rnja.svg"
+          },
+          {
+            "alt": "Tadao",
+            "src": "/assets/logos/partners/logo-tadao.svg"
+          },
+          {
+            "alt": "ESS France",
+            "src": "/assets/logos/partners/logo-ess.png"
+          },
+          {
+            "alt": "Agrément JEP",
+            "src": "/assets/logos/partners/logo-jep.png"
+          },
+          {
+            "alt": "La Voix du Nord",
+            "src": "/assets/logos/partners/logo-voix-du-nord.png"
+          }
+        ]
+      }
+    }
+  ]
+}

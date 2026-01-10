@@ -3,7 +3,7 @@ import AboutWidget from "./AboutWidget";
 import FooterWidget from "./FooterWidget";
 import Newsletter from "./Newsletter";
 import Copyright from "./Copyright";
-import footerData from "@/data/sections/footer.json";
+import footerData from "@/data/pages/official/footer.json";
 
 const Footer: React.FC = () => {
   return (
@@ -21,9 +21,9 @@ const Footer: React.FC = () => {
       {/* Widget Area */}
       <div className="pt-16 pb-0">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 xl:grid-cols-3 gap-8 xl:gap-12 justify-items-start xl:justify-items-center">
+          <div className="grid grid-cols-1 xl:grid-cols-2 gap-8 xl:gap-12 justify-items-start xl:justify-items-center">
             {/* About Widget */}
-            <div className="w-full flex flex-col items-center xl:items-start xl:w-auto">
+            <div className="w-1/3 flex flex-col items-center xl:items-start xl:w-auto">
               <AboutWidget
                 logo={footerData.logo}
                 about={footerData.about}
@@ -32,29 +32,19 @@ const Footer: React.FC = () => {
             </div>
 
             {/* Link Widgets */}
-            <div className="w-full grid grid-cols-1 sm:grid-cols-2 gap-8 xl:gap-12">
+            <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 xl:gap-12">
             {footerData.widgets.map((widget) => (
               <div key={widget.title} className="w-full xl:w-auto">
                 <FooterWidget title={widget.title} links={widget.links} />
               </div>
             ))}
             </div>
-
-            {/* Newsletter Widget */}
-            <div className="hidden xl:block w-full xl:w-auto">
-              <Newsletter
-                title={footerData.newsletter.title}
-                description={footerData.newsletter.description}
-                placeholder={footerData.newsletter.placeholder}
-                appStoreLinks={footerData.newsletter.appStoreLinks}
-              />
-            </div>
           </div>
         </div>
       </div>
 
       {/* Copyright */}
-      <Copyright text={footerData.copyright} />
+      <Copyright />
     </footer>
   );
 };

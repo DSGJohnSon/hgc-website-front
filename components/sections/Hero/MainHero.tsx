@@ -77,7 +77,7 @@ const MainHero: React.FC<MainHeroProps> = ({
           </TextGradient>
 
           {/* Title */}
-          <h1 className="font-rajdhani font-bold text-white mb-8 sm:mb-12 uppercase">
+          <h1 className="font-goldman font-bold text-white mb-8 sm:mb-12 uppercase">
             <span className="block text-4xl sm:text-6xl lg:text-7xl mb-2 sm:mb-4 animate-fade-in-up uppercase text-balance">
               {title.line1}
             </span>

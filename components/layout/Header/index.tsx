@@ -6,7 +6,7 @@ import Logo from "./Logo";
 import MainMenu from "./MainMenu";
 import MobileMenu from "./MobileMenu";
 import Button from "@/components/ui/Button";
-import headerData from "@/data/sections/header.json";
+import headerData from "@/data/pages/official/header.json";
 
 const Header: React.FC = () => {
   const [isSticky, setIsSticky] = useState(false);
@@ -92,11 +92,10 @@ const Header: React.FC = () => {
                   <Button
                     variant="primary"
                     asLink
-                    href="/contact"
-                    icon={<i className="fa-brands fa-twitch" />}
-                    iconPosition="left"
+                    href="/evenements"
+                    className="uppercase"
                   >
-                    Live Streaming
+                    évènements à venir
                   </Button>
                 </div>
               </div>

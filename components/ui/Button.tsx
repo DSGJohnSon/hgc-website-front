@@ -4,8 +4,8 @@ import React from "react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
-export type ButtonVariant = "primary" | "secondary";
-export type ButtonSize = "sm" | "md" | "lg";
+export type ButtonVariant = "primary" | "secondary" | "carouselTrophies";
+export type ButtonSize = "sm" | "md" | "lg" | "carouselTrophies";
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -45,6 +45,7 @@ const Button: React.FC<ButtonProps> = ({
     sm: "px-6 py-4 min-w-[152px] text-base",
     md: "px-8 py-5 min-w-[200px] text-base",
     lg: "px-10 py-6 min-w-[220px] text-lg",
+    carouselTrophies: "aspect-square size-8 p-0 m-0",
   };
 
   // Variant styles with clip-path
@@ -71,6 +72,7 @@ const Button: React.FC<ButtonProps> = ({
       after:[clip-path:polygon(85%_0,100%_0,15%_50%,100%_100%,85%_100%,0%_50%)]
       hover:after:[clip-path:polygon(2px_60%,2px_calc(100%-2px),100%_calc(100%-0px),100%_100%,0_100%,0_100%)]
     `,
+    carouselTrophies: "text-white hover:cursor-pointer hover:opacity-100 opacity-40",
   };
 
   // Border inner content styles

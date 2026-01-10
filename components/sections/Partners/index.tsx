@@ -1,7 +1,11 @@
-import { InfiniteSlider } from "@/components/ui/infinite-slider";
+"use client";
+
+import { Carousel, CarouselContent, CarouselItem } from "@/components/carousel";
 import { Sparkles } from "./components/Sparkles";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
+import AutoScroll from "embla-carousel-auto-scroll";
+import { useRef } from "react";
 
 export interface PartnersData {
   subtitle: string;
@@ -21,6 +25,32 @@ export default function Partners({
   data,
   isLastSection = false,
 }: PartnersProps) {
+  // Split logos into 3 groups for mobile display
+  const logosPerRow = Math.ceil(data.logos.length / 3);
+  const row1Logos = data.logos.slice(0, logosPerRow);
+  const row2Logos = data.logos.slice(logosPerRow, logosPerRow * 2);
+  const row3Logos = data.logos.slice(logosPerRow * 2);
+
+  // AutoScroll plugins for smooth continuous scrolling
+  const autoScroll1 = useRef(
+    AutoScroll({
+      speed: 0.5,
+      stopOnInteraction: false,
+    })
+  );
+  const autoScroll2 = useRef(
+    AutoScroll({
+      speed: -0.5,
+      stopOnInteraction: false,
+    })
+  );
+  const autoScroll3 = useRef(
+    AutoScroll({
+      speed: 0.5,
+      stopOnInteraction: false,
+    })
+  );
+
   return (
     <div
       className={cn(
@@ -39,40 +69,129 @@ export default function Partners({
             {data.title}
           </h2>
         </div>
-        <div
-          className={cn(
-            "overflow-hidden w-full py-3 sm:py-4 md:py-6",
-            "mask-[linear-gradient(90deg,rgba(255,255,255,0)_0%,rgba(0,0,0,1)_15%,rgba(0,0,0,1)_85%,rgba(255,255,255,0)_100%)]",
-            "sm:mask-[linear-gradient(90deg,rgba(255,255,255,0)_0%,rgba(0,0,0,1)_20%,rgba(0,0,0,1)_80%,rgba(255,255,255,0)_100%)]",
-            "md:mask-[linear-gradient(90deg,rgba(255,255,255,0)_0%,rgba(0,0,0,1)_25%,rgba(0,0,0,1)_75%,rgba(255,255,255,0)_100%)]"
-          )}
-        >
-          <InfiniteSlider
-            gap={80}
-            reverse
-            duration={120}
-            durationOnHover={25}
-            className="z-50"
+        {/* Mobile: 3 rows, Desktop: 1 row */}
+        <div className="flex flex-col gap-3 md:gap-6 relative z-50">
+          {/* Row 1 - visible on all screens */}
+          <div
+            className={cn(
+              "overflow-hidden w-full",
+              "mask-[linear-gradient(90deg,rgba(255,255,255,0)_0%,rgba(0,0,0,1)_15%,rgba(0,0,0,1)_85%,rgba(255,255,255,0)_100%)]",
+              "sm:mask-[linear-gradient(90deg,rgba(255,255,255,0)_0%,rgba(0,0,0,1)_20%,rgba(0,0,0,1)_80%,rgba(255,255,255,0)_100%)]",
+              "md:mask-[linear-gradient(90deg,rgba(255,255,255,0)_0%,rgba(0,0,0,1)_25%,rgba(0,0,0,1)_75%,rgba(255,255,255,0)_100%)]"
+            )}
           >
-            {data.logos.map((logo, index: number) => (
-              <div
-                key={`logo-${index}`}
-                className="relative h-16 w-32 sm:h-20 sm:w-40 md:h-24 md:w-48 mx-2 sm:mx-3 md:mx-4"
-              >
-                <Image
-                  alt={logo.alt}
-                  className="pointer-events-none select-none dark:brightness-0 dark:invert object-contain"
-                  fill
-                  loading="lazy"
-                  src={logo.src}
-                />
-              </div>
-            ))}
-          </InfiniteSlider>
+            <Carousel
+              plugins={[autoScroll1.current]}
+              opts={{
+                loop: true,
+                align: "start",
+                dragFree: true,
+              }}
+              className="w-full"
+            >
+              <CarouselContent className="gap-4 md:gap-8">
+                {/* Render all logos - CSS will handle visibility */}
+                {data.logos.map((logo, index: number) => (
+                  <CarouselItem
+                    key={`logo-row1-${index}`}
+                    className={cn(
+                      "basis-auto",
+                      // Hide logos beyond row1 on mobile
+                      index >= logosPerRow && "md:block hidden"
+                    )}
+                  >
+                    <div className="relative h-16 w-32 md:h-24 md:w-48">
+                      <Image
+                        alt={logo.alt}
+                        className="pointer-events-none select-none object-contain"
+                        fill
+                        loading="lazy"
+                        src={logo.src}
+                      />
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+            </Carousel>
+          </div>
+
+          {/* Row 2 - visible only on mobile */}
+          <div
+            className={cn(
+              "md:hidden overflow-hidden w-full",
+              "mask-[linear-gradient(90deg,rgba(255,255,255,0)_0%,rgba(0,0,0,1)_15%,rgba(0,0,0,1)_85%,rgba(255,255,255,0)_100%)]"
+            )}
+          >
+            <Carousel
+              plugins={[autoScroll2.current]}
+              opts={{
+                loop: true,
+                align: "start",
+                dragFree: true,
+              }}
+              className="w-full"
+            >
+              <CarouselContent className="gap-4">
+                {row2Logos.map((logo, index: number) => (
+                  <CarouselItem
+                    key={`logo-row2-${index}`}
+                    className="basis-auto"
+                  >
+                    <div className="relative h-16 w-32">
+                      <Image
+                        alt={logo.alt}
+                        className="pointer-events-none select-none object-contain"
+                        fill
+                        loading="lazy"
+                        src={logo.src}
+                      />
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+            </Carousel>
+          </div>
+
+          {/* Row 3 - visible only on mobile */}
+          <div
+            className={cn(
+              "md:hidden overflow-hidden w-full",
+              "mask-[linear-gradient(90deg,rgba(255,255,255,0)_0%,rgba(0,0,0,1)_15%,rgba(0,0,0,1)_85%,rgba(255,255,255,0)_100%)]"
+            )}
+          >
+            <Carousel
+              plugins={[autoScroll3.current]}
+              opts={{
+                loop: true,
+                align: "start",
+                dragFree: true,
+              }}
+              className="w-full"
+            >
+              <CarouselContent className="gap-4">
+                {row3Logos.map((logo, index: number) => (
+                  <CarouselItem
+                    key={`logo-row3-${index}`}
+                    className="basis-auto"
+                  >
+                    <div className="relative h-16 w-32">
+                      <Image
+                        alt={logo.alt}
+                        className="pointer-events-none select-none object-contain"
+                        fill
+                        loading="lazy"
+                        src={logo.src}
+                      />
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+            </Carousel>
+          </div>
         </div>
       </div>
 
-      <div className="relative z-10 -mt-16 sm:-mt-24 md:-mt-32 h-48 sm:h-64 md:h-80 lg:h-96 w-full overflow-hidden mask-[radial-gradient(50%_50%,#030712,transparent)] before:absolute before:inset-0 before:bg-[radial-gradient(circle_at_bottom_center,#030712,transparent_70%)] before:opacity-40 after:absolute after:-left-1/2 after:top-1/2 after:aspect-[1/0.7] after:w-[200%] after:rounded-[100%] after:border-t after:border-theme after:bg-gray-900">
+      <div className="relative z-0 -mt-16 sm:-mt-24 md:-mt-32 h-48 sm:h-64 md:h-80 lg:h-96 w-full overflow-hidden mask-[radial-gradient(50%_50%,#030712,transparent)] before:absolute before:inset-0 before:bg-[radial-gradient(circle_at_bottom_center,#030712,transparent_70%)] before:opacity-40 after:absolute after:-left-1/2 after:top-1/2 after:aspect-[1/0.7] after:w-[200%] after:rounded-[100%] after:border-t after:border-theme after:bg-gray-900">
         <Sparkles
           density={1200}
           speed={0.2}

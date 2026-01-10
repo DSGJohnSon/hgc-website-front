@@ -2,8 +2,13 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ImageData, SocialLink } from "@/types";
-import { LuFacebook, LuTwitter, LuInstagram, LuLinkedin } from "react-icons/lu";
-import { FaGooglePlay } from "react-icons/fa";
+import {
+  FaFacebook,
+  FaTwitter,
+  FaInstagram,
+  FaLinkedin,
+  FaGooglePlay,
+} from "react-icons/fa";
 
 interface AboutWidgetProps {
   logo: ImageData;
@@ -20,13 +25,13 @@ const AboutWidget: React.FC<AboutWidgetProps> = ({
     const iconClass = "w-5 h-5";
     switch (icon.toLowerCase()) {
       case "facebook":
-        return <LuFacebook className={iconClass} />;
+        return <FaFacebook className={iconClass} />;
       case "twitter":
-        return <LuTwitter className={iconClass} />;
+        return <FaTwitter className={iconClass} />;
       case "instagram":
-        return <LuInstagram className={iconClass} />;
+        return <FaInstagram className={iconClass} />;
       case "linkedin":
-        return <LuLinkedin className={iconClass} />;
+        return <FaLinkedin className={iconClass} />;
       case "google-play":
         return <FaGooglePlay className={iconClass} />;
       default:
@@ -50,7 +55,9 @@ const AboutWidget: React.FC<AboutWidgetProps> = ({
       </div>
 
       {/* About Text */}
-      <p className="text-gray-400 text-sm mb-6 leading-relaxed font-poppins w-full text-center xl:text-left">{about}</p>
+      <p className="text-gray-400 text-sm mb-6 leading-relaxed font-poppins w-full text-center xl:text-left">
+        {about}
+      </p>
 
       {/* Social Links */}
       <div className="w-full flex flex-col items-center xl:items-start">

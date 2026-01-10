@@ -1,0 +1,67 @@
+{
+  "logo": {
+    "src": "/assets/logos/logo-hgc.svg",
+    "alt": "Holiday Geek Cup Logo SVG"
+  },
+  "topBar": {
+    "notice": "Bienvenue sur le site officiel de l'HGC - Association Loi 1901",
+    "socialLinks": [
+      {
+        "platform": "Facebook",
+        "url": "https://www.facebook.com/HolidayGeekCup/",
+        "icon": "facebook"
+      },
+      {
+        "platform": "Twitter - X",
+        "url": "https://x.com/HolidayGeekCup",
+        "icon": "twitter"
+      },
+      {
+        "platform": "Instagram",
+        "url": "https://www.instagram.com/holiday_geek_cup/",
+        "icon": "instagram"
+      },
+      {
+        "platform": "LinkedIn",
+        "url": "https://www.linkedin.com/company/holiday-geek-cup/",
+        "icon": "linkedin"
+      }
+    ]
+  },
+  "menu": [
+    {
+      "label": "ACCUEIL",
+      "href": "/"
+    },
+    {
+      "label": "À PROPOS",
+      "href": "/a-propos"
+    },
+    {
+      "label": "ÉVÉNEMENTS",
+      "href": "/evenements",
+      "submenu": [
+        {
+          "label": "Tous les événements",
+          "href": "/evenements"
+        },
+        {
+          "label": "Summer Tour",
+          "href": "/evenements&filter=summer-tour"
+        },
+        {
+          "label": "Polar Lens",
+          "href": "/evenements&filter=winter-tour"
+        }
+      ]
+    },
+    {
+      "label": "RÈGLEMENT",
+      "href": "/reglement"
+    },
+    {
+      "label": "CONTACT",
+      "href": "/contact"
+    }
+  ]
+}

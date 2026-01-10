@@ -1,0 +1,32 @@
+{
+  "games": [
+    {
+      "id": "fc26",
+      "name": "FC26"
+    },
+    {
+      "id": "fortnite",
+      "name": "Fortnite"
+    },
+    {
+      "id": "valorant",
+      "name": "Valorant"
+    },
+    {
+      "id": "csgo",
+      "name": "CS:GO"
+    },
+    {
+      "id": "tombraider",
+      "name": "Tomb Raider"
+    },
+    {
+      "id": "amongus",
+      "name": "Among Us"
+    },
+    {
+      "id": "mariokart8",
+      "name": "Mario Kart 8"
+    }
+  ]
+}

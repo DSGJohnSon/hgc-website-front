@@ -1,6 +1,6 @@
 import React from "react";
 import MainHero from "./MainHero";
-import HeroSlider from "./HeroSlider";
+import EventCarousel from "../EventCarousel";
 import PixelBackground from "@/components/ui/pixel-background";
 import { LuChevronDown } from "react-icons/lu";
 
@@ -22,14 +22,18 @@ export interface HeroData {
   slider: {
     subtitle: string;
     title: string;
-    slides: Array<{
+    events: Array<{
+      type: "tournoi" | "event";
       title: string;
       date: string;
       time: string;
-      location: string;
-      buttonText: string;
-      buttonLink: string;
       image: string;
+      categories?: string[];
+      games?: string[];
+      gradientTheme?: "theme" | "theme2";
+      buttonText?: string;
+      buttonLink?: string;
+      color?: string; // Optional custom highlight color
     }>;
   };
 }
@@ -80,11 +84,13 @@ const Hero: React.FC<HeroProps> = ({ data }) => {
         </div>
       </PixelBackground>
 
-      {/* Hero Slider Section */}
-      <HeroSlider
-        subtitle={data.slider.subtitle}
-        title={data.slider.title}
-        slides={data.slider.slides}
+      {/* Event Carousel Section */}
+      <EventCarousel
+        data={{
+          subtitle: data.slider.subtitle,
+          title: data.slider.title,
+          events: data.slider.events,
+        }}
       />
     </section>
   );

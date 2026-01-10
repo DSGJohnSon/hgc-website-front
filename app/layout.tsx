@@ -1,5 +1,11 @@
 import type { Metadata } from "next";
-import { Rajdhani, Poppins, Goldman } from "next/font/google";
+import {
+  Rajdhani,
+  Poppins,
+  Goldman,
+  Montserrat,
+  Changa_One,
+} from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -12,17 +18,17 @@ const rajdhani = Rajdhani({
   display: "swap",
 });
 
-const poppins = Poppins({
+const poppins = Montserrat({
   variable: "--font-poppins",
   subsets: ["latin"],
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
   display: "swap",
 });
 
-const goldman = Goldman({
+const goldman = Changa_One({
   variable: "--font-goldman",
   subsets: ["latin"],
-  weight: ["400", "700"],
+  weight: "400",
   display: "swap",
 });
 

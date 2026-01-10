@@ -7,17 +7,12 @@ interface NewsletterProps {
   title: string;
   description: string;
   placeholder: string;
-  appStoreLinks: {
-    apple: string;
-    googlePlay: string;
-  };
 }
 
 const Newsletter: React.FC<NewsletterProps> = ({
   title,
   description,
   placeholder,
-  appStoreLinks,
 }) => {
   const [email, setEmail] = useState("");
 
