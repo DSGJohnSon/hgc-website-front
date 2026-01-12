@@ -164,7 +164,7 @@ const FloatingDecorations: React.FC = () => {
   if (!isMounted) return null;
 
   return (
-    <div className="absolute inset-0 pointer-events-none overflow-hidden z-15 min-h-full">
+    <div className="absolute inset-0 pointer-events-none overflow-hidden z-15 min-h-full hidden md:block">
       {elements.map((el) => (
         <ParallaxElement key={el.id} element={el} scrollY={scrollY} />
       ))}

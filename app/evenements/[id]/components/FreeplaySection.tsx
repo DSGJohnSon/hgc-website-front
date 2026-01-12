@@ -85,7 +85,7 @@ const FreeplaySection: React.FC<FreeplaySectionProps> = ({
                 {resolvedGames.map((game: string, index: number) => (
                   <Story
                     key={index}
-                    className="w-[280px]! sm:w-[320px]! md:w-[400px]! aspect-2/1 p-0"
+                    className="w-[280px]! sm:w-[320px]! md:w-[400px]! aspect-2/1 p-0 bg-transparent shadow-none hover:scale-100"
                   >
                     <GameCard name={game} highlightColor={highlightColor} />
                   </Story>

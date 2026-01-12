@@ -40,7 +40,7 @@ const AboutWidget: React.FC<AboutWidgetProps> = ({
   };
 
   return (
-    <div className="max-w-[320px] w-full flex flex-col items-center xl:items-start">
+    <div className="w-full flex flex-col items-center lg:items-start">
       {/* Logo */}
       <div className="mb-6">
         <Link href="/" className="inline-block">
@@ -55,14 +55,14 @@ const AboutWidget: React.FC<AboutWidgetProps> = ({
       </div>
 
       {/* About Text */}
-      <p className="text-gray-400 text-sm mb-6 leading-relaxed font-poppins w-full text-center xl:text-left">
+      <p className="text-gray-400 text-sm mb-6 leading-relaxed font-poppins w-full text-center lg:text-left">
         {about}
       </p>
 
       {/* Social Links */}
-      <div className="w-full flex flex-col items-center xl:items-start">
+      <div className="w-full flex flex-col items-center lg:items-start">
         <h3 className="text-white font-rajdhani text-xl font-semibold mb-4">
-          Follow <span className="text-theme">With Us:</span>
+          Suivez <span className="text-theme">Nous :</span>
         </h3>
         <div className="flex gap-3">
           {socialLinks.map((link) => (

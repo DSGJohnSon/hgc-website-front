@@ -53,6 +53,7 @@ export default async function EventDetailPage({ params }: PageProps) {
         type={event.type as "tournoi" | "event"}
         categoryName={categoryName}
         bannerImage={event.heroBanner}
+        bannerImageMobile={event.heroBannerMobile}
         color={event.color}
       />
 

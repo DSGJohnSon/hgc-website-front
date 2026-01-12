@@ -48,7 +48,7 @@ const FloatingRegister: React.FC<FloatingRegisterProps> = ({
             {/* Desktop: Round Floating Button */}
             <button
               onClick={() => setIsDialogOpen(true)}
-              className="hidden md:flex items-center gap-3 px-8 py-4 rounded-full font-rajdhani font-bold text-gray-950 uppercase tracking-widest text-lg hover:scale-105 active:scale-95 transition-all shadow-[0_0_30px_rgba(0,0,0,0.3)] group overflow-hidden"
+              className="hidden md:flex items-center gap-3 px-8 py-4 rounded-full font-rajdhani font-bold text-gray-950 uppercase tracking-widest text-lg hover:scale-105 active:scale-95 transition-all shadow-[0_0_30px_rgba(0,0,0,0.3)] group overflow-hidden isolate cursor-pointer"
               style={{
                 backgroundColor: highlightColor,
                 boxShadow: `0 10px 30px -10px ${highlightColor}cc`,
@@ -56,14 +56,16 @@ const FloatingRegister: React.FC<FloatingRegisterProps> = ({
             >
               <LuTicket className="w-6 h-6" />
               S'inscrire
-              {/* Shine Effect */}
-              <div className="absolute inset-0 bg-white/20 -translate-x-full group-hover:translate-x-full transition-transform duration-700 skew-x-[-20deg]" />
+              {/* Shine Effect Container */}
+              <div className="absolute inset-0 overflow-hidden rounded-full pointer-events-none">
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-[200%] group-hover:translate-x-[200%] transition-all duration-1000 skew-x-[-20deg] opacity-0 group-hover:opacity-100" />
+              </div>
             </button>
 
             {/* Mobile: Full Width Fixed Bar */}
             <button
               onClick={() => setIsDialogOpen(true)}
-              className="flex md:hidden w-full items-center justify-center gap-3 py-4 rounded-xl font-rajdhani font-bold text-gray-950 uppercase tracking-widest text-base shadow-2xl active:scale-[0.98] transition-transform"
+              className="flex md:hidden w-full items-center justify-center gap-3 py-4 rounded-xl font-rajdhani font-bold text-gray-950 uppercase tracking-widest text-base shadow-2xl active:scale-[0.98] transition-transform cursor-pointer"
               style={{ backgroundColor: highlightColor }}
             >
               <LuTicket className="w-5 h-5" />

@@ -10,7 +10,7 @@ interface FooterWidgetProps {
 
 const FooterWidget: React.FC<FooterWidgetProps> = ({ title, links }) => {
   return (
-    <div className="w-full flex flex-col items-center xl:items-start">
+    <div className="w-full flex flex-col items-center lg:items-start">
       <h3 className="text-white font-rajdhani text-2xl font-semibold mb-6">
         {title}
       </h3>

@@ -21,15 +21,42 @@ interface PartnersProps {
   isLastSection?: boolean;
 }
 
+const LogoItem = ({
+  logo,
+  className,
+}: {
+  logo: { alt: string; src: string };
+  className?: string;
+}) => (
+  <div className={cn("relative h-16 w-32 md:h-24 md:w-48", className)}>
+    <Image
+      alt={logo.alt}
+      className="pointer-events-none select-none object-contain"
+      fill
+      loading="lazy"
+      src={logo.src}
+    />
+  </div>
+);
+
 export default function Partners({
   data,
   isLastSection = false,
 }: PartnersProps) {
-  // Split logos into 3 groups for mobile display
-  const logosPerRow = Math.ceil(data.logos.length / 3);
-  const row1Logos = data.logos.slice(0, logosPerRow);
-  const row2Logos = data.logos.slice(logosPerRow, logosPerRow * 2);
-  const row3Logos = data.logos.slice(logosPerRow * 2);
+  const totalLogos = data.logos.length;
+  // Calculate number of rows for mobile (1 to 3)
+  // Target at least 4-5 logos per row as requested
+  const numRowsMobile = totalLogos >= 12 ? 3 : totalLogos >= 8 ? 2 : 1;
+  const mobileLogosPerRow = Math.ceil(totalLogos / numRowsMobile);
+
+  const row1Logos =
+    numRowsMobile > 1 ? data.logos.slice(0, mobileLogosPerRow) : data.logos;
+  const row2Logos =
+    numRowsMobile >= 2
+      ? data.logos.slice(mobileLogosPerRow, mobileLogosPerRow * 2)
+      : [];
+  const row3Logos =
+    numRowsMobile >= 3 ? data.logos.slice(mobileLogosPerRow * 2) : [];
 
   // AutoScroll plugins for smooth continuous scrolling
   const autoScroll1 = useRef(
@@ -80,114 +107,116 @@ export default function Partners({
               "md:mask-[linear-gradient(90deg,rgba(255,255,255,0)_0%,rgba(0,0,0,1)_25%,rgba(0,0,0,1)_75%,rgba(255,255,255,0)_100%)]"
             )}
           >
-            <Carousel
-              plugins={[autoScroll1.current]}
-              opts={{
-                loop: true,
-                align: "start",
-                dragFree: true,
-              }}
-              className="w-full"
-            >
-              <CarouselContent className="gap-4 md:gap-8 justify-center">
-                {/* Render all logos - CSS will handle visibility */}
-                {data.logos.map((logo, index: number) => (
-                  <CarouselItem
-                    key={`logo-row1-${index}`}
-                    className={cn(
-                      "basis-auto",
-                      // Hide logos beyond row1 on mobile
-                      index >= logosPerRow && "md:block hidden"
-                    )}
-                  >
-                    <div className="relative h-16 w-32 md:h-24 md:w-48">
-                      <Image
-                        alt={logo.alt}
-                        className="pointer-events-none select-none object-contain"
-                        fill
-                        loading="lazy"
-                        src={logo.src}
-                      />
-                    </div>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-            </Carousel>
+            {/* Desktop Row 1 (all logos) */}
+            <div className="hidden md:block">
+              <Carousel
+                plugins={[autoScroll1.current]}
+                opts={{
+                  loop: true,
+                  align: "start",
+                  dragFree: true,
+                }}
+                className="w-full"
+              >
+                <CarouselContent className="gap-8">
+                  {data.logos.map((logo, index: number) => (
+                    <CarouselItem
+                      key={`desktop-logo-row1-${index}`}
+                      className="basis-auto"
+                    >
+                      <LogoItem logo={logo} />
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+              </Carousel>
+            </div>
+
+            {/* Mobile Row 1 (only row1Logos) */}
+            <div className="md:hidden">
+              <Carousel
+                plugins={[autoScroll1.current]}
+                opts={{
+                  loop: true,
+                  align: "start",
+                  dragFree: true,
+                }}
+                className="w-full"
+              >
+                <CarouselContent className="gap-4">
+                  {row1Logos.map((logo, index: number) => (
+                    <CarouselItem
+                      key={`mobile-logo-row1-${index}`}
+                      className="basis-auto"
+                    >
+                      <LogoItem logo={logo} />
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+              </Carousel>
+            </div>
           </div>
 
           {/* Row 2 - visible only on mobile */}
-          <div
-            className={cn(
-              "md:hidden overflow-hidden w-full",
-              "mask-[linear-gradient(90deg,rgba(255,255,255,0)_0%,rgba(0,0,0,1)_15%,rgba(0,0,0,1)_85%,rgba(255,255,255,0)_100%)]"
-            )}
-          >
-            <Carousel
-              plugins={[autoScroll2.current]}
-              opts={{
-                loop: true,
-                align: "start",
-                dragFree: true,
-              }}
-              className="w-full"
+          {numRowsMobile >= 2 && (
+            <div
+              className={cn(
+                "md:hidden overflow-hidden w-full",
+                "mask-[linear-gradient(90deg,rgba(255,255,255,0)_0%,rgba(0,0,0,1)_15%,rgba(0,0,0,1)_85%,rgba(255,255,255,0)_100%)]"
+              )}
             >
-              <CarouselContent className="gap-4">
-                {row2Logos.map((logo, index: number) => (
-                  <CarouselItem
-                    key={`logo-row2-${index}`}
-                    className="basis-auto"
-                  >
-                    <div className="relative h-16 w-32">
-                      <Image
-                        alt={logo.alt}
-                        className="pointer-events-none select-none object-contain"
-                        fill
-                        loading="lazy"
-                        src={logo.src}
-                      />
-                    </div>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-            </Carousel>
-          </div>
+              <Carousel
+                plugins={[autoScroll2.current]}
+                opts={{
+                  loop: true,
+                  align: "start",
+                  dragFree: true,
+                }}
+                className="w-full"
+              >
+                <CarouselContent className="gap-4">
+                  {row2Logos.map((logo, index: number) => (
+                    <CarouselItem
+                      key={`logo-row2-${index}`}
+                      className="basis-auto"
+                    >
+                      <LogoItem logo={logo} />
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+              </Carousel>
+            </div>
+          )}
 
           {/* Row 3 - visible only on mobile */}
-          <div
-            className={cn(
-              "md:hidden overflow-hidden w-full",
-              "mask-[linear-gradient(90deg,rgba(255,255,255,0)_0%,rgba(0,0,0,1)_15%,rgba(0,0,0,1)_85%,rgba(255,255,255,0)_100%)]"
-            )}
-          >
-            <Carousel
-              plugins={[autoScroll3.current]}
-              opts={{
-                loop: true,
-                align: "start",
-                dragFree: true,
-              }}
-              className="w-full"
+          {numRowsMobile >= 3 && (
+            <div
+              className={cn(
+                "md:hidden overflow-hidden w-full",
+                "mask-[linear-gradient(90deg,rgba(255,255,255,0)_0%,rgba(0,0,0,1)_15%,rgba(0,0,0,1)_85%,rgba(255,255,255,0)_100%)]"
+              )}
             >
-              <CarouselContent className="gap-4">
-                {row3Logos.map((logo, index: number) => (
-                  <CarouselItem
-                    key={`logo-row3-${index}`}
-                    className="basis-auto"
-                  >
-                    <div className="relative h-16 w-32">
-                      <Image
-                        alt={logo.alt}
-                        className="pointer-events-none select-none object-contain"
-                        fill
-                        loading="lazy"
-                        src={logo.src}
-                      />
-                    </div>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-            </Carousel>
-          </div>
+              <Carousel
+                plugins={[autoScroll3.current]}
+                opts={{
+                  loop: true,
+                  align: "start",
+                  dragFree: true,
+                }}
+                className="w-full"
+              >
+                <CarouselContent className="gap-4">
+                  {row3Logos.map((logo, index: number) => (
+                    <CarouselItem
+                      key={`logo-row3-${index}`}
+                      className="basis-auto"
+                    >
+                      <LogoItem logo={logo} />
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+              </Carousel>
+            </div>
+          )}
         </div>
       </div>
 

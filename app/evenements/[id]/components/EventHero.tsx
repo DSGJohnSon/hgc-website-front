@@ -9,6 +9,7 @@ interface EventHeroProps {
   type: "tournoi" | "event";
   categoryName: string;
   bannerImage: string;
+  bannerImageMobile?: string;
   color: string;
 }
 
@@ -17,21 +18,35 @@ const EventHero: React.FC<EventHeroProps> = ({
   type,
   categoryName,
   bannerImage,
+  bannerImageMobile,
   color,
 }) => {
   const TypeIcon = type === "tournoi" ? LuTrophy : LuCalendar;
   const highlightColor = color || "#d97706";
 
   return (
-    <section className="relative w-full h-[80svh] overflow-hidden">
-      {/* Background Image */}
-      <Image
-        src={bannerImage}
-        alt={title}
-        fill
-        priority
-        className="object-cover"
-      />
+    <section className="relative w-full px-4 lg:px-0 h-[80svh] overflow-hidden">
+      {/* Background Image Desktop */}
+      <div className="hidden md:block absolute inset-0">
+        <Image
+          src={bannerImage}
+          alt={title}
+          fill
+          priority
+          className="object-cover"
+        />
+      </div>
+
+      {/* Background Image Mobile */}
+      <div className="md:hidden absolute inset-0">
+        <Image
+          src={bannerImageMobile || bannerImage}
+          alt={title}
+          fill
+          priority
+          className="object-cover"
+        />
+      </div>
 
       {/* Gradient Overlay */}
       <div

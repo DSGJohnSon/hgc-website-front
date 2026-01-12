@@ -19,11 +19,11 @@ const Footer: React.FC = () => {
       </div>
 
       {/* Widget Area */}
-      <div className="pt-16 pb-0">
+      <div className="pt-16 pb-8">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 xl:grid-cols-2 gap-8 xl:gap-12 justify-items-start xl:justify-items-center">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
             {/* About Widget */}
-            <div className="w-1/3 flex flex-col items-center xl:items-start xl:w-auto">
+            <div className="w-full">
               <AboutWidget
                 logo={footerData.logo}
                 about={footerData.about}
@@ -32,13 +32,20 @@ const Footer: React.FC = () => {
             </div>
 
             {/* Link Widgets */}
-            <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 xl:gap-12">
             {footerData.widgets.map((widget) => (
-              <div key={widget.title} className="w-full xl:w-auto">
+              <div key={widget.title} className="w-full">
                 <FooterWidget title={widget.title} links={widget.links} />
               </div>
             ))}
-            </div>
+
+            {/* Newsletter Widget
+            <div className="w-full">
+              <Newsletter
+                title={footerData.newsletter.title}
+                description={footerData.newsletter.description}
+                placeholder={footerData.newsletter.placeholder}
+              />
+            </div> */}
           </div>
         </div>
       </div>

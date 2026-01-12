@@ -24,11 +24,13 @@ const Newsletter: React.FC<NewsletterProps> = ({
   };
 
   return (
-    <div className="max-w-[317px]">
+    <div className="w-full flex flex-col items-center lg:items-start">
       <h3 className="text-white font-rajdhani text-2xl font-semibold mb-4">
         {title}
       </h3>
-      <p className="text-gray-400 text-sm mb-4 font-poppins">{description}</p>
+      <p className="text-gray-400 text-sm mb-4 font-poppins text-center lg:text-left">
+        {description}
+      </p>
 
       <form onSubmit={handleSubmit} className="space-y-5 font-poppins">
         <div className="flex items-center gap-4 bg-gray-900 rounded-full h-12 px-6">

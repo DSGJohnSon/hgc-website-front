@@ -85,15 +85,18 @@ const EventCarousel: React.FC<EventCarouselProps> = ({ data, className }) => {
             opts={{
               loop: true,
               slidesToScroll: 1,
+              align: "start",
             }}
           >
-            <StoriesContent className="gap-4 md:gap-6 p-4 justify-center">
+            <StoriesContent className="gap-0 md:gap-6">
               {eventsWithGamesAndCategories.map((event, index) => (
                 <Story
                   key={index}
-                  className="w-[240px]! sm:w-[280px]! md:w-[340px]! lg:w-[400px]! aspect-3/4 p-0"
+                  className="basis-full pl-0 sm:basis-auto sm:w-[280px]! md:w-[340px]! lg:w-[400px]! p-0 sm:pl-4 bg-transparent shadow-none hover:scale-100"
                 >
-                  <EventCard {...event} />
+                  <div className="px-4 sm:px-0 h-full">
+                    <EventCard {...event} />
+                  </div>
                 </Story>
               ))}
             </StoriesContent>
