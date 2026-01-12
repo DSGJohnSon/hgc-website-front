@@ -54,12 +54,12 @@ const Ticketing: React.FC<TicketingProps> = ({ data, className }) => {
   return (
     <section
       className={cn(
-        "relative w-full py-20 bg-transparent flex justify-center",
+        "relative w-full py-20 bg-transparent flex flex-col",
         className
       )}
     >
-      <div className="mx-auto px-4 flex justify-center">
-        <div ref={containerRef} className="weezevent-container" />
+      <div className="w-full">
+        <div ref={containerRef} className="weezevent-container w-full" />
       </div>
     </section>
   );

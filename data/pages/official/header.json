@@ -46,12 +46,16 @@
           "href": "/evenements"
         },
         {
+          "label": "FIFA Season",
+          "href": "/evenements?category=fifaSeason"
+        },
+        {
           "label": "Summer Tour",
-          "href": "/evenements&filter=summer-tour"
+          "href": "/evenements?category=gamingHouseTour"
         },
         {
           "label": "Polar Lens",
-          "href": "/evenements&filter=winter-tour"
+          "href": "/evenements?category=polarLens"
         }
       ]
     },

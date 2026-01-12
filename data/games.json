@@ -27,6 +27,42 @@
     {
       "id": "mariokart8",
       "name": "Mario Kart 8"
+    },
+    {
+      "id": "tekken8",
+      "name": "Tekken 8"
+    },
+    {
+      "id": "sf6",
+      "name": "Street Fighter 6"
+    },
+    {
+      "id": "rocketleague",
+      "name": "Rocket League"
+    },
+    {
+      "id": "fallguys",
+      "name": "Fall Guys"
+    },
+    {
+      "id": "minecraft",
+      "name": "Minecraft"
+    },
+    {
+      "id": "lol",
+      "name": "League of Legends"
+    },
+    {
+      "id": "cs2",
+      "name": "CS2"
+    },
+    {
+      "id": "overwatch2",
+      "name": "Overwatch 2"
+    },
+    {
+      "id": "tr13",
+      "name": "Tomb Raider I-III Remastered"
     }
   ]
 }

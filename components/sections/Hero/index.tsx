@@ -27,10 +27,10 @@ export interface HeroData {
       title: string;
       date: string;
       time: string;
-      image: string;
+      cardThumbnail: string;
       categories?: string[];
       games?: string[];
-      gradientTheme?: "theme" | "theme2";
+      gradientTheme?: "theme" | "theme2" | "fifa-season";
       buttonText?: string;
       buttonLink?: string;
       color?: string; // Optional custom highlight color

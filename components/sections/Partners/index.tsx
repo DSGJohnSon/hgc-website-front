@@ -89,7 +89,7 @@ export default function Partners({
               }}
               className="w-full"
             >
-              <CarouselContent className="gap-4 md:gap-8">
+              <CarouselContent className="gap-4 md:gap-8 justify-center">
                 {/* Render all logos - CSS will handle visibility */}
                 {data.logos.map((logo, index: number) => (
                   <CarouselItem

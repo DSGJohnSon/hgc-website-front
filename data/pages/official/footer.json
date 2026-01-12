@@ -5,27 +5,27 @@
   },
   "about": "Holiday Geek Cup est une structure associative qui a pour but d’organiser divers événements autour du jeux vidéo et de l’esport en général. ",
   "socialLinks": [
-      {
-        "platform": "Facebook",
-        "url": "https://www.facebook.com/HolidayGeekCup/",
-        "icon": "facebook"
-      },
-      {
-        "platform": "Twitter - X",
-        "url": "https://x.com/HolidayGeekCup",
-        "icon": "twitter"
-      },
-      {
-        "platform": "Instagram",
-        "url": "https://www.instagram.com/holiday_geek_cup/",
-        "icon": "instagram"
-      },
-      {
-        "platform": "LinkedIn",
-        "url": "https://www.linkedin.com/company/holiday-geek-cup/",
-        "icon": "linkedin"
-      }
-    ],
+    {
+      "platform": "Facebook",
+      "url": "https://www.facebook.com/HolidayGeekCup/",
+      "icon": "facebook"
+    },
+    {
+      "platform": "Twitter - X",
+      "url": "https://x.com/HolidayGeekCup",
+      "icon": "twitter"
+    },
+    {
+      "platform": "Instagram",
+      "url": "https://www.instagram.com/holiday_geek_cup/",
+      "icon": "instagram"
+    },
+    {
+      "platform": "LinkedIn",
+      "url": "https://www.linkedin.com/company/holiday-geek-cup/",
+      "icon": "linkedin"
+    }
+  ],
   "widgets": [
     {
       "title": "Pages",
@@ -52,12 +52,16 @@
       "title": "Nos événements",
       "links": [
         {
+          "label": "FIFA Season",
+          "href": "/evenements?category=fifaSeason"
+        },
+        {
           "label": "Summer Tour",
-          "href": "/evenements&filter=summer-tour"
+          "href": "/evenements?category=gamingHouseTour"
         },
         {
           "label": "Polar Lens",
-          "href": "/evenements&filter=winter-tour"
+          "href": "/evenements?category=polarLens"
         }
       ]
     },

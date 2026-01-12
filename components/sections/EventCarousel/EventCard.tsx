@@ -10,7 +10,7 @@ export interface EventCardProps {
   title: string;
   date: string;
   time: string;
-  image: string;
+  cardThumbnail: string;
   categories?: Array<{
     id: string;
     name: string;
@@ -30,7 +30,7 @@ const EventCard: React.FC<EventCardProps> = ({
   title,
   date,
   time,
-  image,
+  cardThumbnail,
   categories = [],
   games = [],
   color,
@@ -60,7 +60,7 @@ const EventCard: React.FC<EventCardProps> = ({
       {/* Top Image Section */}
       <div className="relative aspect-square w-full overflow-hidden">
         <Image
-          src={image}
+          src={cardThumbnail}
           alt={title}
           fill
           className="object-cover transition-transform duration-500 group-hover:scale-110"

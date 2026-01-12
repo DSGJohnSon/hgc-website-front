@@ -18,7 +18,7 @@ export interface EventCarouselData {
     title: string;
     date: string;
     time: string;
-    image: string;
+    cardThumbnail: string;
     categories?: string[];
     games?: string[];
     gradientTheme?: "theme" | "theme2" | "fifa-season";
