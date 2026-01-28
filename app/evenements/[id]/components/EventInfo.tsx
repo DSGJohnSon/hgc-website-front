@@ -15,24 +15,20 @@ import {
 } from "react-icons/lu";
 import RegistrationDialog from "./RegistrationDialog";
 import EventMap from "./EventMap";
-
-interface Transport {
-  metro?: { lines: string[]; station: string };
-  tramway?: { lines: string[]; station: string };
-  bus?: { lines: string[]; station: string };
-  car?: { parkings: { name: string; address: string; distance: string }[] };
-}
+import { Event } from "@/types/pages/detail-event";
+import Statistics from "@/components/sections/Statistics";
+import Gallery from "@/components/sections/Gallery";
 
 interface EventInfoProps {
-  description: string;
-  startDate: string;
-  endDate?: string;
-  startTime: string;
-  location: string;
-  highlightColor: string;
-  transports?: Transport;
-  weezeventCode?: string;
-  eventTitle: string;
+  description: Event["description"];
+  startDate: Event["startDate"];
+  endDate?: Event["endDate"];
+  startTime: Event["startTime"];
+  location: Event["location"];
+  highlightColor: Event["color"];
+  transports?: Event["transports"];
+  weezeventCode?: Event["weezeventCode"];
+  eventTitle: Event["title"];
 }
 
 const EventInfo: React.FC<EventInfoProps> = ({
@@ -57,9 +53,28 @@ const EventInfo: React.FC<EventInfoProps> = ({
     });
   };
 
-  const displayDate = endDate
-    ? `Du ${new Date(startDate).getDate()} au ${formatDate(endDate)}`
-    : formatDate(startDate);
+  const displayDate = (() => {
+    const start = formatDate(startDate);
+    
+    // Vérifier si endDate existe et est différente de startDate
+    const hasEndDate = endDate && endDate.trim() !== "" && endDate !== startDate;
+    const hasStartTime = startTime && startTime.trim() !== "";
+    
+    if (hasEndDate) {
+      const end = formatDate(endDate);
+      // Période avec date de fin différente
+      if (hasStartTime) {
+        return `Du ${start} au ${end} à ${startTime}`;
+      }
+      return `Du ${start} au ${end}`;
+    }
+    
+    // Date unique (ou endDate identique à startDate)
+    if (hasStartTime) {
+      return `Le ${start} à ${startTime}`;
+    }
+    return `Le ${start}`;
+  })();
 
   return (
     <section className="py-20 bg-transparent">
@@ -74,8 +89,66 @@ const EventInfo: React.FC<EventInfoProps> = ({
               />
               Détails
             </h2>
-            <div className="prose prose-invert max-w-none prose-p:text-gray-400 prose-p:font-rajdhani prose-p:text-lg prose-p:leading-relaxed mb-12 text-white font-poppins">
-              <p>{description}</p>
+            <div>
+              {description &&
+                description.map((block, index) => {
+                  if (block.type === "text" && Array.isArray(block.content)) {
+                    return block.content.map(
+                      (contentItem: any, idx: number) => {
+                        if (contentItem.type === "title") {
+                          return (
+                            <h3
+                              key={idx}
+                              className="font-rajdhani font-bold text-2xl text-white mt-8 mb-4"
+                            >
+                              {contentItem.title}
+                            </h3>
+                          );
+                        } else if (contentItem.type === "paragraph") {
+                          return contentItem.paragraphs.map(
+                            (para: string, pIdx: number) => (
+                              <p
+                                key={pIdx}
+                                className="text-gray-300 text-base leading-7 mb-4"
+                              >
+                                {para}
+                              </p>
+                            ),
+                          );
+                        } else if (contentItem.type === "list") {
+                          return (
+                            <ul
+                              key={idx}
+                              className="list-disc list-inside text-gray-300 text-base leading-7 mb-4"
+                            >
+                              {contentItem.items?.map(
+                                (item: string, itemIdx: number) => (
+                                  <li key={itemIdx}>{item}</li>
+                                ),
+                              )}
+                            </ul>
+                          );
+                        } else if (contentItem.type === "citation") {
+                          return (
+                            <blockquote
+                              key={idx}
+                              className="border-l-4 border-gray-500 pl-4 italic text-gray-400 my-6"
+                            >
+                              {contentItem.citationText}
+                            </blockquote>
+                          );
+                        }
+                        return null;
+                      },
+                    );
+                  } else if (block.type === "statistics" && block.content) {
+                    return <Statistics key={index} data={block.content} />;
+                  } else if (block.type === "gallery" && block.content) {
+                    return <Gallery key={index} data={block.content} />;
+                  } else {
+                    return null;
+                  }
+                })}
             </div>
 
             <EventMap location={location} highlightColor={highlightColor} />
@@ -84,7 +157,7 @@ const EventInfo: React.FC<EventInfoProps> = ({
           {/* Right Column: Sidebar */}
           <div className="space-y-8">
             {/* Info Card */}
-            <div className="bg-gray-900/50 border border-white/10 rounded-2xl p-6 space-y-6 backdrop-blur-sm">
+            <div className="sticky top-48 bg-gray-900/50 border border-white/10 rounded-2xl p-6 space-y-6 backdrop-blur-sm">
               <h3 className="font-rajdhani font-bold text-2xl text-white uppercase tracking-tight">
                 Infos Pratiques
               </h3>
@@ -107,39 +180,43 @@ const EventInfo: React.FC<EventInfoProps> = ({
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4">
-                  <div className="p-2 rounded-lg bg-white/5 border border-white/10">
-                    <LuClock
-                      className="w-5 h-5"
-                      style={{ color: highlightColor }}
-                    />
+                {startTime && (
+                  <div className="flex items-start gap-4">
+                    <div className="p-2 rounded-lg bg-white/5 border border-white/10">
+                      <LuClock
+                        className="w-5 h-5"
+                        style={{ color: highlightColor }}
+                      />
+                    </div>
+                    <div>
+                      <p className="text-gray-500 text-xs font-bold uppercase tracking-widest">
+                        Horaires
+                      </p>
+                      <p className="text-white font-rajdhani font-bold">
+                        {startTime}
+                      </p>
+                    </div>
                   </div>
-                  <div>
-                    <p className="text-gray-500 text-xs font-bold uppercase tracking-widest">
-                      Horaires
-                    </p>
-                    <p className="text-white font-rajdhani font-bold">
-                      {startTime}
-                    </p>
-                  </div>
-                </div>
+                )}
 
-                <div className="flex items-start gap-4">
-                  <div className="p-2 rounded-lg bg-white/5 border border-white/10">
-                    <LuMapPin
-                      className="w-5 h-5"
-                      style={{ color: highlightColor }}
-                    />
+                {location && (
+                  <div className="flex items-start gap-4">
+                    <div className="p-2 rounded-lg bg-white/5 border border-white/10">
+                      <LuMapPin
+                        className="w-5 h-5"
+                        style={{ color: highlightColor }}
+                      />
+                    </div>
+                    <div>
+                      <p className="text-gray-500 text-xs font-bold uppercase tracking-widest">
+                        Lieu
+                      </p>
+                      <p className="text-white font-rajdhani font-bold">
+                        {location}
+                      </p>
+                    </div>
                   </div>
-                  <div>
-                    <p className="text-gray-500 text-xs font-bold uppercase tracking-widest">
-                      Lieu
-                    </p>
-                    <p className="text-white font-rajdhani font-bold">
-                      {location}
-                    </p>
-                  </div>
-                </div>
+                )}
               </div>
 
               {/* Transports Section */}
@@ -234,7 +311,7 @@ const EventInfo: React.FC<EventInfoProps> = ({
                   <LuExternalLink className="w-4 h-4 opacity-50" />
                 </Link>
 
-                {weezeventCode && (
+                {weezeventCode && (new Date() < new Date(endDate || startDate)) && (
                   <button
                     onClick={() => setIsDialogOpen(true)}
                     className="w-full py-4 rounded-xl font-rajdhani font-bold text-gray-950 uppercase tracking-widest text-sm flex items-center justify-center gap-3 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-lg"

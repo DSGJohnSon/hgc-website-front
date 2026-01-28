@@ -1,15 +1,16 @@
 "use client";
 
 import React from "react";
-import EventItem, { EventItemProps } from "./EventItem";
 import { cn } from "@/lib/utils";
+import type { EventItem as EventItemProps } from "@/types/pages/detail-event";
+import EventItem from "./EventItem";
 
 interface EventGridProps {
-  events: EventItemProps[];
   title?: string;
   subtitle?: string;
   emptyMessage?: string;
   className?: string;
+  events: EventItemProps[];
 }
 
 const EventGrid: React.FC<EventGridProps> = ({

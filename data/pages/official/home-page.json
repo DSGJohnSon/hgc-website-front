@@ -253,24 +253,24 @@
         "testimonials": [
           {
             "id": 1,
-            "quote": "HGC a complètement changé ma façon de voir l'e-sport. Des événements de qualité, une ambiance incroyable !",
-            "author": "Sarah Chen",
-            "role": "Joueuse League of Legends",
-            "avatar": "https://images.unsplash.com/photo-1701615004837-40d8573b6652?q=80&w=1480&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            "quote": "Merci pour cette belle expérience j'ai fini 1er ❤️",
+            "author": "teikzo",
+            "role": "Vainqueur du Tournoi Grenay",
+            "avatar": ""
           },
           {
             "id": 2,
-            "quote": "L'organisation est au top, les tournois sont passionnants. Je recommande à 100% !",
-            "author": "Marcus Johnson",
-            "role": "Streamer Valorant",
-            "avatar": "https://plus.unsplash.com/premium_photo-1671656349218-5218444643d8?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            "quote": "Le meilleur événement 🔥",
+            "author": "andydubled_",
+            "role": "Participant Fortnite Pathe series",
+            "avatar": ""
           },
           {
             "id": 3,
-            "quote": "Une communauté soudée et des événements mémorables. HGC, c'est la référence !",
-            "author": "Elena Rodriguez",
-            "role": "Capitaine d'équipe CS2",
-            "avatar": "https://images.unsplash.com/photo-1607746882042-944635dfe10e?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            "quote": "Pov : j'étais le plus fort",
+            "author": "fabio_o.mll",
+            "role": "Participant Mario Kart Series",
+            "avatar": ""
           }
         ]
       }

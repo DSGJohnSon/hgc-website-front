@@ -1,8 +1,8 @@
 import Hero, { HeroData } from "@/components/sections/Hero";
 import Testimony, { TestimonyData } from "@/components/sections/Testimony";
 import Partners, { PartnersData } from "@/components/sections/Partners";
-import Statistics, { StatisticsData } from "@/components/sections/Statistics";
-import Gallery, { GalleryData } from "@/components/sections/Gallery";
+import Statistics from "@/components/sections/Statistics";
+import Gallery from "@/components/sections/Gallery";
 import SimpleSection, {
   SimpleSectionData,
 } from "@/components/sections/SimpleSection";
@@ -12,6 +12,8 @@ import CTASection, {
 } from "@/components/sections/CTASection";
 import homePageData from "@/data/pages/official/home-page.json";
 import Ticketing, { TicketingData } from "@/components/sections/Ticketing";
+import { StatisticsData } from "@/types/components/sections/Statistics";
+import { GalleryData } from "@/types/components/sections/Gallery";
 
 interface Section {
   type: string;

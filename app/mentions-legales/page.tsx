@@ -34,8 +34,8 @@ export default function MentionsLegalesPage() {
                 </p>
                 <ul className="list-disc list-inside ml-4 space-y-1">
                   <li>
-                    <span className="font-bold">Siège social :</span> [Adresse
-                    du siège social à Liévin / Lens]
+                    <span className="font-bold">Siège social :</span> 45 rue
+                    François Gauthier, 62300 Lens
                   </li>
                   <li>
                     <span className="font-bold">Email :</span>{" "}
@@ -50,7 +50,7 @@ export default function MentionsLegalesPage() {
                     <span className="font-bold">
                       Directeur de la publication :
                     </span>{" "}
-                    [Nom du Directeur de la Publication]
+                    Sylvain Regnier
                   </li>
                 </ul>
               </div>

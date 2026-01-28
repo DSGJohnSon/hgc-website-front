@@ -6,26 +6,15 @@ import { CarouselPrevious, CarouselNext } from "@/components/carousel";
 import { cn } from "@/lib/utils";
 import Autoplay from "embla-carousel-autoplay";
 import { LuArrowLeft, LuArrowRight } from "react-icons/lu";
-import EventCard, { EventCardProps } from "./EventCard";
+import EventCard from "./EventCard";
+import { EventCard as EventCardProps } from "@/types/pages/detail-event";
 import gamesData from "@/data/games.json";
 import categoriesData from "@/data/categories.json";
 
 export interface EventCarouselData {
   title: string;
   subtitle: string;
-  events: Array<{
-    type: "tournoi" | "event";
-    title: string;
-    date: string;
-    time: string;
-    cardThumbnail: string;
-    categories?: string[];
-    games?: string[];
-    gradientTheme?: "theme" | "theme2" | "fifa-season";
-    buttonText?: string;
-    buttonLink?: string;
-    color?: string; // Optional custom highlight color
-  }>;
+  events: EventCardProps[];
 }
 
 interface EventCarouselProps {
@@ -42,22 +31,30 @@ const EventCarousel: React.FC<EventCarouselProps> = ({ data, className }) => {
       delay: 4000,
       stopOnInteraction: false,
       stopOnMouseEnter: true,
-    })
+    }),
   );
 
   // Map game IDs and category IDs to full objects
   const eventsWithGamesAndCategories: EventCardProps[] = events.map(
     (event) => ({
       ...event,
-      games: event.games?.map((gameId) => {
+      games: (event.games as any)?.map((gameIdOrObj: any) => {
+        // Handle if it's already an object or just an ID string
+        const gameId = typeof gameIdOrObj === 'string' ? gameIdOrObj : gameIdOrObj.id;
         const game = gamesData.games.find((g) => g.id === gameId);
-        return game || { id: gameId, name: "Unknown", icon: "Plane" };
+        return game
+          ? { id: game.id, name: game.name }
+          : { id: gameId, name: "Unknown" };
       }),
-      categories: event.categories?.map((categoryId) => {
+      categories: (event.categories as any)?.map((categoryIdOrObj: any) => {
+        // Handle if it's already an object or just an ID string
+        const categoryId = typeof categoryIdOrObj === 'string' ? categoryIdOrObj : categoryIdOrObj.id;
         const category = categoriesData.categories.find(
           (c) => c.id === categoryId
         );
-        return category || { id: categoryId, name: "Unknown" };
+        return category
+          ? { id: category.id, name: category.name }
+          : { id: categoryId, name: "Unknown" };
       }),
     })
   );
@@ -92,7 +89,7 @@ const EventCarousel: React.FC<EventCarouselProps> = ({ data, className }) => {
               {eventsWithGamesAndCategories.map((event, index) => (
                 <Story
                   key={index}
-                  className="basis-full pl-0 sm:basis-auto sm:w-[280px]! md:w-[340px]! lg:w-[400px]! p-0 sm:pl-4 bg-transparent shadow-none hover:scale-100"
+                  className="basis-full pl-0 sm:basis-auto sm:w-70! md:w-85! lg:w-100! p-0 sm:pl-4 bg-transparent shadow-none hover:scale-100"
                 >
                   <div className="px-4 sm:px-0 h-full">
                     <EventCard {...event} />

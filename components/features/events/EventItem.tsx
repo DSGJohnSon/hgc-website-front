@@ -10,33 +10,8 @@ import {
   LuMapPin,
 } from "react-icons/lu";
 import { cn } from "@/lib/utils";
-
+import { EventItem as EventItemProps } from "@/types/pages/detail-event";
 import Link from "next/link";
-
-export interface EventItemProps {
-  id: string;
-  type: "tournoi" | "event";
-  title: string;
-  startDate: string;
-  endDate?: string;
-  startTime: string;
-  cardThumbnail: string;
-  location: string;
-  isOngoing?: boolean;
-  isPast?: boolean;
-  categoryId?: string;
-  gameId?: string;
-  categories?: Array<{
-    id: string;
-    name: string;
-  }>;
-  games?: Array<{
-    id: string;
-    name: string;
-    icon?: string;
-  }>;
-  color?: string;
-}
 
 const EventItem: React.FC<EventItemProps> = ({
   id,
@@ -49,13 +24,13 @@ const EventItem: React.FC<EventItemProps> = ({
   location,
   isOngoing,
   isPast,
+  weezeventCode,
   categoryId,
   gameId,
   categories = [],
   games = [],
   color,
 }) => {
-  const TypeIcon = type === "tournoi" ? LuTrophy : LuCalendar;
   const highlightColor = color || "var(--theme-color)";
 
   // Format date for display
@@ -79,8 +54,8 @@ const EventItem: React.FC<EventItemProps> = ({
         isOngoing
           ? "shadow-lg"
           : isPast
-          ? "border-white/5 opacity-80 grayscale-[0.3]"
-          : "border-white/5"
+            ? "border-white/5 opacity-80 grayscale-[0.3]"
+            : "border-white/5",
       )}
       style={
         {
@@ -123,7 +98,7 @@ const EventItem: React.FC<EventItemProps> = ({
         {/* Gradient Overlay */}
         <div
           className={cn(
-            "absolute inset-0 via-transparent to-transparent opacity-60 transition-opacity duration-300 group-hover:opacity-80"
+            "absolute inset-0 via-transparent to-transparent opacity-60 transition-opacity duration-300 group-hover:opacity-80",
           )}
           style={{
             backgroundImage: `linear-gradient(to top, ${highlightColor}66, transparent, transparent)`,
@@ -133,7 +108,17 @@ const EventItem: React.FC<EventItemProps> = ({
         {/* Type Icon Overlay */}
         <div className="absolute top-4 left-4 z-10">
           <div className="bg-gray-950/80 border border-white/10 backdrop-blur-md rounded-lg p-2.5">
-            <TypeIcon size={18} className="text-white" />
+            {type === "both" ? (
+              <div className="flex items-center gap-2">
+              <LuTrophy size={18} className="text-white" />
+              <span className="text-white text-xs">&</span>
+              <LuCalendar size={18} className="text-white" />
+              </div>
+            ) : type === "tournoi" ? (
+              <LuTrophy size={18} className="text-white" />
+            ) : (
+              <LuCalendar size={18} className="text-white" />
+            )}
           </div>
         </div>
       </div>
@@ -191,7 +176,7 @@ const EventItem: React.FC<EventItemProps> = ({
         <div className="pt-2 mt-auto">
           {!isPast && (
             <div className="flex flex-col gap-2">
-              {isOngoing ? (
+              {isOngoing || !weezeventCode ? (
                 <Link
                   href={`/evenements/${id}`}
                   className="w-full py-3 rounded-lg font-rajdhani font-bold uppercase tracking-wider text-sm transition-all duration-300 text-center bg-white text-gray-950 hover:scale-[1.02]"

@@ -46,7 +46,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
               className="absolute top-6 right-6 text-white block w-6 h-6 hover:text-theme transition-colors"
               aria-label="Close menu"
             >
-              <LuX className="w-full h-full"/>
+              <LuX className="w-full h-full" />
             </button>
             <Link href="/" onClick={onClose}>
               <Image
@@ -126,10 +126,10 @@ const MobileMenuItem: React.FC<MobileMenuItemProps> = ({
         <ul
           className={`
             overflow-hidden transition-all duration-300
-            ${isExpanded ? "max-h-[1000px] opacity-100" : "max-h-0 opacity-0"}
+            ${isExpanded ? "max-h-250 opacity-100" : "max-h-0 opacity-0"}
           `}
         >
-          {item.submenu?.map((subItem) => (
+          {item.submenu?.map((subItem: MenuItemData) => (
             <MobileMenuItem
               key={subItem.label}
               item={subItem}

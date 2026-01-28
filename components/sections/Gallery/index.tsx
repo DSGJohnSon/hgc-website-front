@@ -1,17 +1,5 @@
 import { ImageGallery } from "@/components/ui/image-gallery";
-
-export interface GalleryData {
-  title: string;
-  subtitle: string;
-  images: Array<{
-    src: string;
-    alt: string;
-  }>;
-}
-
-interface GalleryProps {
-  data: GalleryData;
-}
+import { GalleryProps } from "@/types/components/sections/Gallery";
 
 export default function Gallery({ data }: GalleryProps) {
   return (

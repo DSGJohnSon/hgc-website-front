@@ -5,7 +5,7 @@ import { Sparkles } from "./components/Sparkles";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import AutoScroll from "embla-carousel-auto-scroll";
-import { useRef } from "react";
+import { useMemo } from "react";
 
 export interface PartnersData {
   subtitle: string;
@@ -59,23 +59,45 @@ export default function Partners({
     numRowsMobile >= 3 ? data.logos.slice(mobileLogosPerRow * 2) : [];
 
   // AutoScroll plugins for smooth continuous scrolling
-  const autoScroll1 = useRef(
-    AutoScroll({
-      speed: 0.5,
-      stopOnInteraction: false,
-    })
+  // Using useMemo to create new instances on each relevant change
+  const autoScrollDesktop = useMemo(
+    () =>
+      AutoScroll({
+        speed: 0.5,
+        stopOnInteraction: false,
+        startDelay: 0,
+      }),
+    []
   );
-  const autoScroll2 = useRef(
-    AutoScroll({
-      speed: -0.5,
-      stopOnInteraction: false,
-    })
+
+  const autoScrollMobile1 = useMemo(
+    () =>
+      AutoScroll({
+        speed: 0.5,
+        stopOnInteraction: false,
+        startDelay: 0,
+      }),
+    []
   );
-  const autoScroll3 = useRef(
-    AutoScroll({
-      speed: 0.5,
-      stopOnInteraction: false,
-    })
+
+  const autoScrollMobile2 = useMemo(
+    () =>
+      AutoScroll({
+        speed: -0.5,
+        stopOnInteraction: false,
+        startDelay: 0,
+      }),
+    []
+  );
+
+  const autoScrollMobile3 = useMemo(
+    () =>
+      AutoScroll({
+        speed: 0.5,
+        stopOnInteraction: false,
+        startDelay: 0,
+      }),
+    []
   );
 
   return (
@@ -110,7 +132,7 @@ export default function Partners({
             {/* Desktop Row 1 (all logos) */}
             <div className="hidden md:block">
               <Carousel
-                plugins={[autoScroll1.current]}
+                plugins={[autoScrollDesktop]}
                 opts={{
                   loop: true,
                   align: "start",
@@ -134,7 +156,7 @@ export default function Partners({
             {/* Mobile Row 1 (only row1Logos) */}
             <div className="md:hidden">
               <Carousel
-                plugins={[autoScroll1.current]}
+                plugins={[autoScrollMobile1]}
                 opts={{
                   loop: true,
                   align: "start",
@@ -165,7 +187,7 @@ export default function Partners({
               )}
             >
               <Carousel
-                plugins={[autoScroll2.current]}
+                plugins={[autoScrollMobile2]}
                 opts={{
                   loop: true,
                   align: "start",
@@ -196,7 +218,7 @@ export default function Partners({
               )}
             >
               <Carousel
-                plugins={[autoScroll3.current]}
+                plugins={[autoScrollMobile3]}
                 opts={{
                   loop: true,
                   align: "start",

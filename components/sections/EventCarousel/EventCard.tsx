@@ -4,26 +4,7 @@ import React from "react";
 import Image from "next/image";
 import { LuTrophy, LuCalendar, LuClock, LuGamepad } from "react-icons/lu";
 import { cn } from "@/lib/utils";
-
-export interface EventCardProps {
-  type: "tournoi" | "event";
-  title: string;
-  date: string;
-  time: string;
-  cardThumbnail: string;
-  categories?: Array<{
-    id: string;
-    name: string;
-  }>;
-  games?: Array<{
-    id: string;
-    name: string;
-    icon?: string;
-  }>;
-  buttonText?: string;
-  buttonLink?: string;
-  color?: string; // Optional custom highlight color
-}
+import { EventCard as EventCardProps } from "@/types/pages/detail-event";
 
 const EventCard: React.FC<EventCardProps> = ({
   type,

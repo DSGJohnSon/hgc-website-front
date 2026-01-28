@@ -4,10 +4,10 @@ import React, { useState, useMemo, useEffect, Suspense } from "react";
 import { useSearchParams, useRouter, usePathname } from "next/navigation";
 import EventFilters from "@/components/features/events/EventFilters";
 import EventGrid from "@/components/features/events/EventGrid";
-import eventsData from "@/data/events.json";
+import eventsData from "@/data/events";
 import gamesData from "@/data/games.json";
 import categoriesData from "@/data/categories.json";
-import { EventItemProps } from "@/components/features/events/EventItem";
+import { EventItem } from "@/types/pages/detail-event";
 import PixelBackground from "@/components/ui/pixel-background";
 
 function EventsContent() {
@@ -89,7 +89,7 @@ function EventsContent() {
 
   // Process events data
   const processedEvents = useMemo(() => {
-    return eventsData.events.map((event) => {
+    return eventsData.map((event) => {
       const startDate = new Date(event.startDate);
       const endDate = event.endDate ? new Date(event.endDate) : startDate;
 
@@ -99,21 +99,26 @@ function EventsContent() {
       // Determine if past
       const isPast = endDate < today;
 
-      // Map IDs to objects
-      const category = categoriesData.categories.find(
-        (c) => c.id === event.categoryId
-      );
-      const game = gamesData.games.find((g) => g.id === event.gameId);
+      // Map category and game IDs to objects (handle arrays)
+      const categories = event.categoryId
+        ? event.categoryId
+            .map(catId => categoriesData.categories.find((c) => c.id === catId))
+            .filter(Boolean) as Array<{ id: string; name: string; color?: string }>
+        : [];
+      
+      const games = event.gameId
+        ? event.gameId
+            .map(gameId => gamesData.games.find((g) => g.id === gameId))
+            .filter(Boolean) as Array<{ id: string; name: string; icon?: string; color?: string }>
+        : [];
 
       return {
         ...event,
         isOngoing,
         isPast,
-        categoryId: event.categoryId,
-        gameId: event.gameId,
-        categories: category ? [category] : [],
-        games: game ? [game] : [],
-      } as EventItemProps;
+        categories,
+        games,
+      } as EventItem;
     });
   }, []);
 
@@ -122,12 +127,14 @@ function EventsContent() {
     // If no categories selected, show all games that have at least one event
     const relevantEvents =
       selectedCategories.length > 0
-        ? processedEvents.filter(
-            (e) => e.categoryId && selectedCategories.includes(e.categoryId)
+        ? processedEvents.filter((e) =>
+            e.categoryId?.some(catId => selectedCategories.includes(catId))
           )
         : processedEvents;
 
-    const gameIds = Array.from(new Set(relevantEvents.map((e) => e.gameId)));
+    const gameIds = Array.from(
+      new Set(relevantEvents.flatMap((e) => e.gameId || []))
+    );
     return gamesData.games.filter((g) => gameIds.includes(g.id));
   }, [selectedCategories, processedEvents]);
 
@@ -158,10 +165,10 @@ function EventsContent() {
     return processedEvents.filter((event) => {
       const categoryMatch =
         selectedCategories.length === 0 ||
-        (event.categoryId && selectedCategories.includes(event.categoryId));
+        event.categoryId?.some(catId => selectedCategories.includes(catId));
       const gameMatch =
         selectedGames.length === 0 ||
-        (event.gameId && selectedGames.includes(event.gameId));
+        event.gameId?.some(gameId => selectedGames.includes(gameId));
 
       const searchLower = searchQuery.toLowerCase();
       const searchMatch =

@@ -3,6 +3,7 @@ import MainHero from "./MainHero";
 import EventCarousel from "../EventCarousel";
 import PixelBackground from "@/components/ui/pixel-background";
 import { LuChevronDown } from "react-icons/lu";
+import { EventCard } from "@/types/pages/detail-event";
 
 export interface HeroData {
   mainHero: {
@@ -22,19 +23,7 @@ export interface HeroData {
   slider: {
     subtitle: string;
     title: string;
-    events: Array<{
-      type: "tournoi" | "event";
-      title: string;
-      date: string;
-      time: string;
-      cardThumbnail: string;
-      categories?: string[];
-      games?: string[];
-      gradientTheme?: "theme" | "theme2" | "fifa-season";
-      buttonText?: string;
-      buttonLink?: string;
-      color?: string; // Optional custom highlight color
-    }>;
+    events: EventCard[];
   };
 }
 

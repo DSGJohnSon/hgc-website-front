@@ -19,7 +19,7 @@ interface TestimonyProps {
 
 const Testimony: React.FC<TestimonyProps> = ({ data }) => {
   return (
-    <section className="relative h-[800px] flex flex-col justify-center bg-transparent">
+    <section className="relative h-200 flex flex-col justify-center bg-transparent">
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-16 space-y-4">

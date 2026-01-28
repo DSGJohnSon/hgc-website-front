@@ -3,25 +3,14 @@
 import React from "react";
 import Image from "next/image";
 import { LuTrophy, LuCalendar } from "react-icons/lu";
+import { EventHero as EventHeroProps } from "@/types/pages/detail-event";
 
-interface EventHeroProps {
-  title: string;
-  type: "tournoi" | "event";
-  categoryName: string;
-  bannerImage: string;
-  bannerImageMobile?: string;
-  color: string;
-}
-
-const EventHero: React.FC<EventHeroProps> = ({
-  title,
-  type,
-  categoryName,
-  bannerImage,
-  bannerImageMobile,
-  color,
-}) => {
-  const TypeIcon = type === "tournoi" ? LuTrophy : LuCalendar;
+const EventHero: React.FC<
+  EventHeroProps & {
+    bannerImage: string;
+    bannerImageMobile?: string;
+  }
+> = ({ title, type, categoryName, bannerImage, bannerImageMobile, color }) => {
   const highlightColor = color || "#d97706";
 
   return (
@@ -63,10 +52,20 @@ const EventHero: React.FC<EventHeroProps> = ({
           <div className="space-y-4 max-w-2xl">
             <div className="flex items-center gap-3">
               <div className="p-2.5 rounded-lg backdrop-blur-md border border-white/20 bg-gray-950/40">
-                <TypeIcon className="w-6 h-6 text-white" />
+                {type === "both" ? (
+                  <div className="flex items-center gap-2">
+                    <LuTrophy size={18} className="text-white" />
+                    <span className="text-white text-xs">&</span>
+                    <LuCalendar size={18} className="text-white" />
+                  </div>
+                ) : type === "tournoi" ? (
+                  <LuTrophy size={18} className="text-white" />
+                ) : (
+                  <LuCalendar size={18} className="text-white" />
+                )}
               </div>
               <span className="font-rajdhani font-bold text-white uppercase tracking-[0.2em] text-sm sm:text-base">
-                {type === "tournoi" ? "Tournoi Officiel" : "Événement HGC"}
+                {type === "both" ? "Évènement & Tournoi Officiel" : type === "tournoi" ? "Tournoi Officiel" : "Événement HGC"}
               </span>
             </div>
             <h1 className="font-rajdhani font-bold text-4xl sm:text-5xl md:text-6xl text-white uppercase leading-[0.9] drop-shadow-2xl">

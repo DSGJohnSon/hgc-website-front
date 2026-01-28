@@ -2,19 +2,7 @@
 
 import { useEffect, useState, useRef } from "react";
 import { useInView, animate } from "framer-motion";
-
-export interface StatisticsData {
-  stats: Array<{
-    value: number;
-    plus: boolean;
-    label: string;
-    sublabel?: string;
-  }>;
-}
-
-interface StatisticsProps {
-  data: StatisticsData;
-}
+import { StatisticsProps } from "@/types/components/sections/Statistics";
 
 const formatNumber = (num: number) => {
   if (num >= 1000000) return (num / 1000000).toFixed(1).replace(/\.0$/, "") + "M";

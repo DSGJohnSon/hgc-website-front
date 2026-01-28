@@ -9,10 +9,14 @@ interface FloatingRegisterProps {
   weezeventCode?: string;
   eventTitle: string;
   highlightColor: string;
+  startDate: string;
+  endDate?: string;
 }
 
 const FloatingRegister: React.FC<FloatingRegisterProps> = ({
   weezeventCode,
+  startDate,
+  endDate,
   eventTitle,
   highlightColor,
 }) => {
@@ -38,7 +42,7 @@ const FloatingRegister: React.FC<FloatingRegisterProps> = ({
   return (
     <>
       <AnimatePresence>
-        {isVisible && (
+        {isVisible && (new Date() < new Date(endDate || startDate)) && (
           <motion.div
             initial={{ opacity: 0, y: 100 }}
             animate={{ opacity: 1, y: 0 }}
@@ -58,7 +62,7 @@ const FloatingRegister: React.FC<FloatingRegisterProps> = ({
               S'inscrire
               {/* Shine Effect Container */}
               <div className="absolute inset-0 overflow-hidden rounded-full pointer-events-none">
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-[200%] group-hover:translate-x-[200%] transition-all duration-1000 skew-x-[-20deg] opacity-0 group-hover:opacity-100" />
+                <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/30 to-transparent -translate-x-[200%] group-hover:translate-x-[200%] transition-all duration-1000 skew-x-[-20deg] opacity-0 group-hover:opacity-100" />
               </div>
             </button>
 

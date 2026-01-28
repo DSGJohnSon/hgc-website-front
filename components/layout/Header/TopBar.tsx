@@ -41,7 +41,7 @@ const TopBar: React.FC<TopBarProps> = ({ notice, socialLinks }) => {
                   {link.platform}
                 </Link>
                 {index < socialLinks.length - 1 && (
-                  <span className="w-[2px] h-4 bg-border-color" />
+                  <span className="w-0.5 h-4 bg-border-color" />
                 )}
               </React.Fragment>
             ))}
