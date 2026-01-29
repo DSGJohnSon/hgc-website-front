@@ -14,6 +14,9 @@ import homePageData from "@/data/pages/official/home-page.json";
 import Ticketing, { TicketingData } from "@/components/sections/Ticketing";
 import { StatisticsData } from "@/types/components/sections/Statistics";
 import { GalleryData } from "@/types/components/sections/Gallery";
+import eventsData from "@/data/events";
+import categoriesData from "@/data/categories.json";
+import gamesData from "@/data/games.json";
 
 interface Section {
   type: string;
@@ -24,12 +27,72 @@ interface Section {
 export default function Home() {
   const sections = homePageData.sections as Section[];
 
+  // Prepare real events for Hero carousel
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  const preparedEvents = eventsData
+    .map((e) => {
+      const startDate = new Date(e.startDate);
+      const endDate = e.endDate ? new Date(e.endDate) : startDate;
+      const isOngoing = startDate <= today && endDate >= today;
+      const isPast = endDate < today;
+      const isUpcoming = startDate > today;
+
+      return {
+        id: e.id,
+        type: e.type as "tournoi" | "event",
+        title: e.title,
+        startDate: e.startDate,
+        startTime: e.startTime || "",
+        cardThumbnail: e.cardThumbnail,
+        color: e.color,
+        isPast,
+        isOngoing,
+        isUpcoming,
+        date: e.startDate,
+        time: e.startTime || "",
+        categories: e.categoryId
+          ?.map((catId) => categoriesData.categories.find((c) => c.id === catId))
+          .filter(
+            (cat): cat is { id: string; name: string } => cat !== undefined,
+          ),
+        games: e.gameId
+          ?.map((gameId) => gamesData.games.find((g) => g.id === gameId))
+          .filter(
+            (game): game is { id: string; name: string; icon?: string } =>
+              game !== undefined,
+          ),
+      };
+    })
+    .sort((a, b) => {
+      // Priority: ongoing > upcoming > past
+      if (a.isOngoing && !b.isOngoing) return -1;
+      if (!a.isOngoing && b.isOngoing) return 1;
+      if (a.isUpcoming && !b.isUpcoming && !b.isOngoing) return -1;
+      if (!a.isUpcoming && b.isUpcoming && !a.isOngoing) return 1;
+      // Within same category, sort by date (ascending for upcoming, descending for past)
+      if (a.isUpcoming && b.isUpcoming) {
+        return new Date(a.startDate).getTime() - new Date(b.startDate).getTime();
+      }
+      return new Date(b.startDate).getTime() - new Date(a.startDate).getTime();
+    })
+    .slice(0, 10);
+
   const renderSection = (section: Section, index: number) => {
     const isLastSection = index === sections.length - 1;
 
     switch (section.type) {
       case "hero":
-        return <Hero key={index} data={section.data as HeroData} />;
+        // Override events with real data
+        const heroData = {
+          ...section.data,
+          slider: {
+            ...(section.data as HeroData).slider,
+            events: preparedEvents,
+          },
+        } as HeroData;
+        return <Hero key={index} data={heroData} />;
 
       case "statistics":
         return <Statistics key={index} data={section.data as StatisticsData} />;

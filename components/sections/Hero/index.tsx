@@ -92,6 +92,7 @@ const Hero: React.FC<HeroProps> = ({ data }) => {
           title: data.slider.title,
           events: data.slider.events,
         }}
+        loop={false}
       />
     </section>
   );
