@@ -606,7 +606,7 @@ export const events: Event[] = [
     color: "#1E492F",
     location: "Église Sainte-Marguerite, 4 Pl. de la Marne, Sains-en-Gohelle",
     weezeventCode: "TBD",
-    registrationOpen: true,
+    registrationOpen: false,
     description: [
     ],
     freeplayGames: ["mariokart_world"],
