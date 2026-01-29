@@ -75,7 +75,7 @@ const Hero: React.FC<HeroProps> = ({ data }) => {
 
         {/* Image BG */}
       </PixelBackground>
-      <div className="absolute top-0 left-0 w-full aspect-video opacity-10 z-5">
+      <div className="absolute top-0 left-0 w-full lg:aspect-video h-[50%] lg:h-auto opacity-10 z-5">
         <Image
           src={"/assets/img/heros/hero_main.png"}
           alt="Hero BG"
