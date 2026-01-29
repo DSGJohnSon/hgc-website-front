@@ -29,6 +29,7 @@ interface EventInfoProps {
   transports?: Event["transports"];
   weezeventCode?: Event["weezeventCode"];
   eventTitle: Event["title"];
+  registrationOpen?: boolean;
 }
 
 const EventInfo: React.FC<EventInfoProps> = ({
@@ -41,6 +42,7 @@ const EventInfo: React.FC<EventInfoProps> = ({
   transports,
   weezeventCode,
   eventTitle,
+  registrationOpen = false,
 }) => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
 
@@ -83,7 +85,7 @@ const EventInfo: React.FC<EventInfoProps> = ({
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           {/* Left Column: Description */}
           <div className="lg:col-span-2 space-y-8">
-            <h2 className="font-rajdhani font-bold text-3xl text-white uppercase tracking-tight flex items-center gap-3">
+            <h2 className="font-goldman text-3xl text-white uppercase tracking-tight flex items-center gap-3">
               <span
                 className="w-8 h-1"
                 style={{ backgroundColor: highlightColor }}
@@ -162,7 +164,7 @@ const EventInfo: React.FC<EventInfoProps> = ({
           <div className="space-y-8">
             {/* Info Card */}
             <div className="sticky top-48 bg-gray-900/50 border border-white/10 rounded-2xl p-6 space-y-6 backdrop-blur-sm">
-              <h3 className="font-rajdhani font-bold text-2xl text-white uppercase tracking-tight">
+              <h3 className="font-goldman text-2xl text-white uppercase tracking-tight">
                 Infos Pratiques
               </h3>
 
@@ -226,7 +228,7 @@ const EventInfo: React.FC<EventInfoProps> = ({
               {/* Transports Section */}
               {transports && (
                 <div className="pt-6 border-t border-white/10 space-y-4">
-                  <h4 className="text-white font-rajdhani font-bold uppercase text-sm tracking-wider">
+                  <h4 className="text-white font-goldman uppercase text-sm tracking-wider">
                     Comment s'y rendre ?
                   </h4>
 
@@ -318,12 +320,18 @@ const EventInfo: React.FC<EventInfoProps> = ({
                 {weezeventCode &&
                   new Date() < new Date(endDate || startDate) && (
                     <button
-                      onClick={() => setIsDialogOpen(true)}
-                      className="w-full py-4 rounded-xl font-rajdhani font-bold text-gray-950 uppercase tracking-widest text-sm flex items-center justify-center gap-3 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-lg"
-                      style={{ backgroundColor: highlightColor }}
+                      onClick={() => registrationOpen && setIsDialogOpen(true)}
+                      disabled={!registrationOpen}
+                      className="w-full py-4 rounded-xl font-rajdhani font-bold uppercase tracking-widest text-sm flex items-center justify-center gap-3 transition-all shadow-lg"
+                      style={{ 
+                        backgroundColor: registrationOpen ? highlightColor : '#4b5563',
+                        color: registrationOpen ? '#111827' : '#d1d5db',
+                        cursor: registrationOpen ? 'pointer' : 'not-allowed',
+                        opacity: registrationOpen ? 1 : 0.6,
+                      }}
                     >
                       <LuTicket className="w-5 h-5" />
-                      S'inscrire maintenant
+                      {registrationOpen ? "S'inscrire maintenant" : "Inscriptions fermées"}
                     </button>
                   )}
               </div>
@@ -338,6 +346,7 @@ const EventInfo: React.FC<EventInfoProps> = ({
           onClose={() => setIsDialogOpen(false)}
           weezeventCode={weezeventCode}
           title={eventTitle}
+          registrationOpen={registrationOpen}
         />
       )}
     </section>

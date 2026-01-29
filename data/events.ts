@@ -255,7 +255,7 @@ export const events: Event[] = [
     heroBanner:
       "/assets/img/events/fifa-season-2025/banner_fifa_season_2025_desktop.png",
     heroBannerMobile:
-      "/assets/img/events/fifa-season-2025/banner_fifa_season_2025_mobile.png",
+      "/assets/img/events/fifa-season-2025/banner_fifa_season_2025_mobiles.png",
     location: "Salle régionale des sports Maréchal, Harnes",
     categoryId: ["fifaSeason"],
     gameId: ["fc25"],
@@ -367,7 +367,7 @@ export const events: Event[] = [
     cardThumbnail:
       "/assets/img/events/gaming-house-tour-2025/thumbnail_gaming-house-tour_2025.png",
     heroBanner:
-      "/assets/img/events/gaming-house-tour-2025/banner_gaming-house-tour_2025_desktop.png",
+      "/assets/img/events/gaming-house-tour-2025/banner_gaming-house-tour_2025_2_desktop.png",
     heroBannerMobile:
       "/assets/img/events/gaming-house-tour-2025/banner_gaming-house-tour_2025_mobile.png",
     categoryId: ["gamingHouseTour"],
@@ -588,6 +588,28 @@ export const events: Event[] = [
       },
     ],
     freeplayGames: ["tombraider", "amongus"],
+  },
+  {
+    id: "tournoi-sains-en-gohelle-2026",
+    type: "both",
+    title: "Tournoi SAINS-EN-GOHELLE",
+    startDate: "2026-02-21",
+    startTime: "14:00",
+    cardThumbnail:
+      "/assets/img/events/tournoi-sains-en-gohelle-2026/thumbnail_tournoi-sains-en-gohelle-2026.png",
+    heroBanner:
+      "/assets/img/events/tournoi-sains-en-gohelle-2026/banner_tournoi-sains-en-gohelle-2026_desktop.png",
+    heroBannerMobile:
+      "/assets/img/events/tournoi-sains-en-gohelle-2026/banner_tournoi-sains-en-gohelle-2026_mobile.png",
+    categoryId: [],
+    gameId: ["mariokart_world"],
+    color: "#1E492F",
+    location: "Église Sainte-Marguerite, 4 Pl. de la Marne, Sains-en-Gohelle",
+    weezeventCode: "TBD",
+    registrationOpen: true,
+    description: [
+    ],
+    freeplayGames: ["mariokart_world"],
   },
 ];
 

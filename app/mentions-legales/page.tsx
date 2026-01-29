@@ -6,7 +6,7 @@ export default function MentionsLegalesPage() {
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto bg-gray-900/50 backdrop-blur-sm border border-white/10 p-8 md:p-12 rounded-2xl shadow-2xl">
           <header className="mb-12 border-b border-theme/30 pb-8">
-            <h1 className="font-rajdhani font-bold text-4xl md:text-5xl lg:text-6xl text-white uppercase leading-tight mb-4 tracking-tight">
+            <h1 className="font-goldman text-4xl md:text-5xl lg:text-6xl text-white uppercase leading-tight mb-4 tracking-tight">
               Mentions <span className="text-theme">Légales</span>
             </h1>
             <div className="flex flex-wrap gap-4 text-gray-400 font-rajdhani uppercase tracking-wider text-sm">
@@ -18,7 +18,7 @@ export default function MentionsLegalesPage() {
             </div>
           </header>
 
-          <div className="space-y-12 text-gray-300 font-poppins leading-relaxed">
+          <div className="space-y-12 text-gray-300 font-rajdhani leading-relaxed">
             {/* Éditeur du site */}
             <section>
               <h2 className="font-rajdhani font-bold text-2xl text-white uppercase mb-6 flex items-center gap-3">

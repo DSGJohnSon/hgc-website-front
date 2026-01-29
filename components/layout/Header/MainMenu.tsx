@@ -11,7 +11,7 @@ interface MainMenuProps {
 
 const MainMenu: React.FC<MainMenuProps> = ({ menuItems }) => {
   return (
-    <nav className="hidden lg:inline-block ml-0 xl:ml-[140px]">
+    <nav className="hidden lg:inline-block ml-0 xl:ml-35">
       <ul className="m-0 p-0">
         {menuItems.map((item) => (
           <MenuItem key={item.label} item={item} />
@@ -34,7 +34,7 @@ const MenuItem: React.FC<MenuItemProps> = ({ item, isSubmenu = false }) => {
     <li
       className={`
         inline-block relative list-none
-        ${!isSubmenu ? "mx-[27px] first:ml-0 last:mr-0" : "block mx-0 px-[9px]"}
+        ${!isSubmenu ? "mx-6.75 first:ml-0 last:mr-0" : "block mx-0 px-2.25"}
         ${hasSubmenu ? "group" : ""}
       `}
       onMouseEnter={() => hasSubmenu && setIsOpen(true)}
@@ -43,11 +43,11 @@ const MenuItem: React.FC<MenuItemProps> = ({ item, isSubmenu = false }) => {
       <Link
         href={item.href}
         className={`
-          relative font-rajdhani font-semibold text-white
+          relative font-rajdhani font-bold text-white
           flex items-center
           group/Gamepad2
           transition-colors duration-300
-          ${!isSubmenu ? "text-base p-[8px] xl:p-[16px]" : "text-base capitalize"}
+          ${!isSubmenu ? "text-base p-2 xl:p-4" : "text-base capitalize"}
           hover:text-theme
         `}
       >
@@ -55,7 +55,7 @@ const MenuItem: React.FC<MenuItemProps> = ({ item, isSubmenu = false }) => {
           <LuGamepad2
             className="
               text-theme opacity-0 group-hover/Gamepad2:opacity-100
-              translate-x-[-20px] group-hover/Gamepad2:translate-x-[-5px]
+              -translate-x-5 group-hover/Gamepad2:-translate-x-1.25
               transition-all duration-300
             "
           />
@@ -72,7 +72,7 @@ const MenuItem: React.FC<MenuItemProps> = ({ item, isSubmenu = false }) => {
       {hasSubmenu && (
         <ul
           className={`
-            absolute text-left min-w-[230px] w-max
+            absolute text-left min-w-57.5 w-max
             bg-linear-to-t from-black to-gray-950
             transition-all duration-400 origin-top
             border-theme border-l-3
@@ -80,7 +80,7 @@ const MenuItem: React.FC<MenuItemProps> = ({ item, isSubmenu = false }) => {
             ${
               !isSubmenu
                 ? "top-[calc(100%)] left-0 p-4 "
-                : "top-0 left-full ml-5 pt-[18px] pb-[18px] px-[20px] pl-[18px]"
+                : "top-0 left-full ml-5 pt-4.5 pb-4.5 px-5 pl-4.5"
             }
             ${
               isOpen

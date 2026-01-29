@@ -64,7 +64,7 @@ const SimpleSection: React.FC<SimpleSectionProps> = ({ data, className }) => {
             {/* Title */}
             <h2
               className={cn(
-                "font-rajdhani font-bold text-4xl md:text-5xl lg:text-6xl text-white uppercase leading-tight",
+                "font-goldman text-4xl md:text-5xl lg:text-6xl text-white uppercase leading-tight",
                 !hasImage && "text-center"
               )}
             >

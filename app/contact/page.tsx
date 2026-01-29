@@ -12,7 +12,7 @@ export default function Contact() {
       <section className="relative pt-72 pb-20 px-4">
         <div className="container mx-auto">
           <div className="max-w-6xl mx-auto">
-            <h1 className="font-rajdhani font-bold text-5xl md:text-7xl uppercase text-white mb-6">
+            <h1 className="font-goldman text-5xl md:text-7xl uppercase text-white mb-6">
               NOUS CONTACTER
             </h1>
             <p className="text-xl text-gray-300 font-rajdhani max-w-3xl">
@@ -28,7 +28,7 @@ export default function Contact() {
       <section className="py-16 px-4">
         <div className="container mx-auto">
           <div className="max-w-6xl mx-auto">
-            <h2 className="font-rajdhani font-bold text-3xl md:text-4xl uppercase text-theme2 mb-4 text-center">
+            <h2 className="font-goldman text-3xl md:text-4xl uppercase text-theme2 mb-4 text-center">
               NOS RÉSEAUX SOCIAUX
             </h2>
             <p className="text-lg text-gray-300 font-rajdhani text-center mb-12">
@@ -113,7 +113,7 @@ export default function Contact() {
       <section className="py-16 px-4 bg-gray-900/30">
         <div className="container mx-auto">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="font-rajdhani font-bold text-3xl md:text-4xl uppercase text-theme2 mb-4">
+            <h2 className="font-goldman text-3xl md:text-4xl uppercase text-theme2 mb-4">
               NOTRE EMAIL
             </h2>
             <a
@@ -136,7 +136,7 @@ export default function Contact() {
         <div className="container mx-auto">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="font-rajdhani font-bold text-4xl md:text-5xl uppercase text-white mb-4">
+              <h2 className="font-goldman text-4xl md:text-5xl uppercase text-white mb-4">
                 NOUS CONTACTER
               </h2>
               <p className="text-lg text-gray-300 font-rajdhani">

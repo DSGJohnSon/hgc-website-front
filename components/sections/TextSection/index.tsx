@@ -37,7 +37,7 @@ const TextSection: React.FC<TextSectionProps> = ({ data, className }) => {
 
           {/* Title */}
           {title && (
-            <h2 className="font-rajdhani font-bold text-3xl md:text-5xl lg:text-6xl text-white uppercase leading-tight">
+            <h2 className="font-goldman text-3xl md:text-5xl lg:text-6xl text-white uppercase leading-tight">
               {title}
             </h2>
           )}

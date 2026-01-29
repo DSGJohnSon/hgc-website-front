@@ -110,7 +110,7 @@ const MainHero: React.FC<MainHeroProps> = ({
               numPeople={totalParticipants}
               avatarNames={displayedAvatars}
             />
-            <p className="text-sm text-gray-400 font-poppins">
+            <p className="text-sm text-gray-400 font-rajdhani">
               visiteurs/participants depuis {year}
             </p>
           </div>

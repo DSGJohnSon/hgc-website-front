@@ -60,7 +60,7 @@ const AboutHero: React.FC<AboutHeroProps> = ({ data, className }) => {
             {/* Title */}
             <h1
               className={cn(
-                "font-rajdhani font-bold text-4xl md:text-5xl lg:text-7xl text-white uppercase leading-tight",
+                "font-goldman text-4xl md:text-5xl lg:text-7xl text-white uppercase leading-tight",
                 !hasImage && "text-center"
               )}
             >

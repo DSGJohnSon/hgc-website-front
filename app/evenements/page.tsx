@@ -91,13 +91,13 @@ function EventsContent() {
   const processedEvents = useMemo(() => {
     return eventsData.map((event) => {
       const startDate = new Date(event.startDate);
-      const endDate = event.endDate ? new Date(event.endDate) : startDate;
+      const endDate = event.endDate ? new Date(event.endDate) : undefined;
 
       // Determine if ongoing
-      const isOngoing = today >= startDate && today <= endDate;
+      const isOngoing = (endDate ? (today >= startDate && today <= endDate) : (today.getTime() === startDate.getTime()));
 
       // Determine if past
-      const isPast = endDate < today;
+      const isPast = endDate ? endDate < today : startDate < today;
 
       // Map category and game IDs to objects (handle arrays)
       const categories = event.categoryId
@@ -227,7 +227,7 @@ function EventsContent() {
             <p className="text-theme font-rajdhani uppercase tracking-[0.3em] text-sm font-bold mb-4">
               Événements & Tournois
             </p>
-            <h1 className="font-rajdhani font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white uppercase leading-[0.9] mb-8">
+            <h1 className="font-goldman text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white text-nowrap uppercase leading-[0.9] mb-8">
               Vivez l'expérience <span className="text-theme2">HGC</span>
             </h1>
             <p className="text-gray-400 font-rajdhani text-lg md:text-xl">

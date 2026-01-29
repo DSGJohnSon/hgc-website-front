@@ -7,15 +7,18 @@ import FreeplaySection from "./components/FreeplaySection";
 import FloatingRegister from "./components/FloatingRegister";
 import Partners from "@/components/sections/Partners";
 import EventCarousel from "@/components/sections/EventCarousel";
-import CTASection from "@/components/sections/CTASection";
+import EventCTASection from "./components/EventCTASection";
 import gamesData from "@/data/games.json";
 
 interface PageProps {
   params: Promise<{ id: string }>;
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }
 
-export default async function EventDetailPage({ params }: PageProps) {
+export default async function EventDetailPage({ params, searchParams }: PageProps) {
   const { id } = await params;
+  const search = await searchParams;
+  const shouldOpenRegister = search.register === "true";
 
   // Find the event
   const event = eventsData.find((e) => e.id === id);
@@ -92,6 +95,7 @@ export default async function EventDetailPage({ params }: PageProps) {
             transports={event.transports ? event.transports : undefined}
             weezeventCode={event.weezeventCode}
             eventTitle={event.title}
+            registrationOpen={event.registrationOpen ?? false}
           />
 
           {event.partners && event.partners.length > 0 && (
@@ -112,22 +116,11 @@ export default async function EventDetailPage({ params }: PageProps) {
           )}
 
           {event.weezeventCode && (
-            <CTASection
-              data={{
-                title: "Prêt à relever le défi ?",
-                subtitle: "Inscription",
-                paragraph:
-                  "Ne manquez pas votre chance de participer à cet événement exceptionnel. Les places sont limitées !",
-                ctas: [
-                  {
-                    text: "Je m'inscris",
-                    href: "#",
-                    variant: "secondary",
-                  },
-                ],
-              }}
-              backgroundColor="gray"
-              glowMode="centerBlinking"
+            <EventCTASection
+              highlightColor={event.color}
+              registrationOpen={event.registrationOpen ?? false}
+              weezeventCode={event.weezeventCode}
+              eventTitle={event.title}
             />
           )}
 
@@ -138,6 +131,7 @@ export default async function EventDetailPage({ params }: PageProps) {
                 subtitle: "Nos prochains rendez-vous",
                 events: otherEvents,
               }}
+              loop={false}
             />
           )}
         </div>
@@ -149,6 +143,8 @@ export default async function EventDetailPage({ params }: PageProps) {
         highlightColor={event.color}
         startDate={event.startDate}
         endDate={event.endDate}
+        shouldOpenRegister={shouldOpenRegister}
+        registrationOpen={event.registrationOpen ?? false}
       />
     </main>
   );

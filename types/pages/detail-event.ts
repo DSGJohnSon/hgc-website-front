@@ -60,6 +60,7 @@ export type Event = {
     };
   };
   weezeventCode?: string;
+  registrationOpen?: boolean;
   partners?: {
     alt: string;
     src: string;

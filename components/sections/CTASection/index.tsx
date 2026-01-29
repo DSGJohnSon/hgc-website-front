@@ -137,7 +137,7 @@ const CTASection: React.FC<CTASectionProps> = ({
             {/* Title */}
             <h2
               className={cn(
-                "font-rajdhani font-bold text-4xl md:text-5xl lg:text-6xl uppercase leading-tight",
+                "font-goldman text-4xl md:text-5xl lg:text-6xl uppercase leading-tight",
                 config.textColor
               )}
             >

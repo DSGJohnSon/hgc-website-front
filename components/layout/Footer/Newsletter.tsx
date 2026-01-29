@@ -25,14 +25,14 @@ const Newsletter: React.FC<NewsletterProps> = ({
 
   return (
     <div className="w-full flex flex-col items-center lg:items-start">
-      <h3 className="text-white font-rajdhani text-2xl font-semibold mb-4">
+      <h3 className="text-white font-goldman text-2xl mb-4">
         {title}
       </h3>
-      <p className="text-gray-400 text-sm mb-4 font-poppins text-center lg:text-left">
+      <p className="text-gray-400 text-sm mb-4 font-rajdhani text-center lg:text-left">
         {description}
       </p>
 
-      <form onSubmit={handleSubmit} className="space-y-5 font-poppins">
+      <form onSubmit={handleSubmit} className="space-y-5 font-rajdhani">
         <div className="flex items-center gap-4 bg-gray-900 rounded-full h-12 px-6">
           <input
             type="email"

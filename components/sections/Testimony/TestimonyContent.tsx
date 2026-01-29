@@ -73,7 +73,7 @@ export default function TestimonyContent({
         </span>
         <p
           className={cn(
-            "text-2xl md:text-3xl font-light font-poppins text-gray-300 text-center max-w-lg leading-relaxed transition-all duration-400 ease-out",
+            "text-2xl md:text-3xl font-light font-rajdhani text-gray-300 text-center max-w-lg leading-relaxed transition-all duration-400 ease-out",
             isAnimating
               ? "opacity-0 blur-sm scale-[0.98]"
               : "opacity-100 blur-0 scale-100",
@@ -90,7 +90,7 @@ export default function TestimonyContent({
         {/* Role text */}
         <p
           className={cn(
-            "text-xs text-gray-400 font-poppins tracking-[0.2em] uppercase transition-all duration-500 ease-out",
+            "text-xs text-gray-400 font-rajdhani tracking-[0.2em] uppercase transition-all duration-500 ease-out",
             isAnimating
               ? "opacity-0 translate-y-2"
               : "opacity-100 translate-y-0",

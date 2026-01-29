@@ -45,7 +45,7 @@ const TrophyCarousel: React.FC<TrophyCarouselProps> = ({ data, className }) => {
           <p className="text-theme2 font-rajdhani uppercase tracking-wider text-sm sm:text-base font-semibold">
             {subtitle}
           </p>
-          <h2 className="font-rajdhani font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white uppercase px-4">
+          <h2 className="font-goldman text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white uppercase px-4">
             {title}
           </h2>
         </div>
@@ -64,7 +64,7 @@ const TrophyCarousel: React.FC<TrophyCarouselProps> = ({ data, className }) => {
               {images.map((imageSrc, index) => (
                 <Story
                   key={index}
-                  className="w-[180px]! sm:w-[224px]! md:w-[270px]! lg:w-[315px]! aspect-9/16 p-4"
+                  className="w-45! sm:w-56! md:w-67.5! lg:w-78.75! aspect-9/16 p-4"
                 >
                   <StoryImage src={imageSrc} alt={`Trophy ${index + 1}`} />
                 </Story>

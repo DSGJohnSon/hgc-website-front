@@ -30,7 +30,7 @@ const EventGrid: React.FC<EventGridProps> = ({
             </p>
           )}
           {title && (
-            <h2 className="font-rajdhani font-bold text-3xl md:text-4xl text-white uppercase">
+            <h2 className="font-goldman text-3xl md:text-4xl text-white uppercase">
               {title}
             </h2>
           )}

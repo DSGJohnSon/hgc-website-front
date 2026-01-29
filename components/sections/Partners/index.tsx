@@ -114,7 +114,7 @@ export default function Partners({
           <p className="text-theme2 font-rajdhani uppercase tracking-wider text-sm sm:text-base font-semibold">
             {data.subtitle}
           </p>
-          <h2 className="font-rajdhani font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white uppercase px-4">
+          <h2 className="font-goldman text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white uppercase px-4">
             {data.title}
           </h2>
         </div>

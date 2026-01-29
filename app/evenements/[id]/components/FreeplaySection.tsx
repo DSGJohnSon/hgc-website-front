@@ -66,8 +66,8 @@ const FreeplaySection: React.FC<FreeplaySectionProps> = ({
           >
             Incontournables
           </p>
-          <h2 className="font-rajdhani font-bold text-4xl sm:text-5xl text-white uppercase tracking-tight">
-            Nos jeux <span className="text-white/40">en Freeplay</span>
+          <h2 className="font-goldman text-4xl sm:text-5xl text-white uppercase tracking-tight">
+            Nos jeux en Freeplay
           </h2>
         </div>
 
@@ -85,7 +85,7 @@ const FreeplaySection: React.FC<FreeplaySectionProps> = ({
                 {resolvedGames.map((game: string, index: number) => (
                   <Story
                     key={index}
-                    className="w-[280px]! sm:w-[320px]! md:w-[400px]! aspect-2/1 p-0 bg-transparent shadow-none hover:scale-100"
+                    className="w-70! sm:w-[320px]! md:w-100! aspect-2/1 p-0 bg-transparent shadow-none hover:scale-100"
                   >
                     <GameCard name={game} highlightColor={highlightColor} />
                   </Story>
@@ -112,7 +112,7 @@ const FreeplaySection: React.FC<FreeplaySectionProps> = ({
         ) : (
           <div className="flex flex-wrap justify-center gap-6 max-w-6xl mx-auto">
             {resolvedGames.map((game: string, index: number) => (
-              <div key={index} className="w-[300px] sm:w-[350px] aspect-2/1">
+              <div key={index} className="w-75 sm:w-87.5 aspect-2/1">
                 <GameCard name={game} highlightColor={highlightColor} />
               </div>
             ))}

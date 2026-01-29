@@ -4,6 +4,7 @@ import EventCarousel from "../EventCarousel";
 import PixelBackground from "@/components/ui/pixel-background";
 import { LuChevronDown } from "react-icons/lu";
 import { EventCard } from "@/types/pages/detail-event";
+import Image from "next/image";
 
 export interface HeroData {
   mainHero: {
@@ -64,14 +65,25 @@ const Hero: React.FC<HeroProps> = ({ data }) => {
         />
         {/* Scroll Indicator - Absolute positioned at bottom, outside container */}
         <div className="absolute -bottom-20 sm:-bottom-32 left-1/2 -translate-x-1/2 z-10 animate-fade-in-up animation-delay-600 flex flex-col items-center gap-2">
-          <p className="text-xs text-gray-500 font-poppins uppercase tracking-wider">
+          <p className="text-xs text-gray-500 font-rajdhani uppercase tracking-wider">
             Défiler pour découvrir
           </p>
           <div className="animate-bounce">
             <LuChevronDown className="w-6 h-6 text-theme2" />
           </div>
         </div>
+
+        {/* Image BG */}
       </PixelBackground>
+      <div className="absolute top-0 left-0 w-full aspect-video opacity-10 z-5">
+        <Image
+          src={"/assets/img/heros/hero_main.png"}
+          alt="Hero BG"
+          fill
+          className="object-cover pointer-events-none select-none -z-10"
+        />
+        <div className="bg-linear-to-t from-gray-950 to-transparent absolute bottom-0 left-0 w-full h-1/3"></div>
+      </div>
 
       {/* Event Carousel Section */}
       <EventCarousel

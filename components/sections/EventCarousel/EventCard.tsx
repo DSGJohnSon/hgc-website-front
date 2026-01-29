@@ -127,7 +127,7 @@ const EventCard: React.FC<EventCardProps> = ({
           )}
 
           {/* Title */}
-          <h3 className="font-rajdhani font-bold text-white text-sm sm:text-base md:text-lg uppercase leading-tight line-clamp-2">
+          <h3 className="font-goldman text-white text-sm sm:text-base md:text-xl uppercase leading-tight line-clamp-2">
             {title}
           </h3>
 

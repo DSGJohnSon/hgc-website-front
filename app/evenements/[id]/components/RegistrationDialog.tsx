@@ -2,7 +2,7 @@
 
 import React, { useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { LuX } from "react-icons/lu";
+import { LuTicket, LuX } from "react-icons/lu";
 import Ticketing from "@/components/sections/Ticketing";
 
 interface RegistrationDialogProps {
@@ -10,6 +10,7 @@ interface RegistrationDialogProps {
   onClose: () => void;
   weezeventCode?: string;
   title: string;
+  registrationOpen?: boolean;
 }
 
 const RegistrationDialog: React.FC<RegistrationDialogProps> = ({
@@ -17,6 +18,7 @@ const RegistrationDialog: React.FC<RegistrationDialogProps> = ({
   onClose,
   weezeventCode,
   title,
+  registrationOpen = false,
 }) => {
   // Prevent scroll when open
   useEffect(() => {
@@ -59,7 +61,7 @@ const RegistrationDialog: React.FC<RegistrationDialogProps> = ({
                   <h3 className="font-rajdhani font-bold text-xl text-white uppercase tracking-tight">
                     S'inscrire à l'événement
                   </h3>
-                  <p className="text-gray-400 font-rajdhani text-sm uppercase tracking-wider">
+                  <p className="text-gray-400 font-goldman text-sm uppercase tracking-wider">
                     {title}
                   </p>
                 </div>
@@ -73,10 +75,25 @@ const RegistrationDialog: React.FC<RegistrationDialogProps> = ({
 
               {/* Body */}
               <div className="flex-1 overflow-y-auto p-0 bg-gray-950/30 w-full">
-                <Ticketing
-                  data={{ code: weezeventCode }}
-                  className="py-10 w-full max-w-none"
-                />
+                {registrationOpen ? (
+                  <Ticketing
+                    data={{ code: weezeventCode }}
+                    className="py-10 w-full max-w-none"
+                  />
+                ) : (
+                  <div className="flex flex-col items-center justify-center py-20 px-6 text-center">
+                    <div className="bg-gray-800/50 border border-white/10 rounded-2xl p-8 max-w-md">
+                      <LuTicket className="w-16 h-16 mx-auto mb-4 text-gray-500" />
+                      <h4 className="font-goldman text-2xl text-white uppercase mb-3">
+                        Inscriptions fermées
+                      </h4>
+                      <p className="text-gray-400 font-rajdhani text-base leading-relaxed">
+                        Les inscriptions pour cet événement sont actuellement fermées. 
+                        Revenez plus tard ou contactez-nous pour plus d'informations.
+                      </p>
+                    </div>
+                  </div>
+                )}
               </div>
 
               {/* Footer */}

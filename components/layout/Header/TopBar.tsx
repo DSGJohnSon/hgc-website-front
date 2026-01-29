@@ -15,7 +15,7 @@ const TopBar: React.FC<TopBarProps> = ({ notice, socialLinks }) => {
           {/* Left side - Notice */}
           <div className="hidden lg:block">
             <div className="flex items-center">
-              <div className="text-gray-300 font-poppins text-xs">
+              <div className="text-gray-300 font-rajdhani text-xs">
                 {notice.split("HGC")[0]}
                 <Link
                   href="/"
@@ -34,7 +34,7 @@ const TopBar: React.FC<TopBarProps> = ({ notice, socialLinks }) => {
               <React.Fragment key={link.platform}>
                 <Link
                   href={link.url}
-                  className="text-gray-300 text-xs font-poppins hover:text-theme transition-colors"
+                  className="text-gray-300 text-xs font-rajdhani hover:text-theme transition-colors"
                   target="_blank"
                   rel="noopener noreferrer"
                 >

@@ -20,9 +20,14 @@ export interface EventCarouselData {
 interface EventCarouselProps {
   data: EventCarouselData;
   className?: string;
+  loop?: boolean;
 }
 
-const EventCarousel: React.FC<EventCarouselProps> = ({ data, className }) => {
+const EventCarousel: React.FC<EventCarouselProps> = ({ 
+  data, 
+  className,
+  loop = true,
+}) => {
   const { title, subtitle, events } = data;
 
   // Autoplay plugin with pause on interaction
@@ -69,7 +74,7 @@ const EventCarousel: React.FC<EventCarouselProps> = ({ data, className }) => {
           <p className="text-theme2 font-rajdhani uppercase tracking-wider text-sm sm:text-base font-semibold">
             {subtitle}
           </p>
-          <h2 className="font-rajdhani font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white uppercase px-4">
+          <h2 className="font-goldman text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white uppercase px-4">
             {title}
           </h2>
         </div>
@@ -80,7 +85,7 @@ const EventCarousel: React.FC<EventCarouselProps> = ({ data, className }) => {
             className="w-full"
             plugins={[autoplayRef.current]}
             opts={{
-              loop: true,
+              loop: loop,
               slidesToScroll: 1,
               align: "start",
             }}

@@ -11,6 +11,8 @@ interface FloatingRegisterProps {
   highlightColor: string;
   startDate: string;
   endDate?: string;
+  shouldOpenRegister?: boolean;
+  registrationOpen?: boolean;
 }
 
 const FloatingRegister: React.FC<FloatingRegisterProps> = ({
@@ -19,9 +21,18 @@ const FloatingRegister: React.FC<FloatingRegisterProps> = ({
   endDate,
   eventTitle,
   highlightColor,
+  shouldOpenRegister = false,
+  registrationOpen = false,
 }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
+
+  // Auto-open dialog if register parameter is present
+  useEffect(() => {
+    if (shouldOpenRegister && weezeventCode) {
+      setIsDialogOpen(true);
+    }
+  }, [shouldOpenRegister, weezeventCode]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -51,15 +62,16 @@ const FloatingRegister: React.FC<FloatingRegisterProps> = ({
           >
             {/* Desktop: Round Floating Button */}
             <button
-              onClick={() => setIsDialogOpen(true)}
-              className="hidden md:flex items-center gap-3 px-8 py-4 rounded-full font-rajdhani font-bold text-gray-950 uppercase tracking-widest text-lg hover:scale-105 active:scale-95 transition-all shadow-[0_0_30px_rgba(0,0,0,0.3)] group overflow-hidden isolate cursor-pointer"
+              onClick={() => registrationOpen && setIsDialogOpen(true)}
+              disabled={!registrationOpen}
+              className={registrationOpen ? "hidden md:flex items-center gap-3 px-8 py-4 rounded-full font-rajdhani font-bold text-gray-950 uppercase tracking-widest text-lg hover:scale-105 active:scale-95 transition-all shadow-[0_0_30px_rgba(0,0,0,0.3)] group overflow-hidden isolate cursor-pointer" : "hidden md:flex items-center gap-3 px-8 py-4 rounded-full font-rajdhani font-bold text-gray-400 uppercase tracking-widest text-lg transition-all shadow-[0_0_30px_rgba(0,0,0,0.3)] group overflow-hidden isolate cursor-not-allowed opacity-60"}
               style={{
-                backgroundColor: highlightColor,
-                boxShadow: `0 10px 30px -10px ${highlightColor}cc`,
+                backgroundColor: registrationOpen ? highlightColor : '#4b5563',
+                boxShadow: registrationOpen ? `0 10px 30px -10px ${highlightColor}cc` : '0 10px 30px -10px rgba(0,0,0,0.3)',
               }}
             >
               <LuTicket className="w-6 h-6" />
-              S'inscrire
+              {registrationOpen ? "S'inscrire" : "Inscriptions fermées"}
               {/* Shine Effect Container */}
               <div className="absolute inset-0 overflow-hidden rounded-full pointer-events-none">
                 <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/30 to-transparent -translate-x-[200%] group-hover:translate-x-[200%] transition-all duration-1000 skew-x-[-20deg] opacity-0 group-hover:opacity-100" />
@@ -68,12 +80,18 @@ const FloatingRegister: React.FC<FloatingRegisterProps> = ({
 
             {/* Mobile: Full Width Fixed Bar */}
             <button
-              onClick={() => setIsDialogOpen(true)}
-              className="flex md:hidden w-full items-center justify-center gap-3 py-4 rounded-xl font-rajdhani font-bold text-gray-950 uppercase tracking-widest text-base shadow-2xl active:scale-[0.98] transition-transform cursor-pointer"
-              style={{ backgroundColor: highlightColor }}
+              onClick={() => registrationOpen && setIsDialogOpen(true)}
+              disabled={!registrationOpen}
+              className="flex md:hidden w-full items-center justify-center gap-3 py-4 rounded-xl font-rajdhani font-bold uppercase tracking-widest text-base shadow-2xl transition-transform"
+              style={{ 
+                backgroundColor: registrationOpen ? highlightColor : '#4b5563',
+                cursor: registrationOpen ? 'pointer' : 'not-allowed',
+                opacity: registrationOpen ? 1 : 0.6,
+                color: registrationOpen ? '#111827' : '#d1d5db',
+              }}
             >
               <LuTicket className="w-5 h-5" />
-              S'inscrire à l'événement
+              {registrationOpen ? "S'inscrire à l'événement" : "Inscriptions fermées"}
             </button>
           </motion.div>
         )}
@@ -84,6 +102,7 @@ const FloatingRegister: React.FC<FloatingRegisterProps> = ({
         onClose={() => setIsDialogOpen(false)}
         weezeventCode={weezeventCode}
         title={eventTitle}
+        registrationOpen={registrationOpen}
       />
     </>
   );

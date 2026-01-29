@@ -55,13 +55,13 @@ const AboutWidget: React.FC<AboutWidgetProps> = ({
       </div>
 
       {/* About Text */}
-      <p className="text-gray-400 text-sm mb-6 leading-relaxed font-poppins w-full text-center lg:text-left">
+      <p className="text-gray-400 text-sm mb-6 leading-relaxed font-rajdhani w-full text-center lg:text-left">
         {about}
       </p>
 
       {/* Social Links */}
       <div className="w-full flex flex-col items-center lg:items-start">
-        <h3 className="text-white font-rajdhani text-xl font-semibold mb-4">
+        <h3 className="text-white font-goldman text-xl mb-4">
           Suivez <span className="text-theme">Nous :</span>
         </h3>
         <div className="flex gap-3">

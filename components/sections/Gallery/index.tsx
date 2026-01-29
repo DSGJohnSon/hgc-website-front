@@ -16,7 +16,7 @@ export default function Gallery({ data, isDetailedEventPage }: GalleryProps) {
           <p className="text-theme2 font-rajdhani uppercase tracking-wider text-base font-semibold">
             {data.subtitle}
           </p>
-          <h2 className="font-rajdhani font-bold text-4xl md:text-5xl text-white uppercase">
+          <h2 className="font-goldman text-4xl md:text-5xl text-white uppercase">
             {data.title}
           </h2>
         </div>

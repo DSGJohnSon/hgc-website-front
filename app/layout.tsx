@@ -18,13 +18,6 @@ const rajdhani = Rajdhani({
   display: "swap",
 });
 
-const poppins = Montserrat({
-  variable: "--font-poppins",
-  subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-  display: "swap",
-});
-
 const goldman = Changa_One({
   variable: "--font-goldman",
   subsets: ["latin"],
@@ -54,7 +47,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${rajdhani.variable} ${poppins.variable} ${goldman.variable} antialiased`}
+        className={`${rajdhani.variable} ${goldman.variable} antialiased`}
       >
         <div className="page-wrapper relative">
           <FloatingDecorations />

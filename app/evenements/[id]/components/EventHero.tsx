@@ -68,7 +68,7 @@ const EventHero: React.FC<
                 {type === "both" ? "Évènement & Tournoi Officiel" : type === "tournoi" ? "Tournoi Officiel" : "Événement HGC"}
               </span>
             </div>
-            <h1 className="font-rajdhani font-bold text-4xl sm:text-5xl md:text-6xl text-white uppercase leading-[0.9] drop-shadow-2xl">
+            <h1 className="font-goldman text-4xl sm:text-5xl md:text-6xl text-white uppercase leading-[0.9] drop-shadow-2xl text-nowrap">
               {title}
             </h1>
           </div>

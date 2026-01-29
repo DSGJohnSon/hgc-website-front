@@ -12,6 +12,7 @@ import {
 import { cn } from "@/lib/utils";
 import { EventItem as EventItemProps } from "@/types/pages/detail-event";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const EventItem: React.FC<EventItemProps> = ({
   id,
@@ -31,6 +32,7 @@ const EventItem: React.FC<EventItemProps> = ({
   games = [],
   color,
 }) => {
+  const router = useRouter();
   const highlightColor = color || "var(--theme-color)";
 
   // Format date for display
@@ -47,11 +49,15 @@ const EventItem: React.FC<EventItemProps> = ({
     ? `Du ${new Date(startDate).getDate()} au ${formatDate(endDate)}`
     : formatDate(startDate);
 
+  const handleCardClick = () => {
+    router.push(`/evenements/${id}`);
+  };
+
   return (
-    <Link
-      href={`/evenements/${id}`}
+    <div
+      onClick={handleCardClick}
       className={cn(
-        "group relative flex flex-col w-full rounded-xl overflow-hidden duration-300 border-2 transition-all bg-gray-950/40 backdrop-blur-sm",
+        "group relative flex flex-col w-full rounded-xl overflow-hidden duration-300 border-2 transition-all bg-gray-950/40 backdrop-blur-sm cursor-pointer",
         isOngoing
           ? "shadow-lg"
           : isPast
@@ -145,7 +151,7 @@ const EventItem: React.FC<EventItemProps> = ({
           )}
 
           {/* Title */}
-          <h3 className="font-rajdhani font-bold text-white text-lg sm:text-xl uppercase leading-tight group-hover:text-white transition-colors duration-300 line-clamp-2">
+          <h3 className="font-goldman text-white text-xl sm:text-2xl uppercase leading-tight group-hover:text-white transition-colors duration-300 line-clamp-2">
             {title}
           </h3>
 
@@ -178,20 +184,20 @@ const EventItem: React.FC<EventItemProps> = ({
           {!isPast && (
             <div className="flex flex-col gap-2">
               {isOngoing || !weezeventCode ? (
-                <Link
-                  href={`/evenements/${id}`}
+                <div
                   className="w-full py-3 rounded-lg font-rajdhani font-bold uppercase tracking-wider text-sm transition-all duration-300 text-center bg-white text-gray-950 hover:scale-[1.02]"
                   style={{
                     backgroundColor: highlightColor,
                   }}
                 >
                   plus d'informations
-                </Link>
+                </div>
               ) : (
                 <div className="flex flex-col sm:flex-row gap-2">
                   <Link
                     href={`/evenements/${id}`}
                     className="flex-1 py-3 rounded-lg font-rajdhani font-bold uppercase tracking-wider text-sm transition-all duration-300 text-center bg-white/5 text-white border border-white/10 hover:bg-white/10"
+                    onClick={(e) => e.stopPropagation()}
                   >
                     plus d'infos
                   </Link>
@@ -201,6 +207,7 @@ const EventItem: React.FC<EventItemProps> = ({
                     style={{
                       backgroundColor: highlightColor,
                     }}
+                    onClick={(e) => e.stopPropagation()}
                   >
                     s'inscrire
                   </Link>
@@ -210,7 +217,7 @@ const EventItem: React.FC<EventItemProps> = ({
           )}
         </div>
       </div>
-    </Link>
+    </div>
   );
 };
 

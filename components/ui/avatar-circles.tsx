@@ -29,7 +29,7 @@ const AvatarCircles = ({
         </div>
       ))}
       <div className="flex h-10 px-3 items-center justify-center rounded-full border border-gray-800 bg-gray-950 text-white relative z-10 whitespace-nowrap">
-        <span className="text-xs font-poppins font-medium">
+        <span className="text-xs font-rajdhani font-medium">
           +{numPeople?.toLocaleString()}
         </span>
       </div>

@@ -49,7 +49,7 @@ export default function Statistics({ data, isDetailedEventPage }: StatisticsProp
               key={index}
               className="flex flex-col items-center justify-center space-y-2"
             >
-              <span className="text-6xl md:text-7xl lg:text-8xl font-rajdhani font-medium text-white tracking-tight">
+              <span className="text-6xl md:text-7xl lg:text-8xl font-goldman font-medium text-white tracking-tight">
                 <AnimatedNumber value={stat.value} plus={stat.plus} type={stat.type} />
               </span>
               <div className="flex flex-col items-center space-y-1">
