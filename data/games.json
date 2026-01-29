@@ -35,6 +35,14 @@
     {
       "id": "amongus",
       "name": "Among Us"
+    },
+    {
+      "id": "rocket_league",
+      "name": "Rocket League"
+    },
+    {
+      "id": "fall_guys",
+      "name": "Fall Guys"
     }
   ]
 }

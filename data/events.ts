@@ -609,7 +609,7 @@ export const events: Event[] = [
     registrationOpen: false,
     description: [
     ],
-    freeplayGames: ["mariokart_world"],
+    freeplayGames: ["mariokart_world", "fc25", "fortnite", "rocket_league", "fall_guys", "valorant" ],
   },
 ];
 
