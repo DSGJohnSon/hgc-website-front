@@ -2,6 +2,7 @@
 
 export interface StatisticsData {
   stats: Array<{
+    type?: "number" | "euros";
     value: number;
     plus: boolean;
     label: string;
@@ -11,4 +12,5 @@ export interface StatisticsData {
 
 export interface StatisticsProps {
   data: StatisticsData;
+  isDetailedEventPage?: boolean;
 }

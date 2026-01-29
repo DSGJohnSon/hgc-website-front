@@ -4,10 +4,10 @@ import React from "react";
 import Image from "next/image";
 import {
   LuTrophy,
-  LuCalendar,
+  LuGamepad2,
   LuClock,
-  LuGamepad,
   LuMapPin,
+  LuCalendar,
 } from "react-icons/lu";
 import { cn } from "@/lib/utils";
 import { EventItem as EventItemProps } from "@/types/pages/detail-event";
@@ -48,7 +48,8 @@ const EventItem: React.FC<EventItemProps> = ({
     : formatDate(startDate);
 
   return (
-    <div
+    <Link
+      href={`/evenements/${id}`}
       className={cn(
         "group relative flex flex-col w-full rounded-xl overflow-hidden duration-300 border-2 transition-all bg-gray-950/40 backdrop-blur-sm",
         isOngoing
@@ -110,14 +111,14 @@ const EventItem: React.FC<EventItemProps> = ({
           <div className="bg-gray-950/80 border border-white/10 backdrop-blur-md rounded-lg p-2.5">
             {type === "both" ? (
               <div className="flex items-center gap-2">
-              <LuTrophy size={18} className="text-white" />
-              <span className="text-white text-xs">&</span>
-              <LuCalendar size={18} className="text-white" />
+                <LuTrophy size={18} className="text-white" />
+                <span className="text-white text-xs">&</span>
+                <LuGamepad2 size={18} className="text-white" />
               </div>
             ) : type === "tournoi" ? (
               <LuTrophy size={18} className="text-white" />
             ) : (
-              <LuCalendar size={18} className="text-white" />
+              <LuGamepad2 size={18} className="text-white" />
             )}
           </div>
         </div>
@@ -164,7 +165,7 @@ const EventItem: React.FC<EventItemProps> = ({
                   key={game.id}
                   className="bg-white/5 border border-white/10 rounded-full px-3 py-1 font-rajdhani text-[10px] text-gray-300 flex items-center gap-1.5 hover:bg-white/10 transition-colors"
                 >
-                  <LuGamepad size={12} style={{ color: highlightColor }} />
+                  <LuGamepad2 size={12} style={{ color: highlightColor }} />
                   {game.name}
                 </div>
               ))}
@@ -209,7 +210,7 @@ const EventItem: React.FC<EventItemProps> = ({
           )}
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 

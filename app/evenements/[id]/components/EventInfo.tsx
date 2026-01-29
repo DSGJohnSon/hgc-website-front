@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import {
-  LuCalendar,
   LuClock,
   LuMapPin,
   LuTrainFront,
@@ -12,6 +11,7 @@ import {
   LuShieldCheck,
   LuExternalLink,
   LuTicket,
+  LuGamepad2,
 } from "react-icons/lu";
 import RegistrationDialog from "./RegistrationDialog";
 import EventMap from "./EventMap";
@@ -55,11 +55,12 @@ const EventInfo: React.FC<EventInfoProps> = ({
 
   const displayDate = (() => {
     const start = formatDate(startDate);
-    
+
     // Vérifier si endDate existe et est différente de startDate
-    const hasEndDate = endDate && endDate.trim() !== "" && endDate !== startDate;
+    const hasEndDate =
+      endDate && endDate.trim() !== "" && endDate !== startDate;
     const hasStartTime = startTime && startTime.trim() !== "";
-    
+
     if (hasEndDate) {
       const end = formatDate(endDate);
       // Période avec date de fin différente
@@ -68,7 +69,7 @@ const EventInfo: React.FC<EventInfoProps> = ({
       }
       return `Du ${start} au ${end}`;
     }
-    
+
     // Date unique (ou endDate identique à startDate)
     if (hasStartTime) {
       return `Le ${start} à ${startTime}`;
@@ -142,16 +143,19 @@ const EventInfo: React.FC<EventInfoProps> = ({
                       },
                     );
                   } else if (block.type === "statistics" && block.content) {
-                    return <Statistics key={index} data={block.content} />;
+                    return <Statistics key={index} data={block.content} isDetailedEventPage={true} />;
                   } else if (block.type === "gallery" && block.content) {
-                    return <Gallery key={index} data={block.content} />;
+                    return <Gallery key={index} data={block.content} isDetailedEventPage={true} />;
                   } else {
                     return null;
                   }
                 })}
             </div>
 
-            <EventMap location={location} highlightColor={highlightColor} />
+            {/* Map Section */}
+            {location && (
+              <EventMap location={location} highlightColor={highlightColor} />
+            )}
           </div>
 
           {/* Right Column: Sidebar */}
@@ -165,7 +169,7 @@ const EventInfo: React.FC<EventInfoProps> = ({
               <div className="space-y-4">
                 <div className="flex items-start gap-4">
                   <div className="p-2 rounded-lg bg-white/5 border border-white/10">
-                    <LuCalendar
+                    <LuGamepad2
                       className="w-5 h-5"
                       style={{ color: highlightColor }}
                     />
@@ -311,16 +315,17 @@ const EventInfo: React.FC<EventInfoProps> = ({
                   <LuExternalLink className="w-4 h-4 opacity-50" />
                 </Link>
 
-                {weezeventCode && (new Date() < new Date(endDate || startDate)) && (
-                  <button
-                    onClick={() => setIsDialogOpen(true)}
-                    className="w-full py-4 rounded-xl font-rajdhani font-bold text-gray-950 uppercase tracking-widest text-sm flex items-center justify-center gap-3 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-lg"
-                    style={{ backgroundColor: highlightColor }}
-                  >
-                    <LuTicket className="w-5 h-5" />
-                    S'inscrire maintenant
-                  </button>
-                )}
+                {weezeventCode &&
+                  new Date() < new Date(endDate || startDate) && (
+                    <button
+                      onClick={() => setIsDialogOpen(true)}
+                      className="w-full py-4 rounded-xl font-rajdhani font-bold text-gray-950 uppercase tracking-widest text-sm flex items-center justify-center gap-3 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-lg"
+                      style={{ backgroundColor: highlightColor }}
+                    >
+                      <LuTicket className="w-5 h-5" />
+                      S'inscrire maintenant
+                    </button>
+                  )}
               </div>
             </div>
           </div>

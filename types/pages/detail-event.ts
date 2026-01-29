@@ -14,7 +14,7 @@ export type Event = {
   cardThumbnail: string;
   heroBanner: string;
   heroBannerMobile: string;
-  location: string;
+  location?: string;
   categoryId?: string[];
   gameId?: string[];
   color: string;
@@ -79,7 +79,8 @@ export type EventCard = Pick<
   Event,
   "id" | "type" | "title" | "startDate" | "startTime" | "cardThumbnail" | "color"
 > & {
-  date: string; // Formatted date for display
+  startDate: string;
+  endDate?: string;
   time: string; // Formatted time for display
   categories?: Array<{
     id: string;
@@ -90,6 +91,7 @@ export type EventCard = Pick<
     name: string;
     icon?: string;
   }>;
+  isPast?: boolean; // Whether the event has ended
   gradientTheme?: "theme" | "theme2" | "fifa-season";
   buttonText?: string;
   buttonLink?: string;

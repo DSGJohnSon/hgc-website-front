@@ -2,6 +2,7 @@
 
 export interface GalleryProps {
   data: GalleryData;
+  isDetailedEventPage?: boolean;
 }
 
 export interface GalleryData {

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useRef } from "react";
-import { LuGamepad, LuArrowLeft, LuArrowRight } from "react-icons/lu";
+import { LuGamepad2, LuArrowLeft, LuArrowRight } from "react-icons/lu";
 import { Stories, StoriesContent, Story } from "@/components/stories-carousel";
 import { CarouselPrevious, CarouselNext } from "@/components/carousel";
 import Autoplay from "embla-carousel-autoplay";
@@ -23,7 +23,7 @@ const GameCard: React.FC<GameCardProps> = ({ name, highlightColor }) => {
       />
 
       <div className="p-4 rounded-xl bg-white/5 border border-white/10 group-hover:scale-110 transition-transform duration-500">
-        <LuGamepad className="w-8 h-8" style={{ color: highlightColor }} />
+        <LuGamepad2 className="w-8 h-8" style={{ color: highlightColor }} />
       </div>
 
       <h4 className="font-rajdhani font-bold text-white text-xl uppercase tracking-wider text-center group-hover:text-white transition-colors">

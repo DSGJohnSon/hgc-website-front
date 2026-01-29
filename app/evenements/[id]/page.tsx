@@ -31,31 +31,41 @@ export default async function EventDetailPage({ params }: PageProps) {
   const categoryName = category ? category.name : "Événement";
 
   // Filter other events for carousel
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
   const otherEvents = eventsData
     .filter((e) => e.id !== id)
-    .map((e) => ({
-      id: e.id,
-      type: e.type as "tournoi" | "event",
-      title: e.title,
-      startDate: e.startDate,
-      startTime: e.startTime || "",
-      cardThumbnail: e.cardThumbnail,
-      color: e.color,
-      // Also include the alternative format properties
-      date: e.startDate,
-      time: e.startTime || "",
-      categories: e.categoryId
-        ?.map((catId) => categoriesData.categories.find((c) => c.id === catId))
-        .filter(
-          (cat): cat is { id: string; name: string } => cat !== undefined,
-        ),
-      games: e.gameId
-        ?.map((gameId) => gamesData.games.find((g) => g.id === gameId))
-        .filter(
-          (game): game is { id: string; name: string; icon?: string } =>
-            game !== undefined,
-        ),
-    }));
+    .map((e) => {
+      const startDate = new Date(e.startDate);
+      const endDate = e.endDate ? new Date(e.endDate) : startDate;
+      const isPast = endDate < today;
+
+      return {
+        id: e.id,
+        type: e.type as "tournoi" | "event",
+        title: e.title,
+        startDate: e.startDate,
+        startTime: e.startTime || "",
+        cardThumbnail: e.cardThumbnail,
+        color: e.color,
+        isPast,
+        // Also include the alternative format properties
+        date: e.startDate,
+        time: e.startTime || "",
+        categories: e.categoryId
+          ?.map((catId) => categoriesData.categories.find((c) => c.id === catId))
+          .filter(
+            (cat): cat is { id: string; name: string } => cat !== undefined,
+          ),
+        games: e.gameId
+          ?.map((gameId) => gamesData.games.find((g) => g.id === gameId))
+          .filter(
+            (game): game is { id: string; name: string; icon?: string } =>
+              game !== undefined,
+          ),
+      };
+    });
 
   return (
     <main className="min-h-screen bg-gray-950">

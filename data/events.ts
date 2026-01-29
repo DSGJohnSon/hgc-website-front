@@ -5,9 +5,8 @@ export const events: Event[] = [
     id: "2h-de-sport-2025",
     type: "event",
     title: "2h de sport au collège",
-    startDate: "2050-01-01",
-    endDate: "2050-12-31",
-    startTime: "00:00",
+    startDate: "2025-01-01",
+    endDate: "2025-06-30",
     cardThumbnail:
       "/assets/img/events/2h-de-sport-2025/thumbnail_2h_de_sport.png",
     heroBanner:
@@ -217,7 +216,7 @@ export const events: Event[] = [
         type: "gallery",
         content: {
           title: "Retour en images",
-          subtitle: "Quelques moments capturés lors des 2h de sport au collège",
+          subtitle: "Quelques moments capturés lors des Valorant Series à la Cité des Sciences 2025",
           images: [
             {
               src: "/assets/img/events/valorant-series-cite-des-sciences-2025/gallery/img_event_valorant_series_cite_des_sciences_2350.webp",
@@ -244,6 +243,351 @@ export const events: Event[] = [
       },
     ],
     freeplayGames: ["just_dance", "nintendo_switch_sports"],
+  },
+  {
+    id: "fifa-season-2025",
+    type: "tournoi",
+    title: "Fifa season 2025",
+    startDate: "2025-08-30",
+    endDate: "2025-08-31",
+    cardThumbnail:
+      "/assets/img/events/fifa-season-2025/thumbnail_fifa_season_2025.png",
+    heroBanner:
+      "/assets/img/events/fifa-season-2025/banner_fifa_season_2025_desktop.png",
+    heroBannerMobile:
+      "/assets/img/events/fifa-season-2025/banner_fifa_season_2025_mobile.png",
+    location: "Salle régionale des sports Maréchal, Harnes",
+    categoryId: ["fifaSeason"],
+    gameId: ["fc25"],
+    color: "#067C6E",
+    description: [
+      {
+        type: "text",
+        content: [
+          {
+            type: "paragraph",
+            paragraphs: [
+              "Nous avons eu le plaisir d'organiser et de mettre en place le tournoi \"Fifa Season\", un tournoi d'envergure sur le jeu FC25. Cet événement a opposé les meilleurs talents de deux villes : Harnes et Lens.",
+            ],
+          },
+          {
+            type: "title",
+            title: 'Un parcours de qualification intense',
+          },
+          {
+            type: "paragraph",
+            paragraphs: [
+              "Pour sélectionner les finalistes, nous avons déployé nos infrastructures sur quatre journées de compétition acharnées :",
+            ],
+          },
+          {
+            type: "list",
+            items: [
+              "Harnes : 2 journées de qualifications locales.",
+              "Lens : 2 journées de qualifications locales.",
+            ],
+          },
+          {
+            type: "paragraph",
+            paragraphs: [
+              "Ces étapes ont permis de brasser un large public et de faire monter la pression jusqu'à l'apothéose de la compétition.",
+            ],
+          },
+          {
+            type: "title",
+            title: "Une Finale d'exception à la Salle Maréchal",
+          },
+          {
+            type: "paragraph",
+            paragraphs: [
+              "Le 31 août, nous avons organisé la finale dans la Salle régionale des sports Maréchal à Harnes.",
+              "Les joueurs se sont affrontés pour la gloire de leur ville, mais aussi pour un enjeu de taille : un Cashprize de 1 500 €.",]
+          },
+          {
+            type: "title",
+            title: "Chiffres clés",
+          },
+          {
+            type: "paragraph",
+            paragraphs: [
+              "Cet événement a confirmé l'engouement massif pour l'esport de proximité et notre capacité à gérer des rassemblements de grande ampleur.",
+            ]
+          }
+        ],
+      },
+      {
+        type: "statistics",
+        content: {
+          stats: [
+            {
+              type: "euros",
+              value: 1500,
+              plus: false,
+              label: "de cashprize",
+            },
+            {
+              value: 1900,
+              plus: true,
+              label: "joueurs & visiteurs",
+              sublabel: "durant l'événement",
+            },
+          ],
+        },
+      },
+      {
+        type: "gallery",
+        content: {
+          title: "Retour en images",
+          subtitle: "Quelques moments capturés lors du Fifa Season 2025",
+          images: [
+            {
+              src: "/assets/img/events/fifa-season-2025/gallery/img_event_fifa-season-2025_6263.webp",
+              alt: "Visiteur jouant à FC25 sur PC lors du Fifa Season 2025",
+            },
+            {
+              src: "/assets/img/events/fifa-season-2025/gallery/img_event_fifa-season-2025_6264.webp",
+              alt: "Visiteurs jouant à FC25 sur PC lors du Fifa Season 2025",
+            },
+            {
+              src: "/assets/img/events/fifa-season-2025/gallery/img_event_fifa-season-2025_6274.webp",
+              alt: "Visiteurs regardant un match de qualifications sur FC25 lors du Fifa Season 2025",
+            },
+          ],
+        },
+      },
+    ],
+    freeplayGames: ["fc25"],
+  },
+  {
+    id: "gaming-house-tour-2025",
+    type: "event",
+    title: "Gaming House Tour 2025",
+    startDate: "2025-07-08",
+    endDate: "2025-08-09",
+    cardThumbnail:
+      "/assets/img/events/gaming-house-tour-2025/thumbnail_gaming-house-tour_2025.png",
+    heroBanner:
+      "/assets/img/events/gaming-house-tour-2025/banner_gaming-house-tour_2025_desktop.png",
+    heroBannerMobile:
+      "/assets/img/events/gaming-house-tour-2025/banner_gaming-house-tour_2025_mobile.png",
+    categoryId: ["gamingHouseTour"],
+    gameId: [],
+    color: "#FC902E",
+    description: [
+      {
+        type: "text",
+        content: [
+          {
+            type: "title",
+            title: "Le Gaming House Tour revient en 2025 !",
+          },
+          {
+            type: "paragraph",
+            paragraphs: [
+              "Pendant l'été 2025, nous avons transformé les centres sociaux en véritables hubs numériques. Notre mission était d'offrir aux jeunes un espace de loisirs moderne, sécurisant et convivial, directement au sein de leur structure de proximité.",
+            ],
+          },
+          {
+            type: "title",
+            title: 'Le concept : Une semaine 100% Gaming',
+          },
+          {
+            type: "paragraph",
+            paragraphs: [
+              "L'idée n'était pas seulement de poser des consoles, mais de métamorphoser le centre social pour une durée d'une semaine. Nous avons créé un espace Free Play où chaque jeune a pu :",
+            ],
+          },
+          {
+            type: "list",
+            items: [
+              "Découvrir les dernières nouveautés vidéoludiques.",
+              "Partager des moments de convivialité avec ses amis.",
+              "S'initier à la pratique du jeu vidéo dans un cadre encadré et bienveillant."
+            ],
+          },
+          {
+            type: "title",
+            title: "Chiffres clés",
+          },
+        ],
+      },
+      {
+        type: "statistics",
+        content: {
+          stats: [
+            {
+              value: 5,
+              plus: false,
+              label: "semaines d'immersion",
+            },
+            {
+              value: 620,
+              plus: true,
+              label: "joueurs & visiteurs",
+            },
+          ],
+        },
+      },
+      {
+        type: "gallery",
+        content: {
+          title: "Retour en images",
+          subtitle: "Quelques moments capturés lors des Gaming House Tour 2025",
+          images: [
+            {
+              src: "/assets/img/events/gaming-house-tour-2025/gallery/img_event_gaming-house-tour-2025.webp",
+              alt: "Visiteurs lors du Gaming House Tour 2025",
+            },
+            {
+              src: "/assets/img/events/gaming-house-tour-2025/gallery/img_event_gaming-house-tour-2025_1046.webp",
+              alt: "Visiteur lors du Gaming House Tour 2025",
+            },
+            {
+              src: "/assets/img/events/gaming-house-tour-2025/gallery/img_event_gaming-house-tour-2025_1048.webp",
+              alt: "Visiteurs jouant à Mario Kart 8 sur Nintendo Switch lors du Gaming House Tour 2025",
+            },
+            {
+              src: "/assets/img/events/gaming-house-tour-2025/gallery/img_event_gaming-house-tour-2025_1050.webp",
+              alt: "Visiteur jouant à FC25 sur PC lors du Gaming House Tour 2025",
+            },
+            {
+              src: "/assets/img/events/gaming-house-tour-2025/gallery/img_event_gaming-house-tour-2025_1052.webp",
+              alt: "Visiteur jouant à Mario Kart 8 sur Nintendo Switch lors du Gaming House Tour 2025",
+            },
+            {
+              src: "/assets/img/events/gaming-house-tour-2025/gallery/img_event_gaming-house-tour-2025_1053.webp",
+              alt: "Visiteurs jouant à Mario Kart 8 sur Nintendo Switch lors du Gaming House Tour 2025",
+            },
+            {
+              src: "/assets/img/events/gaming-house-tour-2025/gallery/img_event_gaming-house-tour-2025_1166.webp",
+              alt: "Visiteur jouant à Mario Kart 8 sur Nintendo Switch lors du Gaming House Tour 2025",
+            },
+            {
+              src: "/assets/img/events/gaming-house-tour-2025/gallery/img_event_gaming-house-tour-2025_1167.webp",
+              alt: "Visiteur jouant à Fortnite sur PC lors du Gaming House Tour 2025",
+            },
+            {
+              src: "/assets/img/events/gaming-house-tour-2025/gallery/img_event_gaming-house-tour-2025_5616.webp",
+              alt: "Visiteurs jouant à FC25 sur PC devant un panneau sponsor de l'ANCT - Agence nationale de la cohésion des territoires - lors du Gaming House Tour 2025",
+            },
+          ],
+        },
+      },
+    ],
+    freeplayGames: ["fc25", "mariokart8", "fortnite"],
+  },
+  {
+    id: "polar-lens-2025",
+    type: "event",
+    title: "Polar Lens 2025",
+    startDate: "2025-03-22",
+    endDate: "2025-03-23",
+    cardThumbnail:
+      "/assets/img/events/polar-lens-2025/thumbnail_polar_lens_2025.png",
+    heroBanner:
+      "/assets/img/events/polar-lens-2025/banner_polar_lens_2025_desktop.png",
+    heroBannerMobile:
+      "/assets/img/events/polar-lens-2025/banner_polar_lens_2025_mobile.png",
+    categoryId: ["polarLens"],
+    gameId: [],
+    color: "#DAA019",
+    description: [
+      {
+        type: "text",
+        content: [
+          {
+            type: "paragraph",
+            paragraphs: [
+              "Les 22 et 23 mars 2025, nous avons eu le plaisir de participer au célèbre salon du roman policier, Polar Lens, aux Halles Bertinchamps. Pour cette édition, nous avons relevé un défi passionnant : prouver que le jeu vidéo est un prolongement naturel de la littérature policière.",
+            ],
+          },
+          {
+            type: "title",
+            title: 'Une sélection thématique : Mystère et Investigation',
+          },
+          {
+            type: "paragraph",
+            paragraphs: [
+              "Pour coller à l'ADN du salon, nous avons conçu un stand sur-mesure mettant en avant des jeux où la réflexion, l'exploration et la déduction sont reines :",
+            ],
+          },
+          {
+            type: "list",
+            items: [
+              "Tomb Raider : Pour l'aventure, la recherche d'indices et l'exploration de mystères anciens.",
+              "Among Us : Le phénomène de déduction sociale où chaque joueur doit mener l'enquête pour démasquer l'imposteur.",
+              "Et bien d'autres titres orientés \"énigmes`\" pour stimuler l'esprit d'analyse des visiteurs."
+            ],
+          },
+          {
+            type: "title",
+            title: "Chiffres clés",
+          },
+        ],
+      },
+      {
+        type: "statistics",
+        content: {
+          stats: [
+            {
+              value: 5800,
+              plus: true,
+              label: "joueurs & visiteurs",
+            },
+          ],
+        },
+      },
+      {
+        type: "gallery",
+        content: {
+          title: "Retour en images",
+          subtitle: "Quelques moments capturés lors des Gaming House Tour 2025",
+          images: [
+            {
+              src: "/assets/img/events/polar-lens-2025/gallery/img_event_polar-lens-2025_2921.webp",
+              alt: "Visiteurs lors du Polar Lens 2025",
+            },
+            {
+              src: "/assets/img/events/polar-lens-2025/gallery/img_event_polar-lens-2025_7669.webp",
+              alt: "Visiteurs lors du Polar Lens 2025",
+            },
+            {
+              src: "/assets/img/events/polar-lens-2025/gallery/img_event_polar-lens-2025_7704.webp",
+              alt: "Visiteurs lors du Polar Lens 2025",
+            },
+            {
+              src: "/assets/img/events/polar-lens-2025/gallery/img_event_polar-lens-2025_7658.webp",
+              alt: "Visiteurs lors du Polar Lens 2025",
+            },
+            {
+              src: "/assets/img/events/polar-lens-2025/gallery/img_event_polar-lens-2025_7655.webp",
+              alt: "Visiteurs lors du Polar Lens 2025",
+            },
+            {
+              src: "/assets/img/events/polar-lens-2025/gallery/img_event_polar-lens-2025_7602.webp",
+              alt: "Visiteurs lors du Polar Lens 2025",
+            },
+            {
+              src: "/assets/img/events/polar-lens-2025/gallery/img_event_polar-lens-2025_6263.webp",
+              alt: "Visiteurs lors du Polar Lens 2025",
+            },
+            {
+              src: "/assets/img/events/polar-lens-2025/gallery/img_event_polar-lens-2025_2966.webp",
+              alt: "Visiteurs lors du Polar Lens 2025",
+            },
+            {
+              src: "/assets/img/events/polar-lens-2025/gallery/img_event_polar-lens-2025_2933.webp",
+              alt: "Visiteurs lors du Polar Lens 2025",
+            },
+            {
+              src: "/assets/img/events/polar-lens-2025/gallery/img_event_polar-lens-2025_2927.webp",
+              alt: "Visiteurs lors du Polar Lens 2025",
+            },
+          ],
+        },
+      },
+    ],
+    freeplayGames: ["tombraider", "amongus"],
   },
 ];
 

@@ -2,7 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
-import { LuTrophy, LuCalendar } from "react-icons/lu";
+import { LuTrophy, LuGamepad2, } from "react-icons/lu";
 import { EventHero as EventHeroProps } from "@/types/pages/detail-event";
 
 const EventHero: React.FC<
@@ -56,12 +56,12 @@ const EventHero: React.FC<
                   <div className="flex items-center gap-2">
                     <LuTrophy size={18} className="text-white" />
                     <span className="text-white text-xs">&</span>
-                    <LuCalendar size={18} className="text-white" />
+                    <LuGamepad2 size={18} className="text-white" />
                   </div>
                 ) : type === "tournoi" ? (
                   <LuTrophy size={18} className="text-white" />
                 ) : (
-                  <LuCalendar size={18} className="text-white" />
+                  <LuGamepad2 size={18} className="text-white" />
                 )}
               </div>
               <span className="font-rajdhani font-bold text-white uppercase tracking-[0.2em] text-sm sm:text-base">

@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { MenuItemData } from "@/types";
-import { LuChevronDown, LuGamepad } from "react-icons/lu";
+import { LuChevronDown, LuGamepad2 } from "react-icons/lu";
 
 interface MainMenuProps {
   menuItems: MenuItemData[];
@@ -45,17 +45,17 @@ const MenuItem: React.FC<MenuItemProps> = ({ item, isSubmenu = false }) => {
         className={`
           relative font-rajdhani font-semibold text-white
           flex items-center
-          group/gamepad
+          group/Gamepad2
           transition-colors duration-300
           ${!isSubmenu ? "text-base p-[8px] xl:p-[16px]" : "text-base capitalize"}
           hover:text-theme
         `}
       >
         {isSubmenu && (
-          <LuGamepad
+          <LuGamepad2
             className="
-              text-theme opacity-0 group-hover/gamepad:opacity-100
-              translate-x-[-20px] group-hover/gamepad:translate-x-[-5px]
+              text-theme opacity-0 group-hover/Gamepad2:opacity-100
+              translate-x-[-20px] group-hover/Gamepad2:translate-x-[-5px]
               transition-all duration-300
             "
           />

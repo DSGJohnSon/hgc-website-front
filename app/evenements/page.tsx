@@ -174,7 +174,7 @@ function EventsContent() {
       const searchMatch =
         !searchQuery ||
         event.title.toLowerCase().includes(searchLower) ||
-        event.location.toLowerCase().includes(searchLower) ||
+        event.location?.toLowerCase().includes(searchLower) ||
         event.categories?.some((c) =>
           c.name.toLowerCase().includes(searchLower)
         ) ||
@@ -200,7 +200,7 @@ function EventsContent() {
       .filter((e) => e.isPast)
       .sort(
         (a, b) =>
-          new Date(b.startDate).getTime() - new Date(a.startDate).getTime()
+          new Date(b.endDate ?? b.startDate).getTime() - new Date(a.endDate ?? a.startDate).getTime()
       );
   }, [filteredEvents]);
 
