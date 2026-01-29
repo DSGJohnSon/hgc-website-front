@@ -2,11 +2,13 @@
 
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { LuTrophy, LuGamepad2, LuClock, LuCalendar } from "react-icons/lu";
 import { cn } from "@/lib/utils";
 import { EventCard as EventCardProps } from "@/types/pages/detail-event";
 
 const EventCard: React.FC<EventCardProps> = ({
+  id,
   type,
   title,
   startDate,
@@ -36,22 +38,26 @@ const EventCard: React.FC<EventCardProps> = ({
     : formatDate(startDate);
 
   return (
-    <div
-      className="group flex flex-col w-full h-full rounded-xl overflow-hidden duration-300 border-4 border-gray-950 transition-all bg-gray-950"
-      style={
-        {
-          ["--hover-border-color" as string]: highlightColor,
-        } as React.CSSProperties
-      }
-      onMouseEnter={(e) => {
-        if (color) {
-          e.currentTarget.style.borderColor = highlightColor;
-        }
-      }}
-      onMouseLeave={(e) => {
-        e.currentTarget.style.borderColor = "";
-      }}
+    <Link
+      href={`/evenements/${id}`}
+      className="block w-full h-full"
     >
+      <div
+        className="group flex flex-col w-full h-full rounded-xl overflow-hidden duration-300 border-4 border-gray-950 transition-all bg-gray-950 cursor-pointer"
+        style={
+          {
+            ["--hover-border-color" as string]: highlightColor,
+          } as React.CSSProperties
+        }
+        onMouseEnter={(e) => {
+          if (color) {
+            e.currentTarget.style.borderColor = highlightColor;
+          }
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.borderColor = "";
+        }}
+      >
       {/* Top Image Section */}
       <div className="relative aspect-square w-full overflow-hidden">
         <Image
@@ -175,7 +181,8 @@ const EventCard: React.FC<EventCardProps> = ({
           )}
         </div>
       </div>
-    </div>
+      </div>
+    </Link>
   );
 };
 
