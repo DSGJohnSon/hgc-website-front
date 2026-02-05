@@ -33,7 +33,7 @@ const EventCarousel: React.FC<EventCarouselProps> = ({
   // Autoplay plugin with pause on interaction
   const autoplayRef = useRef(
     Autoplay({
-      delay: 4000,
+      delay: 60000,
       stopOnInteraction: false,
       stopOnMouseEnter: true,
     }),

@@ -242,7 +242,7 @@ export const events: Event[] = [
         },
       },
     ],
-    freeplayGames: ["just_dance", "nintendo_switch_sports"],
+    freeplayGames: ["valorant", "fortnite"],
   },
   {
     id: "fifa-season-2025",
