@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { LuTicket } from "react-icons/lu";
-import RegistrationDialog from "./RegistrationDialog";
+import { useWeezeventDialog } from "@/components/providers/WeezeventDialogProvider";
 
 interface FloatingRegisterProps {
   weezeventCode?: string;
@@ -25,14 +25,14 @@ const FloatingRegister: React.FC<FloatingRegisterProps> = ({
   registrationOpen = false,
 }) => {
   const [isVisible, setIsVisible] = useState(false);
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const { openDialog } = useWeezeventDialog();
 
   // Auto-open dialog if register parameter is present
   useEffect(() => {
-    if (shouldOpenRegister && weezeventCode) {
-      setIsDialogOpen(true);
+    if (shouldOpenRegister && weezeventCode && registrationOpen) {
+      openDialog(weezeventCode, eventTitle);
     }
-  }, [shouldOpenRegister, weezeventCode]);
+  }, [shouldOpenRegister, weezeventCode, registrationOpen, eventTitle, openDialog]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -62,7 +62,7 @@ const FloatingRegister: React.FC<FloatingRegisterProps> = ({
           >
             {/* Desktop: Round Floating Button */}
             <button
-              onClick={() => registrationOpen && setIsDialogOpen(true)}
+              onClick={() => weezeventCode && openDialog(weezeventCode, eventTitle, registrationOpen)}
               disabled={!registrationOpen}
               className={registrationOpen ? "hidden md:flex items-center gap-3 px-8 py-4 rounded-full font-rajdhani font-bold text-gray-950 uppercase tracking-widest text-lg hover:scale-105 active:scale-95 transition-all shadow-[0_0_30px_rgba(0,0,0,0.3)] group overflow-hidden isolate cursor-pointer" : "hidden md:flex items-center gap-3 px-8 py-4 rounded-full font-rajdhani font-bold text-gray-400 uppercase tracking-widest text-lg transition-all shadow-[0_0_30px_rgba(0,0,0,0.3)] group overflow-hidden isolate cursor-not-allowed opacity-60"}
               style={{
@@ -80,7 +80,7 @@ const FloatingRegister: React.FC<FloatingRegisterProps> = ({
 
             {/* Mobile: Full Width Fixed Bar */}
             <button
-              onClick={() => registrationOpen && setIsDialogOpen(true)}
+              onClick={() => weezeventCode && openDialog(weezeventCode, eventTitle, registrationOpen)}
               disabled={!registrationOpen}
               className="flex md:hidden w-full items-center justify-center gap-3 py-4 rounded-xl font-rajdhani font-bold uppercase tracking-widest text-base shadow-2xl transition-transform"
               style={{ 
@@ -96,14 +96,6 @@ const FloatingRegister: React.FC<FloatingRegisterProps> = ({
           </motion.div>
         )}
       </AnimatePresence>
-
-      <RegistrationDialog
-        isOpen={isDialogOpen}
-        onClose={() => setIsDialogOpen(false)}
-        weezeventCode={weezeventCode}
-        title={eventTitle}
-        registrationOpen={registrationOpen}
-      />
     </>
   );
 };

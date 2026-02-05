@@ -5,20 +5,20 @@ import { motion, AnimatePresence } from "framer-motion";
 import { LuTicket, LuX } from "react-icons/lu";
 import Ticketing from "@/components/sections/Ticketing";
 
-interface RegistrationDialogProps {
+interface WeezeventDialogProps {
   isOpen: boolean;
   onClose: () => void;
-  weezeventCode?: string;
+  weezeventCode: string;
   title: string;
   registrationOpen?: boolean;
 }
 
-const RegistrationDialog: React.FC<RegistrationDialogProps> = ({
+const WeezeventDialog: React.FC<WeezeventDialogProps> = ({
   isOpen,
   onClose,
   weezeventCode,
   title,
-  registrationOpen = false,
+  registrationOpen = true,
 }) => {
   // Prevent scroll when open
   useEffect(() => {
@@ -32,8 +32,6 @@ const RegistrationDialog: React.FC<RegistrationDialogProps> = ({
     };
   }, [isOpen]);
 
-  if (!weezeventCode) return null;
-
   return (
     <AnimatePresence>
       {isOpen && (
@@ -44,25 +42,26 @@ const RegistrationDialog: React.FC<RegistrationDialogProps> = ({
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 z-500 bg-gray-950/95 backdrop-blur-md"
+            className="fixed inset-0 z-9998 bg-gray-950/95 backdrop-blur-md"
           />
 
           {/* Dialog Container */}
-          <div className="fixed inset-0 z-501 flex items-center justify-center p-4 pointer-events-none">
+          <div className="fixed inset-0 z-9999 flex items-center justify-center p-4 pointer-events-none">
             <motion.div
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              onClick={(e) => e.stopPropagation()}
               className="bg-gray-900 border border-white/10 rounded-2xl w-full max-w-4xl max-h-[80vh] mt-24 overflow-hidden flex flex-col pointer-events-auto shadow-2xl"
             >
               {/* Header */}
               <div className="flex items-center justify-between px-6 py-4 border-b border-white/10 bg-gray-900/50">
                 <div>
                   <h3 className="font-rajdhani font-bold text-xl text-white uppercase tracking-tight">
-                    S'inscrire à l'événement
+                    {title}
                   </h3>
                   <p className="text-gray-400 font-goldman text-sm uppercase tracking-wider">
-                    {title}
+                    Billetterie Weezevent
                   </p>
                 </div>
                 <button
@@ -113,4 +112,4 @@ const RegistrationDialog: React.FC<RegistrationDialogProps> = ({
   );
 };
 
-export default RegistrationDialog;
+export default WeezeventDialog;

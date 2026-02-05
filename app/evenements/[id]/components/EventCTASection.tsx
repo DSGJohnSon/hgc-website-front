@@ -1,11 +1,11 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { cn } from "@/lib/utils";
 import { LuTicket } from "react-icons/lu";
 import Button from "@/components/ui/Button";
 import BlinkingPixelBackground from "@/components/sections/CTASection/BlinkingPixelBackground";
-import RegistrationDialog from "./RegistrationDialog";
+import { useWeezeventDialog } from "@/components/providers/WeezeventDialogProvider";
 
 interface EventCTASectionProps {
   highlightColor: string;
@@ -20,10 +20,9 @@ const EventCTASection: React.FC<EventCTASectionProps> = ({
   weezeventCode,
   eventTitle,
 }) => {
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const { openDialog } = useWeezeventDialog();
 
   return (
-    <>
       <section className="relative w-full mt-32 mb-32">
         <BlinkingPixelBackground
           className="py-8 md:py-32 bg-transparent"
@@ -69,7 +68,7 @@ const EventCTASection: React.FC<EventCTASectionProps> = ({
                   <Button
                     variant="primary"
                     size="md"
-                    onClick={() => setIsDialogOpen(true)}
+                    onClick={() => weezeventCode && openDialog(weezeventCode, eventTitle, registrationOpen)}
                     textUpperCase={true}
                     icon={<LuTicket className="w-5 h-5" />}
                     iconPosition="left"
@@ -100,16 +99,7 @@ const EventCTASection: React.FC<EventCTASectionProps> = ({
           </div>
         </BlinkingPixelBackground>
       </section>
-
-      <RegistrationDialog
-        isOpen={isDialogOpen}
-        onClose={() => setIsDialogOpen(false)}
-        weezeventCode={weezeventCode}
-        title={eventTitle}
-        registrationOpen={registrationOpen}
-      />
-    </>
-  );
-};
-
-export default EventCTASection;
+    );
+  };
+  
+  export default EventCTASection;
