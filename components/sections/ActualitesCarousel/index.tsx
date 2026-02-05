@@ -76,7 +76,7 @@ const ActualitesCarousel: React.FC<ActualitesCarouselProps> = ({
               align: "start",
             }}
           >
-            <StoriesContent className="gap-0 items-center">
+            <StoriesContent className="gap-8 lg:gap-0 items-center">
               {recentActualites.map((actualite, index) => (
                 <Story
                   key={actualite.id}
