@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import Link from "next/link";
 import {
   LuClock,
@@ -13,7 +13,7 @@ import {
   LuTicket,
   LuGamepad2,
 } from "react-icons/lu";
-import RegistrationDialog from "./RegistrationDialog";
+import { useWeezeventDialog } from "@/components/providers/WeezeventDialogProvider";
 import EventMap from "./EventMap";
 import { Event } from "@/types/pages/detail-event";
 import Statistics from "@/components/sections/Statistics";
@@ -44,7 +44,7 @@ const EventInfo: React.FC<EventInfoProps> = ({
   eventTitle,
   registrationOpen = false,
 }) => {
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const { openDialog } = useWeezeventDialog();
 
   // Format date
   const formatDate = (dateStr: string) => {
@@ -320,7 +320,7 @@ const EventInfo: React.FC<EventInfoProps> = ({
                 {weezeventCode &&
                   new Date() < new Date(endDate || startDate) && (
                     <button
-                      onClick={() => registrationOpen && setIsDialogOpen(true)}
+                      onClick={() => registrationOpen && weezeventCode && openDialog(weezeventCode, eventTitle, registrationOpen)}
                       disabled={!registrationOpen}
                       className="w-full py-4 rounded-xl font-rajdhani font-bold uppercase tracking-widest text-sm flex items-center justify-center gap-3 transition-all shadow-lg"
                       style={{ 
@@ -339,16 +339,6 @@ const EventInfo: React.FC<EventInfoProps> = ({
           </div>
         </div>
       </div>
-
-      {weezeventCode && (
-        <RegistrationDialog
-          isOpen={isDialogOpen}
-          onClose={() => setIsDialogOpen(false)}
-          weezeventCode={weezeventCode}
-          title={eventTitle}
-          registrationOpen={registrationOpen}
-        />
-      )}
     </section>
   );
 };

@@ -1,8 +1,11 @@
+import React from "react";
 import Hero, { HeroData } from "@/components/sections/Hero";
 import Testimony, { TestimonyData } from "@/components/sections/Testimony";
 import Partners, { PartnersData } from "@/components/sections/Partners";
 import Statistics from "@/components/sections/Statistics";
 import Gallery from "@/components/sections/Gallery";
+import ActualitesCarousel from "@/components/sections/ActualitesCarousel";
+import actualitesData from "@/data/actualites";
 import SimpleSection, {
   SimpleSectionData,
 } from "@/components/sections/SimpleSection";
@@ -144,7 +147,24 @@ export default function Home() {
 
   return (
     <div className="min-h-screen">
-      {sections.map((section, index) => renderSection(section, index))}
+      {sections.map((section, index) => {
+        // Insert ActualitesCarousel after Hero (first section)
+        if (index === 0) {
+          return (
+            <React.Fragment key={`fragment-${index}`}>
+              {renderSection(section, index)}
+              <ActualitesCarousel
+                data={{
+                  title: "ACTUALITÉS",
+                  subtitle: "À LA UNE",
+                  actualites: actualitesData,
+                }}
+              />
+            </React.Fragment>
+          );
+        }
+        return renderSection(section, index);
+      })}
     </div>
   );
 }
