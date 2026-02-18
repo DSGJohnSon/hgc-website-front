@@ -1,4 +1,10 @@
 import React from "react";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Mentions Légales | Holiday Geek Cup",
+  description: "Consultez les mentions légales du site Holiday Geek Cup, incluant les informations sur l'association, les droits d'auteur et les conditions d'utilisation.",
+};
 
 export default function MentionsLegalesPage() {
   return (

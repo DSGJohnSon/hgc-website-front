@@ -29,6 +29,11 @@ const goldman = Changa_One({
 export const metadata: Metadata = {
   title: "HGC - Esports & Gaming",
   description: "Professional esports and gaming platform",
+  icons: {
+    icon: "/assets/logos/logo-hgc.svg",
+    shortcut: "/assets/logos/logo-hgc.svg",
+    apple: "/assets/logos/logo-hgc.svg",
+  },
 };
 
 export default function RootLayout({

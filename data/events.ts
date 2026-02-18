@@ -17,6 +17,7 @@ export const events: Event[] = [
     categoryId: [],
     gameId: ["just_dance", "nintendo_switch_sports"],
     color: "#6B46D8",
+    isCancelled: false,
     description: [
       {
         type: "text",
@@ -137,6 +138,7 @@ export const events: Event[] = [
     categoryId: [],
     gameId: ["valorant"],
     color: "#E37C1F",
+    isCancelled: false,
     description: [
       {
         type: "text",
@@ -260,6 +262,7 @@ export const events: Event[] = [
     categoryId: ["fifaSeason"],
     gameId: ["fc25"],
     color: "#067C6E",
+    isCancelled: false,
     description: [
       {
         type: "text",
@@ -373,6 +376,7 @@ export const events: Event[] = [
     categoryId: ["gamingHouseTour"],
     gameId: [],
     color: "#FC902E",
+    isCancelled: false,
     description: [
       {
         type: "text",
@@ -491,6 +495,7 @@ export const events: Event[] = [
     categoryId: ["polarLens"],
     gameId: [],
     color: "#DAA019",
+    isCancelled: false,
     description: [
       {
         type: "text",
@@ -607,6 +612,7 @@ export const events: Event[] = [
     location: "Église Sainte-Marguerite, 4 Pl. de la Marne, Sains-en-Gohelle",
     weezeventCode: "<a title=\"Logiciel billetterie en ligne\"   href=\"https://weezevent.com/?c=sys_widget\"   class=\"weezevent-widget-integration\"   data-src=\"https://widget.weezevent.com/ticket/E1712193/?code=23061&locale=fr-FR&width_auto=1&color_primary=00AEEF\"   data-width=\"650\"   data-height=\"600\"   data-id=\"1712193\"   data-resize=\"1\"   data-width_auto=\"1\"   data-noscroll=\"0\"   data-use-container=\"yes\"   data-type=\"neo\"   target=\"_blank\">Billetterie Weezevent</a><script type=\"text/javascript\" src=\"https://widget.weezevent.com/weez.js\"></script>",
     registrationOpen: true,
+    isCancelled: true,
     description: [
     ],
     freeplayGames: ["mariokart_world", "fc25", "fortnite", "rocket_league", "fall_guys", "valorant" ],

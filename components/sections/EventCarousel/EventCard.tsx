@@ -19,6 +19,8 @@ const EventCard: React.FC<EventCardProps> = ({
   games = [],
   color,
   isPast = false,
+  isCancelled = false,
+  linkHref,
 }) => {
   // Use custom color if provided, otherwise fallback to CSS variable
   const highlightColor = color || "var(--theme-color)";
@@ -39,7 +41,7 @@ const EventCard: React.FC<EventCardProps> = ({
 
   return (
     <Link
-      href={`/evenements/${id}`}
+      href={linkHref || `/evenements/${id}`}
       className="block w-full h-full"
     >
       <div
@@ -60,46 +62,60 @@ const EventCard: React.FC<EventCardProps> = ({
       >
       {/* Top Image Section */}
       <div className="relative aspect-square w-full overflow-hidden">
-        <Image
-          src={cardThumbnail}
-          alt={title}
-          fill
-          className={cn(
-            "object-cover transition-transform duration-500 group-hover:scale-110",
-            isPast && "grayscale",
-          )}
-        />
-        {/* Gradient Overlay */}
-        <div
-          className={cn(
-            "absolute inset-0 bg-linear-to-t via-transparent to-transparent opacity-60 transition-opacity duration-300 group-hover:opacity-80",
-          )}
-          style={
-            color
-              ? {
-                  backgroundImage: `linear-gradient(to top, ${highlightColor}66, transparent, transparent)`,
-                }
-              : undefined
-          }
-        />
-        {/* Type Icon Overlay */}
-        <div className="absolute top-3 left-3 z-10">
-          <div className="bg-gray-950/80 border-2 border-gray-200/20 backdrop-blur-sm rounded-lg p-2">
-            {type === "both" ? (
-              <div className="flex items-center gap-2">
-                <LuTrophy size={18} className="text-white" />
-                <span className="text-white text-xs">&</span>
-                <LuGamepad2 size={18} className="text-white" />
-              </div>
-            ) : type === "tournoi" ? (
-              <LuTrophy size={18} className="text-white" />
-            ) : (
-              <LuGamepad2 size={18} className="text-white" />
-            )}
+        {id === "see-all" ? (
+          <div
+            className="w-full h-full flex items-center justify-center bg-linear-to-t from-gray-900/80 to-gray-900/20 rounded-lg"
+          >
+            <h2 className="font-goldman text-white text-2xl md:text-3xl uppercase text-center px-4">
+              {title}
+            </h2>
           </div>
-        </div>
+        ) : (
+          <Image
+            src={cardThumbnail}
+            alt={title}
+            fill
+            className={cn(
+              "object-cover transition-transform duration-500 group-hover:scale-110",
+              isPast || isCancelled ? "grayscale" : "",
+            )}
+          />
+        )}
+        {/* Gradient Overlay */}
+        {id !== "see-all" && (
+          <div
+            className={cn(
+              "absolute inset-0 bg-linear-to-t via-transparent to-transparent opacity-60 transition-opacity duration-300 group-hover:opacity-80",
+            )}
+            style={
+              color
+                ? {
+                    backgroundImage: `linear-gradient(to top, ${highlightColor}66, transparent, transparent)`,
+                  }
+                : undefined
+            }
+          />
+        )}
+        {/* Type Icon Overlay */}
+        {id !== "see-all" && (
+          <div className="absolute top-3 left-3 z-10">
+            <div className="bg-gray-950/80 border-2 border-gray-200/20 backdrop-blur-sm rounded-lg p-2">
+              {type === "both" ? (
+                <div className="flex items-center gap-2">
+                  <LuTrophy size={18} className="text-white" />
+                  <span className="text-white text-xs">&</span>
+                  <LuGamepad2 size={18} className="text-white" />
+                </div>
+              ) : type === "tournoi" ? (
+                <LuTrophy size={18} className="text-white" />
+              ) : (
+                <LuGamepad2 size={18} className="text-white" />
+              )}
+            </div>
+          </div>
+        )}
         {/* Terminé Badge */}
-        {isPast && (
+        {isPast && !isCancelled && id !== "see-all" && (
           <div className="absolute top-3 right-3 z-10">
             <div className="bg-gray-950/90 border-2 border-gray-500 backdrop-blur-sm rounded-lg px-3 pb-1">
               <span className="text-gray-400 font-rajdhani font-bold text-xs uppercase tracking-wider">
@@ -108,13 +124,24 @@ const EventCard: React.FC<EventCardProps> = ({
             </div>
           </div>
         )}
+        {/* Annulé Badge */}
+        {isCancelled && id !== "see-all" && (
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
+            <div className="bg-red-600 border-2 border-red-400 backdrop-blur-sm rounded-lg px-3 py-1 lg: px-4 lg:py-2">
+              <span className="text-white font-rajdhani font-bold text-lg lg:text-xl uppercase tracking-wider">
+                Annulé
+              </span>
+            </div>
+          </div>
+        )}
       </div>
 
       {/* Bottom Content Section */}
-      <div className="flex-1 p-4 space-y-3 flex flex-col justify-between bg-gray-900">
+      {id !== "see-all" && (
+        <div className="flex-1 p-4 space-y-3 flex flex-col justify-between bg-gray-900">
         <div className="space-y-3">
           {/* Category Badges */}
-          {categories.length > 0 && (
+          {categories.length > 0 && id !== "see-all" && (
             <div className="flex flex-wrap gap-1.5">
               {categories.map((category, index) => (
                 <span
@@ -133,12 +160,12 @@ const EventCard: React.FC<EventCardProps> = ({
           )}
 
           {/* Title */}
-          <h3 className="font-goldman text-white text-sm sm:text-base md:text-xl uppercase leading-tight line-clamp-2">
+          <h3 className={`font-goldman text-white text-sm sm:text-base md:text-xl uppercase leading-tight ${id === "see-all" ? "text-center" : ""}`}>
             {title}
           </h3>
 
           {/* Game Badges */}
-          {games.length > 0 && (
+          {games.length > 0 && id !== "see-all" && (
             <div className="flex flex-wrap gap-1.5">
               {games.map((game) => (
                 <div
@@ -155,32 +182,35 @@ const EventCard: React.FC<EventCardProps> = ({
         </div>
 
         {/* Date & Time Footer */}
-        <div className="flex items-center justify-between gap-2 pt-2 border-t border-white/10">
-          {/* Date */}
-          <div className="flex items-center gap-1.5 text-gray-400">
-            <LuCalendar
-              className="w-3.5 h-3.5 sm:w-4 sm:h-4"
-              style={{ color: highlightColor }}
-            />
-            <span className="font-rajdhani text-xs sm:text-sm font-semibold">
-              {displayDate}
-            </span>
-          </div>
-
-          {/* Time */}
-          {time && (
-            <div className="flex items-center gap-1.5 text-white">
-              <LuClock
+        {id !== "see-all" && (
+          <div className="flex items-center justify-between gap-2 pt-2 border-t border-white/10">
+            {/* Date */}
+            <div className="flex items-center gap-1.5 text-gray-400">
+              <LuCalendar
                 className="w-3.5 h-3.5 sm:w-4 sm:h-4"
                 style={{ color: highlightColor }}
               />
               <span className="font-rajdhani text-xs sm:text-sm font-semibold">
-                {time}
+                {displayDate}
               </span>
             </div>
-          )}
-        </div>
+
+            {/* Time */}
+            {time && (
+              <div className="flex items-center gap-1.5 text-white">
+                <LuClock
+                  className="w-3.5 h-3.5 sm:w-4 sm:h-4"
+                  style={{ color: highlightColor }}
+                />
+                <span className="font-rajdhani text-xs sm:text-sm font-semibold">
+                  {time}
+                </span>
+              </div>
+            )}
+          </div>
+        )}
       </div>
+      )}
       </div>
     </Link>
   );

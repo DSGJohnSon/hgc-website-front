@@ -1,18 +1,45 @@
 import { notFound } from "next/navigation";
-import eventsData from "@/data/events";
+import { Metadata } from "next";
+import { events as eventsData } from "@/data/events";
 import categoriesData from "@/data/categories.json";
+import { prepareEvents } from "@/lib/eventUtils";
 import EventHero from "./components/EventHero";
 import EventInfo from "./components/EventInfo";
-import FreeplaySection from "./components/FreeplaySection";
-import FloatingRegister from "./components/FloatingRegister";
 import Partners from "@/components/sections/Partners";
-import EventCarousel from "@/components/sections/EventCarousel";
+import FreeplaySection from "./components/FreeplaySection";
 import EventCTASection from "./components/EventCTASection";
-import gamesData from "@/data/games.json";
+import EventCarousel from "@/components/sections/EventCarousel";
+import FloatingRegister from "./components/FloatingRegister";
 
 interface PageProps {
   params: Promise<{ id: string }>;
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { id } = await params;
+  const event = eventsData.find((e) => e.id === id);
+
+  if (!event) {
+    return {
+      title: "Événement non trouvé | Holiday Geek Cup",
+      description: "L'événement demandé n'existe pas.",
+    };
+  }
+
+  const category = event.categoryId?.[0]
+    ? categoriesData.categories.find((c) => c.id === event.categoryId?.[0])
+    : null;
+  const categoryName = category ? category.name : "Événement";
+
+  const descriptionText = Array.isArray(event.description)
+    ? (event.description[0] as any)?.content?.[0]?.paragraphs?.[0]
+    : undefined;
+
+  return {
+    title: `${event.title} | ${categoryName} - Holiday Geek Cup`,
+    description: descriptionText || `Découvrez l'événement ${event.title} organisé par Holiday Geek Cup. ${event.location ? `Lieu : ${event.location}.` : ""}`,
+  };
 }
 
 export default async function EventDetailPage({ params, searchParams }: PageProps) {
@@ -33,42 +60,11 @@ export default async function EventDetailPage({ params, searchParams }: PageProp
     : null;
   const categoryName = category ? category.name : "Événement";
 
+  // If event is cancelled, registration is not open
+  const effectiveRegistrationOpen = event.isCancelled ? false : (event.registrationOpen ?? false);
+
   // Filter other events for carousel
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
-
-  const otherEvents = eventsData
-    .filter((e) => e.id !== id)
-    .map((e) => {
-      const startDate = new Date(e.startDate);
-      const endDate = e.endDate ? new Date(e.endDate) : startDate;
-      const isPast = endDate < today;
-
-      return {
-        id: e.id,
-        type: e.type as "tournoi" | "event",
-        title: e.title,
-        startDate: e.startDate,
-        startTime: e.startTime || "",
-        cardThumbnail: e.cardThumbnail,
-        color: e.color,
-        isPast,
-        // Also include the alternative format properties
-        date: e.startDate,
-        time: e.startTime || "",
-        categories: e.categoryId
-          ?.map((catId) => categoriesData.categories.find((c) => c.id === catId))
-          .filter(
-            (cat): cat is { id: string; name: string } => cat !== undefined,
-          ),
-        games: e.gameId
-          ?.map((gameId) => gamesData.games.find((g) => g.id === gameId))
-          .filter(
-            (game): game is { id: string; name: string; icon?: string } =>
-              game !== undefined,
-          ),
-      };
-    });
+  const otherEvents = prepareEvents(eventsData, id, 10);
 
   return (
     <main className="min-h-screen bg-gray-950">
@@ -79,6 +75,7 @@ export default async function EventDetailPage({ params, searchParams }: PageProp
         bannerImage={event.heroBanner}
         bannerImageMobile={event.heroBannerMobile}
         color={event.color}
+        isCancelled={event.isCancelled}
         heroBanner={event.heroBanner}
         heroBannerMobile={event.heroBannerMobile}
       />
@@ -95,7 +92,7 @@ export default async function EventDetailPage({ params, searchParams }: PageProp
             transports={event.transports ? event.transports : undefined}
             weezeventCode={event.weezeventCode}
             eventTitle={event.title}
-            registrationOpen={event.registrationOpen ?? false}
+            registrationOpen={effectiveRegistrationOpen}
           />
 
           {event.partners && event.partners.length > 0 && (
@@ -118,9 +115,10 @@ export default async function EventDetailPage({ params, searchParams }: PageProp
           {event.weezeventCode && (
             <EventCTASection
               highlightColor={event.color}
-              registrationOpen={event.registrationOpen ?? false}
+              registrationOpen={effectiveRegistrationOpen}
               weezeventCode={event.weezeventCode}
               eventTitle={event.title}
+              isCancelled={event.isCancelled}
             />
           )}
 
@@ -144,7 +142,8 @@ export default async function EventDetailPage({ params, searchParams }: PageProp
         startDate={event.startDate}
         endDate={event.endDate}
         shouldOpenRegister={shouldOpenRegister}
-        registrationOpen={event.registrationOpen ?? false}
+        registrationOpen={effectiveRegistrationOpen}
+        isCancelled={event.isCancelled}
       />
     </main>
   );

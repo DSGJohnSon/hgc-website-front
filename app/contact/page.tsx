@@ -1,13 +1,19 @@
 "use client";
 
 import React from "react";
+import Head from "next/head";
 import { Mail } from "lucide-react";
 import { FaInstagram, FaFacebook, FaXTwitter } from "react-icons/fa6";
 import Button from "@/components/ui/Button";
 
 export default function Contact() {
   return (
-    <div className="min-h-screen bg-gray-950">
+    <>
+      <Head>
+        <title>Contact | Holiday Geek Cup</title>
+        <meta name="description" content="Contactez Holiday Geek Cup pour toute question concernant nos événements gaming et tournois esport. Retrouvez-nous sur les réseaux sociaux." />
+      </Head>
+      <div className="min-h-screen bg-gray-950">
       {/* Hero Section */}
       <section className="relative pt-72 pb-20 px-4">
         <div className="container mx-auto">
@@ -233,5 +239,6 @@ export default function Contact() {
         </div>
       </section>
     </div>
+    </>
   );
 }

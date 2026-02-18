@@ -66,6 +66,7 @@ export type Event = {
     src: string;
   }[];
   freeplayGames: string[];
+  isCancelled?: boolean;
 };
 
 // ============================================
@@ -93,6 +94,8 @@ export type EventCard = Pick<
     icon?: string;
   }>;
   isPast?: boolean; // Whether the event has ended
+  isCancelled?: boolean; // Whether the event is cancelled
+  linkHref?: string; // Optional custom link for special cards
   gradientTheme?: "theme" | "theme2" | "fifa-season";
   buttonText?: string;
   buttonLink?: string;
@@ -105,6 +108,7 @@ export type EventCard = Pick<
 export type EventItem = Event & {
   isOngoing?: boolean;
   isPast?: boolean;
+  isCancelled?: boolean;
   categories?: Array<{
     id: string;
     name: string;
@@ -127,4 +131,5 @@ export type EventHero = Pick<
   "title" | "type" | "heroBanner" | "heroBannerMobile" | "color"
 > & {
   categoryName?: string;
+  isCancelled?: boolean;
 };

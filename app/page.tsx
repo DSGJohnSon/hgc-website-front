@@ -1,4 +1,5 @@
 import React from "react";
+import { Metadata } from "next";
 import Hero, { HeroData } from "@/components/sections/Hero";
 import Testimony, { TestimonyData } from "@/components/sections/Testimony";
 import Partners, { PartnersData } from "@/components/sections/Partners";
@@ -17,9 +18,13 @@ import homePageData from "@/data/pages/official/home-page.json";
 import Ticketing, { TicketingData } from "@/components/sections/Ticketing";
 import { StatisticsData } from "@/types/components/sections/Statistics";
 import { GalleryData } from "@/types/components/sections/Gallery";
-import eventsData from "@/data/events";
-import categoriesData from "@/data/categories.json";
-import gamesData from "@/data/games.json";
+import { events as eventsData } from "@/data/events";
+import { prepareEvents } from "@/lib/eventUtils";
+
+export const metadata: Metadata = {
+  title: "Holiday Geek Cup - Accueil | Événements Gaming et Tournois Esport",
+  description: "Découvrez Holiday Geek Cup, votre destination pour les événements gaming, tournois esport et activités ludiques. Rejoignez la communauté des gamers passionnés.",
+};
 
 interface Section {
   type: string;
@@ -31,56 +36,26 @@ export default function Home() {
   const sections = homePageData.sections as Section[];
 
   // Prepare real events for Hero carousel
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
+  const preparedEvents = prepareEvents(eventsData);
 
-  const preparedEvents = eventsData
-    .map((e) => {
-      const startDate = new Date(e.startDate);
-      const endDate = e.endDate ? new Date(e.endDate) : startDate;
-      const isOngoing = startDate <= today && endDate >= today;
-      const isPast = endDate < today;
-      const isUpcoming = startDate > today;
-
-      return {
-        id: e.id,
-        type: e.type as "tournoi" | "event",
-        title: e.title,
-        startDate: e.startDate,
-        startTime: e.startTime || "",
-        cardThumbnail: e.cardThumbnail,
-        color: e.color,
-        isPast,
-        isOngoing,
-        isUpcoming,
-        date: e.startDate,
-        time: e.startTime || "",
-        categories: e.categoryId
-          ?.map((catId) => categoriesData.categories.find((c) => c.id === catId))
-          .filter(
-            (cat): cat is { id: string; name: string } => cat !== undefined,
-          ),
-        games: e.gameId
-          ?.map((gameId) => gamesData.games.find((g) => g.id === gameId))
-          .filter(
-            (game): game is { id: string; name: string; icon?: string } =>
-              game !== undefined,
-          ),
-      };
-    })
-    .sort((a, b) => {
-      // Priority: ongoing > upcoming > past
-      if (a.isOngoing && !b.isOngoing) return -1;
-      if (!a.isOngoing && b.isOngoing) return 1;
-      if (a.isUpcoming && !b.isUpcoming && !b.isOngoing) return -1;
-      if (!a.isUpcoming && b.isUpcoming && !a.isOngoing) return 1;
-      // Within same category, sort by date (ascending for upcoming, descending for past)
-      if (a.isUpcoming && b.isUpcoming) {
-        return new Date(a.startDate).getTime() - new Date(b.startDate).getTime();
-      }
-      return new Date(b.startDate).getTime() - new Date(a.startDate).getTime();
-    })
-    .slice(0, 10);
+  // Add "see all" card at the end
+  const eventsWithSeeAll = [
+    ...preparedEvents,
+    {
+      id: "see-all",
+      type: "event" as const,
+      title: "Voir tous les événements",
+      startDate: "",
+      time: "",
+      cardThumbnail: "/assets/img/placeholders/see-all-events.png", // Placeholder image
+      color: "#6B46D8", // Or a neutral color
+      isPast: false,
+      isCancelled: false,
+      linkHref: "/evenements",
+      categories: [],
+      games: [],
+    },
+  ];
 
   const renderSection = (section: Section, index: number) => {
     const isLastSection = index === sections.length - 1;
@@ -92,7 +67,7 @@ export default function Home() {
           ...section.data,
           slider: {
             ...(section.data as HeroData).slider,
-            events: preparedEvents,
+            events: eventsWithSeeAll,
           },
         } as HeroData;
         return <Hero key={index} data={heroData} />;

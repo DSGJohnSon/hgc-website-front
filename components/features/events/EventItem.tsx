@@ -25,6 +25,7 @@ const EventItem: React.FC<EventItemProps> = ({
   location,
   isOngoing,
   isPast,
+  isCancelled,
   weezeventCode,
   categoryId,
   gameId,
@@ -100,8 +101,22 @@ const EventItem: React.FC<EventItemProps> = ({
           src={cardThumbnail}
           alt={title}
           fill
-          className="object-cover transition-transform duration-700 group-hover:scale-105"
+          className={cn(
+            "object-cover transition-transform duration-700 group-hover:scale-105",
+            isCancelled && "grayscale"
+          )}
         />
+        {/* Cancelled Badge */}
+        {isCancelled && (
+          <>
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 flex items-center gap-2 px-4 py-1.5 rounded-full shadow-lg bg-red-600">
+              <span className="text-lg font-rajdhani font-bold text-white uppercase tracking-wider">
+                Annulé
+              </span>
+            </div>
+            <div className="block absolute top-0 left-0 w-full h-full bg-gray-950/70"></div>
+          </>
+        )}
         {/* Gradient Overlay */}
         <div
           className={cn(
@@ -183,7 +198,11 @@ const EventItem: React.FC<EventItemProps> = ({
         <div className="pt-2 mt-auto">
           {!isPast && (
             <div className="flex flex-col gap-2">
-              {isOngoing || !weezeventCode ? (
+              {isCancelled ? (
+                <div className="w-full py-3 rounded-lg font-rajdhani font-bold uppercase tracking-wider text-sm text-center bg-gray-600 text-gray-300 cursor-not-allowed">
+                  Événement annulé
+                </div>
+              ) : isOngoing || !weezeventCode ? (
                 <div
                   className="w-full py-3 rounded-lg font-rajdhani font-bold uppercase tracking-wider text-sm transition-all duration-300 text-center bg-white text-gray-950 hover:scale-[1.02]"
                   style={{
