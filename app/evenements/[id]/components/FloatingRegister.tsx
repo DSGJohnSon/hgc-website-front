@@ -13,6 +13,7 @@ interface FloatingRegisterProps {
   endDate?: string;
   shouldOpenRegister?: boolean;
   registrationOpen?: boolean;
+  isCancelled?: boolean;
 }
 
 const FloatingRegister: React.FC<FloatingRegisterProps> = ({
@@ -23,6 +24,7 @@ const FloatingRegister: React.FC<FloatingRegisterProps> = ({
   highlightColor,
   shouldOpenRegister = false,
   registrationOpen = false,
+  isCancelled = false,
 }) => {
   const [isVisible, setIsVisible] = useState(false);
   const { openDialog } = useWeezeventDialog();
@@ -71,7 +73,7 @@ const FloatingRegister: React.FC<FloatingRegisterProps> = ({
               }}
             >
               <LuTicket className="w-6 h-6" />
-              {registrationOpen ? "S'inscrire" : "Inscriptions fermées"}
+              {registrationOpen ? "S'inscrire" : (isCancelled ? "Événement annulé" : "Inscriptions fermées")}
               {/* Shine Effect Container */}
               <div className="absolute inset-0 overflow-hidden rounded-full pointer-events-none">
                 <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/30 to-transparent -translate-x-[200%] group-hover:translate-x-[200%] transition-all duration-1000 skew-x-[-20deg] opacity-0 group-hover:opacity-100" />
@@ -91,7 +93,7 @@ const FloatingRegister: React.FC<FloatingRegisterProps> = ({
               }}
             >
               <LuTicket className="w-5 h-5" />
-              {registrationOpen ? "S'inscrire à l'événement" : "Inscriptions fermées"}
+              {registrationOpen ? "S'inscrire à l'événement" : (isCancelled ? "Événement annulé" : "Inscriptions fermées")}
             </button>
           </motion.div>
         )}

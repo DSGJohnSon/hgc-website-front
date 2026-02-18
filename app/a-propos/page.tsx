@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import Hero, { HeroData } from "@/components/sections/Hero";
 import Testimony, { TestimonyData } from "@/components/sections/Testimony";
 import Partners, { PartnersData } from "@/components/sections/Partners";
@@ -24,6 +25,11 @@ import TrophyCarousel, {
 } from "@/components/sections/TrophyCarousel";
 import { StatisticsData } from "@/types/components/sections/Statistics";
 import { GalleryData } from "@/types/components/sections/Gallery";
+
+export const metadata: Metadata = {
+  title: "À propos | Holiday Geek Cup",
+  description: "Découvrez l'histoire et la mission de Holiday Geek Cup, une association dédiée à la promotion du gaming et de l'esport auprès des jeunes.",
+};
 
 interface Section {
   type: string;

@@ -2,6 +2,7 @@
 
 import React, { useState, useMemo, useEffect, Suspense } from "react";
 import { useSearchParams, useRouter, usePathname } from "next/navigation";
+import Head from "next/head";
 import EventFilters from "@/components/features/events/EventFilters";
 import EventGrid from "@/components/features/events/EventGrid";
 import eventsData from "@/data/events";
@@ -205,7 +206,12 @@ function EventsContent() {
   }, [filteredEvents]);
 
   return (
-    <div className="min-h-screen bg-transparent pb-20">
+    <>
+      <Head>
+        <title>Événements Gaming | Holiday Geek Cup</title>
+        <meta name="description" content="Découvrez tous les événements gaming et tournois esport organisés par Holiday Geek Cup. Filtrez par catégories et jeux pour trouver votre prochain défi." />
+      </Head>
+      <div className="min-h-screen bg-transparent pb-20">
       <PixelBackground
         className="relative pt-72 pb-24 flex flex-col items-center justify-center bg-transparent"
         speed={30}
@@ -288,6 +294,7 @@ function EventsContent() {
         </div>
       </div>
     </div>
+    </>
   );
 }
 

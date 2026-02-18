@@ -2,15 +2,24 @@
 
 import React from "react";
 import Image from "next/image";
-import { LuTrophy, LuGamepad2, } from "react-icons/lu";
+import { LuTrophy, LuGamepad2 } from "react-icons/lu";
 import { EventHero as EventHeroProps } from "@/types/pages/detail-event";
+import { cn } from "@/lib/utils";
 
 const EventHero: React.FC<
   EventHeroProps & {
     bannerImage: string;
     bannerImageMobile?: string;
   }
-> = ({ title, type, categoryName, bannerImage, bannerImageMobile, color }) => {
+> = ({
+  title,
+  type,
+  categoryName,
+  bannerImage,
+  bannerImageMobile,
+  color,
+  isCancelled,
+}) => {
   const highlightColor = color || "#d97706";
 
   return (
@@ -22,8 +31,16 @@ const EventHero: React.FC<
           alt={title}
           fill
           priority
-          className="object-cover"
+          className={cn("object-cover", isCancelled && "grayscale")}
         />
+        {isCancelled && (
+          <div className="relative top-0 left-0 w-full h-full z-30">
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 bg-red-600 text-white px-6 py-4 rounded-lg font-rajdhani font-bold uppercase tracking-wider text-2xl text-nowrap z-20">
+              Événement annulé
+            </div>
+            <div className="absolute inset-0 bg-gray-950/70 z-10"></div>
+          </div>
+        )}
       </div>
 
       {/* Background Image Mobile */}
@@ -33,8 +50,17 @@ const EventHero: React.FC<
           alt={title}
           fill
           priority
-          className="object-cover"
+          className={cn("object-cover", isCancelled && "grayscale")}
         />
+        {/* Cancelled Badge */}
+        {isCancelled && (
+          <div className="relative top-0 left-0 w-full h-full z-30">
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 bg-red-600 text-white px-4 py-2 rounded-lg font-rajdhani font-bold uppercase tracking-wider text-lg text-nowrap z-20">
+              Événement annulé
+            </div>
+            <div className="absolute inset-0 bg-gray-950/70 z-10"></div>
+          </div>
+        )}
       </div>
 
       {/* Gradient Overlay */}
@@ -65,10 +91,14 @@ const EventHero: React.FC<
                 )}
               </div>
               <span className="font-rajdhani font-bold text-white uppercase tracking-[0.2em] text-sm sm:text-base">
-                {type === "both" ? "Évènement & Tournoi Officiel" : type === "tournoi" ? "Tournoi Officiel" : "Événement HGC"}
+                {type === "both"
+                  ? "Évènement & Tournoi Officiel"
+                  : type === "tournoi"
+                    ? "Tournoi Officiel"
+                    : "Événement HGC"}
               </span>
             </div>
-            <h1 className="font-goldman text-4xl sm:text-5xl md:text-6xl text-white uppercase leading-[0.9] drop-shadow-2xl text-nowrap">
+            <h1 className="font-goldman text-4xl sm:text-5xl md:text-6xl text-white uppercase leading-[0.9] drop-shadow-2xl text-balance">
               {title}
             </h1>
           </div>

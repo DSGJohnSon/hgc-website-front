@@ -1,4 +1,10 @@
 import React from "react";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Règlement des Tournois | Holiday Geek Cup",
+  description: "Consultez le règlement général des tournois organisés par Holiday Geek Cup. Règles, conditions de participation et fair-play pour tous nos événements gaming.",
+};
 
 export default function ReglementPage() {
   return (

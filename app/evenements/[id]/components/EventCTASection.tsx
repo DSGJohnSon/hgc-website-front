@@ -12,6 +12,7 @@ interface EventCTASectionProps {
   registrationOpen?: boolean;
   weezeventCode?: string;
   eventTitle: string;
+  isCancelled?: boolean;
 }
 
 const EventCTASection: React.FC<EventCTASectionProps> = ({
@@ -19,6 +20,7 @@ const EventCTASection: React.FC<EventCTASectionProps> = ({
   registrationOpen = false,
   weezeventCode,
   eventTitle,
+  isCancelled = false,
 }) => {
   const { openDialog } = useWeezeventDialog();
 
@@ -91,7 +93,7 @@ const EventCTASection: React.FC<EventCTASectionProps> = ({
                       background: "#4b5563",
                     }}
                   >
-                    Inscriptions fermées
+                    {isCancelled ? "Événement annulé" : "Inscriptions fermées"}
                   </Button>
                 )}
               </div>
