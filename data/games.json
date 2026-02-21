@@ -2,47 +2,115 @@
   "games": [
     {
       "id": "just_dance",
-      "name": "Just Dance"
+      "name": "Just Dance",
+      "blockType": "text",
+      "bgType": "",
+      "color1": "",
+      "color2": "",
+      "logo": "",
+      "img": ""
     },
     {
       "id": "nintendo_switch_sports",
-      "name": "Nintendo Switch Sports"
+      "name": "Nintendo Switch Sports",
+      "blockType": "text",
+      "bgType": "",
+      "color1": "",
+      "color2": "",
+      "logo": "",
+      "img": ""
     },
     {
       "id": "valorant",
-      "name": "Valorant"
+      "name": "Valorant",
+      "blockType": "block",
+      "bgType": "color",
+      "color1": "#FF4655",
+      "color2": "",
+      "logo": "/assets/logos/games/valorant_white.svg",
+      "img": "/assets/img/games/valorant_agents.webp",
+      "bgImg": "/assets/img/games/valorant_game.webp"
     },
     {
       "id": "fc25",
-      "name": "FC 25"
+      "name": "FC 25",
+      "blockType": "text",
+      "bgType": "",
+      "color1": "",
+      "color2": "",
+      "logo": "",
+      "img": ""
     },
     {
       "id": "mariokart8",
-      "name": "Mario Kart 8"
+      "name": "Mario Kart 8",
+      "blockType": "text",
+      "bgType": "",
+      "color1": "",
+      "color2": "",
+      "logo": "",
+      "img": ""
     },
     {
       "id": "mariokart_world",
-      "name": "Mario Kart World"
+      "name": "Mario Kart World",
+      "blockType": "text",
+      "bgType": "",
+      "color1": "",
+      "color2": "",
+      "logo": "",
+      "img": ""
     },
     {
       "id": "fortnite",
-      "name": "Fortnite"
+      "name": "Fortnite",
+      "blockType": "block",
+      "bgType": "gradient",
+      "color1": "#007cbe",
+      "color2": "#43e2e7",
+      "logo": "/assets/logos/games/fortnite_white.svg",
+      "img": "/assets/img/games/fortnite_skins.webp",
+      "bgImg": "/assets/img/games/fortnite_game.webp"
     },
     {
       "id": "tombraider",
-      "name": "Tomb Raider"
+      "name": "Tomb Raider",
+      "blockType": "text",
+      "bgType": "",
+      "color1": "",
+      "color2": "",
+      "logo": "",
+      "img": ""
     },
     {
       "id": "amongus",
-      "name": "Among Us"
+      "name": "Among Us",
+      "blockType": "text",
+      "bgType": "",
+      "color1": "",
+      "color2": "",
+      "logo": "",
+      "img": ""
     },
     {
       "id": "rocket_league",
-      "name": "Rocket League"
+      "name": "Rocket League",
+      "blockType": "text",
+      "bgType": "",
+      "color1": "",
+      "color2": "",
+      "logo": "",
+      "img": ""
     },
     {
       "id": "fall_guys",
-      "name": "Fall Guys"
+      "name": "Fall Guys",
+      "blockType": "text",
+      "bgType": "",
+      "color1": "",
+      "color2": "",
+      "logo": "",
+      "img": ""
     }
   ]
 }
