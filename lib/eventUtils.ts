@@ -48,7 +48,7 @@ export function prepareEvents(
         games: e.gameId
           ?.map((gameId) => gamesData.games.find((g) => g.id === gameId))
           .filter(
-            (game): game is { id: string; name: string; icon?: string } =>
+            (game): game is NonNullable<typeof game> =>
               game !== undefined,
           ),
       };
