@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import Button, { ButtonVariant, ButtonSize } from "@/components/ui/Button";
@@ -23,6 +25,7 @@ export interface SimpleSectionData {
   paragraphs: string[];
   image?: SimpleSectionImage | null;
   ctas?: SimpleSectionCTA[];
+  backgroundImage?: string;
 }
 
 interface SimpleSectionProps {
@@ -34,6 +37,9 @@ const SimpleSection: React.FC<SimpleSectionProps> = ({ data, className }) => {
   const { subtitle, title, paragraphs, image, ctas = [] } = data;
   const hasImage = image && image.src;
   const imagePosition = image?.position || "right";
+  const [fitClass, setFitClass] = useState<"object-cover" | "object-contain">(
+    "object-cover",
+  );
 
   return (
     <section
@@ -44,14 +50,14 @@ const SimpleSection: React.FC<SimpleSectionProps> = ({ data, className }) => {
           className={cn(
             "flex flex-col gap-12 items-center",
             hasImage && "md:flex-row md:gap-16 lg:gap-24",
-            hasImage && imagePosition === "left" && "md:flex-row-reverse"
+            hasImage && imagePosition === "left" && "md:flex-row-reverse",
           )}
         >
           {/* Text Content */}
           <div
             className={cn(
               "flex flex-col space-y-6",
-              hasImage ? "md:w-1/2" : "max-w-4xl mx-auto text-center"
+              hasImage ? "md:w-1/2" : "max-w-4xl mx-auto text-center",
             )}
           >
             {/* Subtitle */}
@@ -65,7 +71,7 @@ const SimpleSection: React.FC<SimpleSectionProps> = ({ data, className }) => {
             <h2
               className={cn(
                 "font-goldman text-4xl md:text-5xl lg:text-6xl text-white uppercase leading-tight",
-                !hasImage && "text-center"
+                !hasImage && "text-center",
               )}
             >
               {title}
@@ -78,7 +84,7 @@ const SimpleSection: React.FC<SimpleSectionProps> = ({ data, className }) => {
                   key={index}
                   className={cn(
                     "text-gray-300 text-base md:text-lg leading-relaxed font-rajdhani",
-                    !hasImage && "text-center"
+                    !hasImage && "text-center",
                   )}
                 >
                   {paragraph}
@@ -91,7 +97,7 @@ const SimpleSection: React.FC<SimpleSectionProps> = ({ data, className }) => {
               <div
                 className={cn(
                   "flex flex-wrap gap-4 pt-4",
-                  !hasImage && "justify-center"
+                  !hasImage && "justify-center",
                 )}
               >
                 {ctas.map((cta, index) => (
@@ -118,8 +124,25 @@ const SimpleSection: React.FC<SimpleSectionProps> = ({ data, className }) => {
                   src={image.src}
                   alt={image.alt}
                   fill
-                  className="object-cover"
+                  className={fitClass}
                   sizes="(max-width: 768px) 100vw, 50vw"
+                  onLoad={(e) => {
+                    const { naturalWidth, naturalHeight } = e.currentTarget;
+                    if (naturalWidth && naturalHeight) {
+                      console.log("image", image.src);
+                      console.log("naturalWidth", naturalWidth);
+                      console.log("naturalHeight", naturalHeight);
+                      const ratio = naturalWidth / naturalHeight;
+                      console.log("ratio", ratio);
+                      // Le conteneur a un aspect 4/3 (1.333).
+                      // On passe en "contain" si l'image est trop large (> 1.6) ou trop étroite/haute (< 1.1)
+                      if (ratio > 1.6) {
+                        setFitClass("object-contain");
+                      } else {
+                        setFitClass("object-cover");
+                      }
+                    }
+                  }}
                 />
               </div>
             </div>

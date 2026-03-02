@@ -18,6 +18,7 @@ import EventMap from "./EventMap";
 import { Event } from "@/types/pages/detail-event";
 import Statistics from "@/components/sections/Statistics";
 import Gallery from "@/components/sections/Gallery";
+import { FaWalking } from "react-icons/fa";
 
 interface EventInfoProps {
   description: Event["description"];
@@ -145,9 +146,21 @@ const EventInfo: React.FC<EventInfoProps> = ({
                       },
                     );
                   } else if (block.type === "statistics" && block.content) {
-                    return <Statistics key={index} data={block.content} isDetailedEventPage={true} />;
+                    return (
+                      <Statistics
+                        key={index}
+                        data={block.content}
+                        isDetailedEventPage={true}
+                      />
+                    );
                   } else if (block.type === "gallery" && block.content) {
-                    return <Gallery key={index} data={block.content} isDetailedEventPage={true} />;
+                    return (
+                      <Gallery
+                        key={index}
+                        data={block.content}
+                        isDetailedEventPage={true}
+                      />
+                    );
                   } else {
                     return null;
                   }
@@ -232,58 +245,73 @@ const EventInfo: React.FC<EventInfoProps> = ({
                     Comment s'y rendre ?
                   </h4>
 
-                  {transports.metro && (
-                    <div className="flex items-start gap-4">
-                      <LuTrainFront className="w-5 h-5 text-gray-400 shrink-0 mt-1" />
-                      <p className="text-gray-400 text-sm font-rajdhani">
-                        Métro{" "}
-                        <span className="text-white font-bold">
-                          {transports.metro.lines.join(", ")}
-                        </span>{" "}
-                        : Arrêt{" "}
-                        <span className="text-white font-bold">
-                          {transports.metro.station}
-                        </span>
-                      </p>
-                    </div>
-                  )}
+                  {transports.metro &&
+                    transports.metro.map((metro) => (
+                      <div className="flex items-start gap-4">
+                        <LuTrainFront className="w-5 h-5 text-gray-400 shrink-0" />
+                        <p className="text-gray-400 text-sm font-rajdhani">
+                          Métro{" "}
+                          <span className="text-white font-bold">
+                            {metro.lines.join(", ")}
+                          </span>{" "}
+                          : Arrêt{" "}
+                          <span className="text-white font-bold">
+                            {metro.station}
+                          </span>
+                        </p>
+                        <p className="text-gray-500 font-rajdhani flex items-center gap-1">
+                          <FaWalking className="size-3.5 text-gray-400 shrink-0" />
+                          {metro.walkTimeInMin} min.
+                        </p>
+                      </div>
+                    ))}
 
-                  {transports.tramway && (
-                    <div className="flex items-start gap-4">
-                      <LuTrainFront className="w-5 h-5 text-gray-400 shrink-0 mt-1" />
-                      <p className="text-gray-400 text-sm font-rajdhani">
-                        Tramway{" "}
-                        <span className="text-white font-bold">
-                          {transports.tramway.lines.join(", ")}
-                        </span>{" "}
-                        : Arrêt{" "}
-                        <span className="text-white font-bold">
-                          {transports.tramway.station}
-                        </span>
-                      </p>
-                    </div>
-                  )}
+                  {transports.tramway &&
+                    transports.tramway.map((tramway) => (
+                      <div className="flex items-start gap-4">
+                        <LuTrainFront className="w-5 h-5 text-gray-400 shrink-0" />
+                        <p className="text-gray-400 text-sm font-rajdhani">
+                          Tramway{" "}
+                          <span className="text-white font-bold">
+                            {tramway.lines.join(", ")}
+                          </span>{" "}
+                          : Arrêt{" "}
+                          <span className="text-white font-bold">
+                            {tramway.station}
+                          </span>
+                        </p>
+                        <p className="text-gray-500 font-rajdhani flex items-center gap-1">
+                          <FaWalking className="size-3.5 text-gray-400 shrink-0" />
+                          {tramway.walkTimeInMin} min.
+                        </p>
+                      </div>
+                    ))}
 
-                  {transports.bus && (
-                    <div className="flex items-start gap-4">
-                      <LuBus className="w-5 h-5 text-gray-400 shrink-0 mt-1" />
-                      <p className="text-gray-400 text-sm font-rajdhani">
-                        Bus{" "}
-                        <span className="text-white font-bold">
-                          {transports.bus.lines.join(", ")}
-                        </span>{" "}
-                        : Arrêt{" "}
-                        <span className="text-white font-bold">
-                          {transports.bus.station}
-                        </span>
-                      </p>
-                    </div>
-                  )}
+                  {transports.bus &&
+                    transports.bus.map((bus) => (
+                      <div className="flex items-start gap-4" key={bus.station}>
+                        <LuBus className="w-5 h-5 text-gray-400 shrink-0" />
+                        <p className="text-gray-400 font-rajdhani">
+                          Bus{" "}
+                          <span className="text-white font-bold">
+                            {bus.lines.join(", ")}
+                          </span>{" "}
+                          : Arrêt{" "}
+                          <span className="text-white font-bold">
+                            {bus.station}
+                          </span>
+                        </p>
+                        <p className="text-gray-500 font-rajdhani flex items-center gap-1">
+                          <FaWalking className="size-3.5 text-gray-400 shrink-0" />
+                          {bus.walkTimeInMin} min.
+                        </p>
+                      </div>
+                    ))}
 
                   {transports.car && (
                     <div className="space-y-3">
                       <div className="flex items-start gap-4">
-                        <LuCar className="w-5 h-5 text-gray-400 shrink-0 mt-1" />
+                        <LuCar className="w-5 h-5 text-gray-400 shrink-0" />
                         <p className="text-white font-rajdhani font-bold text-sm">
                           Parkings à proximité :
                         </p>
@@ -292,10 +320,14 @@ const EventInfo: React.FC<EventInfoProps> = ({
                         {transports.car.parkings.map((p, idx) => (
                           <div key={idx} className="text-xs">
                             <p className="text-gray-200 font-bold">
-                              {p.name} ({p.distance})
+                              {p.name} ({p.distanceInMeters}m)
                             </p>
                             <p className="text-gray-500 font-rajdhani">
                               {p.address}
+                            </p>
+                            <p className="text-gray-500 font-rajdhani flex items-center gap-1">
+                              <FaWalking className="size-3.5 text-gray-400 shrink-0" />
+                              {p.walkTimeInMin} min.
                             </p>
                           </div>
                         ))}
@@ -320,18 +352,26 @@ const EventInfo: React.FC<EventInfoProps> = ({
                 {weezeventCode &&
                   new Date() < new Date(endDate || startDate) && (
                     <button
-                      onClick={() => registrationOpen && weezeventCode && openDialog(weezeventCode, eventTitle, registrationOpen)}
+                      onClick={() =>
+                        registrationOpen &&
+                        weezeventCode &&
+                        openDialog(weezeventCode, eventTitle, registrationOpen)
+                      }
                       disabled={!registrationOpen}
                       className="w-full py-4 rounded-xl font-rajdhani font-bold uppercase tracking-widest text-sm flex items-center justify-center gap-3 transition-all shadow-lg"
-                      style={{ 
-                        backgroundColor: registrationOpen ? highlightColor : '#4b5563',
-                        color: registrationOpen ? '#111827' : '#d1d5db',
-                        cursor: registrationOpen ? 'pointer' : 'not-allowed',
+                      style={{
+                        backgroundColor: registrationOpen
+                          ? highlightColor
+                          : "#4b5563",
+                        color: registrationOpen ? "#111827" : "#d1d5db",
+                        cursor: registrationOpen ? "pointer" : "not-allowed",
                         opacity: registrationOpen ? 1 : 0.6,
                       }}
                     >
                       <LuTicket className="w-5 h-5" />
-                      {registrationOpen ? "S'inscrire maintenant" : "Inscriptions fermées"}
+                      {registrationOpen
+                        ? "S'inscrire maintenant"
+                        : "Inscriptions fermées"}
                     </button>
                   )}
               </div>

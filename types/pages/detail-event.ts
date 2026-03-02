@@ -42,20 +42,24 @@ export type Event = {
     metro?: {
       lines: string[];
       station: string;
-    };
+      walkTimeInMin: number;
+    }[];
     bus?: {
       lines: string[];
       station: string;
-    };
+      walkTimeInMin: number;
+    }[];
     tramway?: {
       lines: string[];
       station: string;
-    };
+      walkTimeInMin: number;
+    }[];
     car?: {
       parkings: {
         name: string;
         address: string;
-        distance: string;
+        distanceInMeters: number;
+        walkTimeInMin: number;
       }[];
     };
   };

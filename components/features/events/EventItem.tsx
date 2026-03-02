@@ -103,7 +103,7 @@ const EventItem: React.FC<EventItemProps> = ({
           fill
           className={cn(
             "object-cover transition-transform duration-700 group-hover:scale-105",
-            isCancelled && "grayscale"
+            isCancelled && "grayscale",
           )}
         />
         {/* Cancelled Badge */}
@@ -181,7 +181,7 @@ const EventItem: React.FC<EventItemProps> = ({
           {/* Game Badges */}
           {games.length > 0 && (
             <div className="flex flex-wrap gap-2 pt-1">
-              {games.map((game) => (
+              {games.slice(0, 3).map((game) => (
                 <div
                   key={game.id}
                   className="bg-white/5 border border-white/10 rounded-full px-3 py-1 font-rajdhani text-[10px] text-gray-300 flex items-center gap-1.5 hover:bg-white/10 transition-colors"
@@ -190,6 +190,10 @@ const EventItem: React.FC<EventItemProps> = ({
                   {game.name}
                 </div>
               ))}
+              <div className="bg-white/5 border border-white/10 rounded-full px-3 py-1 font-rajdhani text-[10px] text-gray-300 flex items-center gap-1.5 hover:bg-white/10 transition-colors">
+                <LuGamepad2 size={12} style={{ color: highlightColor }} />+{" "}
+                {games.length - 3}
+              </div>
             </div>
           )}
         </div>

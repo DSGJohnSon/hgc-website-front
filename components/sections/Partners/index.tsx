@@ -67,7 +67,7 @@ export default function Partners({
         stopOnInteraction: false,
         startDelay: 0,
       }),
-    []
+    [],
   );
 
   const autoScrollMobile1 = useMemo(
@@ -77,7 +77,7 @@ export default function Partners({
         stopOnInteraction: false,
         startDelay: 0,
       }),
-    []
+    [],
   );
 
   const autoScrollMobile2 = useMemo(
@@ -87,7 +87,7 @@ export default function Partners({
         stopOnInteraction: false,
         startDelay: 0,
       }),
-    []
+    [],
   );
 
   const autoScrollMobile3 = useMemo(
@@ -97,7 +97,7 @@ export default function Partners({
         stopOnInteraction: false,
         startDelay: 0,
       }),
-    []
+    [],
   );
 
   return (
@@ -106,7 +106,7 @@ export default function Partners({
         "w-full overflow-hidden bg-transparent",
         isLastSection
           ? "h-auto min-h-[60svh] sm:min-h-[70svh] md:h-[80svh]"
-          : "h-auto min-h-screen md:h-screen"
+          : "h-auto min-h-screen md:h-screen",
       )}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 mt-16 sm:mt-24 md:mt-32 max-w-full">
@@ -123,58 +123,77 @@ export default function Partners({
           {/* Row 1 - visible on all screens */}
           <div
             className={cn(
-              "overflow-hidden w-full",
-              "mask-[linear-gradient(90deg,rgba(255,255,255,0)_0%,rgba(0,0,0,1)_15%,rgba(0,0,0,1)_85%,rgba(255,255,255,0)_100%)]",
-              "sm:mask-[linear-gradient(90deg,rgba(255,255,255,0)_0%,rgba(0,0,0,1)_20%,rgba(0,0,0,1)_80%,rgba(255,255,255,0)_100%)]",
-              "md:mask-[linear-gradient(90deg,rgba(255,255,255,0)_0%,rgba(0,0,0,1)_25%,rgba(0,0,0,1)_75%,rgba(255,255,255,0)_100%)]"
+              "overflow-hidden w-full py-4", // Added py-4 to give space around logos and avoid clipping
+              totalLogos > 3
+                ? "mask-[linear-gradient(90deg,rgba(255,255,255,0)_0%,rgba(0,0,0,1)_15%,rgba(0,0,0,1)_85%,rgba(255,255,255,0)_100%)] sm:mask-[linear-gradient(90deg,rgba(255,255,255,0)_0%,rgba(0,0,0,1)_20%,rgba(0,0,0,1)_80%,rgba(255,255,255,0)_100%)]"
+                : "mask-none sm:mask-none",
+              totalLogos > 5
+                ? "md:mask-[linear-gradient(90deg,rgba(255,255,255,0)_0%,rgba(0,0,0,1)_25%,rgba(0,0,0,1)_75%,rgba(255,255,255,0)_100%)]"
+                : "md:mask-none",
             )}
           >
             {/* Desktop Row 1 (all logos) */}
-            <div className="hidden md:block">
-              <Carousel
-                plugins={[autoScrollDesktop]}
-                opts={{
-                  loop: true,
-                  align: "start",
-                  dragFree: true,
-                }}
-                className="w-full"
-              >
-                <CarouselContent className="gap-8">
+            <div className="hidden md:block w-full">
+              {totalLogos <= 5 ? (
+                <div className="flex flex-wrap justify-center items-center gap-8 w-full">
                   {data.logos.map((logo, index: number) => (
-                    <CarouselItem
-                      key={`desktop-logo-row1-${index}`}
-                      className="basis-auto"
-                    >
-                      <LogoItem logo={logo} />
-                    </CarouselItem>
+                    <LogoItem key={`desktop-logo-row1-${index}`} logo={logo} />
                   ))}
-                </CarouselContent>
-              </Carousel>
+                </div>
+              ) : (
+                <Carousel
+                  plugins={[autoScrollDesktop]}
+                  opts={{
+                    loop: true,
+                    align: "center",
+                    dragFree: true,
+                  }}
+                  className="w-full"
+                >
+                  <CarouselContent className="gap-8 items-center">
+                    {data.logos.map((logo, index: number) => (
+                      <CarouselItem
+                        key={`desktop-logo-row1-${index}`}
+                        className="basis-auto"
+                      >
+                        <LogoItem logo={logo} />
+                      </CarouselItem>
+                    ))}
+                  </CarouselContent>
+                </Carousel>
+              )}
             </div>
 
             {/* Mobile Row 1 (only row1Logos) */}
-            <div className="md:hidden">
-              <Carousel
-                plugins={[autoScrollMobile1]}
-                opts={{
-                  loop: true,
-                  align: "start",
-                  dragFree: true,
-                }}
-                className="w-full"
-              >
-                <CarouselContent className="gap-4">
+            <div className="md:hidden w-full">
+              {totalLogos <= 3 ? (
+                <div className="flex flex-wrap justify-center items-center gap-4 w-full px-4">
                   {row1Logos.map((logo, index: number) => (
-                    <CarouselItem
-                      key={`mobile-logo-row1-${index}`}
-                      className="basis-auto"
-                    >
-                      <LogoItem logo={logo} />
-                    </CarouselItem>
+                    <LogoItem key={`mobile-logo-row1-${index}`} logo={logo} />
                   ))}
-                </CarouselContent>
-              </Carousel>
+                </div>
+              ) : (
+                <Carousel
+                  plugins={[autoScrollMobile1]}
+                  opts={{
+                    loop: true,
+                    align: "center",
+                    dragFree: true,
+                  }}
+                  className="w-full"
+                >
+                  <CarouselContent className="gap-4 items-center">
+                    {row1Logos.map((logo, index: number) => (
+                      <CarouselItem
+                        key={`mobile-logo-row1-${index}`}
+                        className="basis-auto"
+                      >
+                        <LogoItem logo={logo} />
+                      </CarouselItem>
+                    ))}
+                  </CarouselContent>
+                </Carousel>
+              )}
             </div>
           </div>
 
@@ -183,14 +202,14 @@ export default function Partners({
             <div
               className={cn(
                 "md:hidden overflow-hidden w-full",
-                "mask-[linear-gradient(90deg,rgba(255,255,255,0)_0%,rgba(0,0,0,1)_15%,rgba(0,0,0,1)_85%,rgba(255,255,255,0)_100%)]"
+                "mask-[linear-gradient(90deg,rgba(255,255,255,0)_0%,rgba(0,0,0,1)_15%,rgba(0,0,0,1)_85%,rgba(255,255,255,0)_100%)]",
               )}
             >
               <Carousel
                 plugins={[autoScrollMobile2]}
                 opts={{
                   loop: true,
-                  align: "start",
+                  align: "center",
                   dragFree: true,
                 }}
                 className="w-full"
@@ -214,14 +233,14 @@ export default function Partners({
             <div
               className={cn(
                 "md:hidden overflow-hidden w-full",
-                "mask-[linear-gradient(90deg,rgba(255,255,255,0)_0%,rgba(0,0,0,1)_15%,rgba(0,0,0,1)_85%,rgba(255,255,255,0)_100%)]"
+                "mask-[linear-gradient(90deg,rgba(255,255,255,0)_0%,rgba(0,0,0,1)_15%,rgba(0,0,0,1)_85%,rgba(255,255,255,0)_100%)]",
               )}
             >
               <Carousel
                 plugins={[autoScrollMobile3]}
                 opts={{
                   loop: true,
-                  align: "start",
+                  align: "center",
                   dragFree: true,
                 }}
                 className="w-full"

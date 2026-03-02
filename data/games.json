@@ -3,6 +3,177 @@
     {
       "id": "just_dance",
       "name": "Just Dance",
+      "blockType": "block",
+      "bgType": "gradient",
+      "color1": "#FDED31",
+      "color2": "#43e2e7",
+      "logo": "/assets/logos/games/just_dance_dark_gray.svg",
+      "img": "/assets/img/games/just_dance_personnages.webp",
+      "bgImg": "/assets/img/games/just_dance_game.webp"
+    },
+    {
+      "id": "luigi_mansion_3",
+      "name": "Luigi’s Mansion 3",
+      "blockType": "text",
+      "bgType": "",
+      "color1": "",
+      "color2": "",
+      "logo": "",
+      "img": ""
+    },
+    {
+      "id": "super_mario_galaxy_2",
+      "name": "Super Mario Galaxy 2",
+      "blockType": "text",
+      "bgType": "",
+      "color1": "",
+      "color2": "",
+      "logo": "",
+      "img": ""
+    },
+    {
+      "id": "detective_pikachu_returns",
+      "name": "Detective Pikachu Returns",
+      "blockType": "text",
+      "bgType": "",
+      "color1": "",
+      "color2": "",
+      "logo": "",
+      "img": ""
+    },
+    {
+      "id": "firewatch",
+      "name": "Firewatch",
+      "blockType": "text",
+      "bgType": "",
+      "color1": "",
+      "color2": "",
+      "logo": "",
+      "img": ""
+    },
+    {
+      "id": "riven",
+      "name": "Riven",
+      "blockType": "text",
+      "bgType": "",
+      "color1": "",
+      "color2": "",
+      "logo": "",
+      "img": ""
+    },
+    {
+      "id": "the_secret_of_monkey_island",
+      "name": "The Secret of Monkey Island",
+      "blockType": "text",
+      "bgType": "",
+      "color1": "",
+      "color2": "",
+      "logo": "",
+      "img": ""
+    },
+    {
+      "id": "la_noire",
+      "name": "L.A. Noire",
+      "blockType": "text",
+      "bgType": "",
+      "color1": "",
+      "color2": "",
+      "logo": "",
+      "img": ""
+    },
+    {
+      "id": "heavy_rain",
+      "name": "Heavy Rain",
+      "blockType": "text",
+      "bgType": "",
+      "color1": "",
+      "color2": "",
+      "logo": "",
+      "img": ""
+    },
+    {
+      "id": "the_vanishing_of_ethan_carter",
+      "name": "The Vanishing of Ethan Carter",
+      "blockType": "text",
+      "bgType": "",
+      "color1": "",
+      "color2": "",
+      "logo": "",
+      "img": ""
+    },
+    {
+      "id": "agatha_christie_2",
+      "name": "Agatha Christie - Le Crime de l'Orient-Express",
+      "blockType": "text",
+      "bgType": "",
+      "color1": "",
+      "color2": "",
+      "logo": "",
+      "img": ""
+    },
+    {
+      "id": "oxenfree_2",
+      "name": "Oxenfree 2",
+      "blockType": "text",
+      "bgType": "",
+      "color1": "",
+      "color2": "",
+      "logo": "",
+      "img": ""
+    },
+    {
+      "id": "syberia",
+      "name": "Syberia 1 & 2",
+      "blockType": "text",
+      "bgType": "",
+      "color1": "",
+      "color2": "",
+      "logo": "",
+      "img": ""
+    },
+    {
+      "id": "life_is_strange_2",
+      "name": "Life is Strange 2",
+      "blockType": "text",
+      "bgType": "",
+      "color1": "",
+      "color2": "",
+      "logo": "",
+      "img": ""
+    },
+    {
+      "id": "twin_mirror",
+      "name": "Twin Mirror",
+      "blockType": "text",
+      "bgType": "",
+      "color1": "",
+      "color2": "",
+      "logo": "",
+      "img": ""
+    },
+    {
+      "id": "secret_neighbor",
+      "name": "Secret Neighbor",
+      "blockType": "text",
+      "bgType": "",
+      "color1": "",
+      "color2": "",
+      "logo": "",
+      "img": ""
+    },
+    {
+      "id": "clair_obscur_expedition_33",
+      "name": "Clair Obscur: Expedition 33",
+      "blockType": "text",
+      "bgType": "",
+      "color1": "",
+      "color2": "",
+      "logo": "",
+      "img": ""
+    },
+    {
+      "id": "sherlock_holmes_crimes_punishments",
+      "name": "Sherlock Holmes: Crimes & Punishments",
       "blockType": "text",
       "bgType": "",
       "color1": "",
@@ -68,7 +239,7 @@
       "bgType": "gradient",
       "color1": "#007cbe",
       "color2": "#43e2e7",
-      "logo": "/assets/logos/games/fortnite_white.svg",
+      "logo": "/assets/logos/games/fortnite_white_desaxe_left.svg",
       "img": "/assets/img/games/fortnite_skins.webp",
       "bgImg": "/assets/img/games/fortnite_game.webp"
     },

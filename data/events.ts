@@ -2,6 +2,124 @@ import { Event } from "@/types/pages/detail-event";
 
 export const events: Event[] = [
   {
+    id: "polar-lens-2026",
+    type: "event",
+    title: "Polar Lens 2026",
+    startDate: "2026-03-21",
+    endDate: "2026-03-22",
+    cardThumbnail:
+      "/assets/img/events/polar-lens-2026/thumbnail_polar_lens_2026.png",
+    heroBanner:
+      "/assets/img/events/polar-lens-2026/banner_polar_lens_2026_desktop.png",
+    heroBannerMobile:
+      "/assets/img/events/polar-lens-2026/banner_polar_lens_2026_mobile.png",
+    location: "Maison Syndicale de Lens, 62300 LENS",
+    categoryId: ["polarLens"],
+    gameId: [
+      "luigi_mansion_3",
+      "super_mario_galaxy_2",
+      "detective_pikachu_returns",
+      "firewatch",
+      "riven",
+      "the_secret_of_monkey_island",
+      "la_noire",
+      "heavy_rain",
+      "the_vanishing_of_ethan_carter",
+      "agatha_christie_2",
+      "oxenfree_2",
+      "syberia",
+      "life_is_strange_2",
+      "twin_mirror",
+      "secret_neighbor",
+      "clair_obscur_expedition_33",
+      "sherlock_holmes_crimes_punishments",
+    ],
+    color: "#DAA019",
+    isCancelled: false,
+    description: [
+      {
+        type: "text",
+        content: [
+          {
+            type: "paragraph",
+            paragraphs: [
+              "Dans le cadre du salon Polar Lens, l'association Holiday Geek Cup propose une immersion numérique dédiée à l'enquête et au mystère. Venez découvrir un espace Free Play exceptionnel avec 11 postes PC et des consoles de dernière génération. Venez profitez d'un moment ludique et gratuit ouvert à tous, encadré par notre staff expert.",
+            ],
+          },
+        ],
+      },
+    ],
+    transports: {
+      bus: [
+        {
+          lines: ["5", "33", "39", "91"],
+          station: "Cantin Salengro",
+          walkTimeInMin: 3,
+        },
+        {
+          lines: ["33", "37", "39", "1508"],
+          station: "4 Septembre",
+          walkTimeInMin: 2,
+        },
+        {
+          lines: ["33", "39"],
+          station: "Eugene Thomas",
+          walkTimeInMin: 6,
+        },
+      ],
+      car: {
+        parkings: [
+          {
+            name: "Parking Roger Salengro",
+            address: "Parking Roger Salengro, 62300 LENS",
+            distanceInMeters: 190,
+            walkTimeInMin: 3,
+          },
+          {
+            name: "Parking Place Jean Jaurès",
+            address: "17 B Pl. Jean Jaurès, 62300 LENS",
+            distanceInMeters: 550,
+            walkTimeInMin: 8,
+          },
+          {
+            name: "Parking Cantin",
+            address: "Rue de la Paix, 62300 LENS",
+            distanceInMeters: 650,
+            walkTimeInMin: 9,
+          },
+        ],
+      },
+    },
+    freeplayGames: [
+      "luigi_mansion_3",
+      "super_mario_galaxy_2",
+      "detective_pikachu_returns",
+      "firewatch",
+      "riven",
+      "the_secret_of_monkey_island",
+      "la_noire",
+      "heavy_rain",
+      "the_vanishing_of_ethan_carter",
+      "agatha_christie_2",
+      "oxenfree_2",
+      "syberia",
+      "life_is_strange_2",
+      "twin_mirror",
+      "secret_neighbor",
+      "clair_obscur_expedition_33",
+      "sherlock_holmes_crimes_punishments",
+    ],
+    weezeventCode:
+      '<a title="Logiciel billetterie en ligne"   href="https://weezevent.com/?c=sys_widget"   class="weezevent-widget-integration"   data-src="https://widget.weezevent.com/ticket/E1796197/?code=39841&locale=fr-FR&width_auto=1&color_primary=00AEEF"   data-width="650"   data-height="600"   data-id="1796197"   data-resize="1"   data-width_auto="1"   data-noscroll="0"   data-use-container="yes"   data-type="neo"   target="_blank">Billetterie Weezevent</a><script type="text/javascript" src="https://widget.weezevent.com/weez.js"></script>',
+      registrationOpen: true,
+    partners: [
+      {
+        alt: "Ville de Lens",
+        src: "/assets/logos/partners/logo-lens-ville.svg",
+      },
+    ],
+  },
+  {
     id: "2h-de-sport-2025",
     type: "event",
     title: "2h de sport au collège",
@@ -218,7 +336,8 @@ export const events: Event[] = [
         type: "gallery",
         content: {
           title: "Retour en images",
-          subtitle: "Quelques moments capturés lors des Valorant Series à la Cité des Sciences 2025",
+          subtitle:
+            "Quelques moments capturés lors des Valorant Series à la Cité des Sciences 2025",
           images: [
             {
               src: "/assets/img/events/valorant-series-cite-des-sciences-2025/gallery/img_event_valorant_series_cite_des_sciences_2350.webp",
@@ -275,7 +394,7 @@ export const events: Event[] = [
           },
           {
             type: "title",
-            title: 'Un parcours de qualification intense',
+            title: "Un parcours de qualification intense",
           },
           {
             type: "paragraph",
@@ -304,7 +423,8 @@ export const events: Event[] = [
             type: "paragraph",
             paragraphs: [
               "Le 31 août, nous avons organisé la finale dans la Salle régionale des sports Maréchal à Harnes.",
-              "Les joueurs se sont affrontés pour la gloire de leur ville, mais aussi pour un enjeu de taille : un Cashprize de 1 500 €.",]
+              "Les joueurs se sont affrontés pour la gloire de leur ville, mais aussi pour un enjeu de taille : un Cashprize de 1 500 €.",
+            ],
           },
           {
             type: "title",
@@ -314,8 +434,8 @@ export const events: Event[] = [
             type: "paragraph",
             paragraphs: [
               "Cet événement a confirmé l'engouement massif pour l'esport de proximité et notre capacité à gérer des rassemblements de grande ampleur.",
-            ]
-          }
+            ],
+          },
         ],
       },
       {
@@ -393,7 +513,7 @@ export const events: Event[] = [
           },
           {
             type: "title",
-            title: 'Le concept : Une semaine 100% Gaming',
+            title: "Le concept : Une semaine 100% Gaming",
           },
           {
             type: "paragraph",
@@ -406,7 +526,7 @@ export const events: Event[] = [
             items: [
               "Découvrir les dernières nouveautés vidéoludiques.",
               "Partager des moments de convivialité avec ses amis.",
-              "S'initier à la pratique du jeu vidéo dans un cadre encadré et bienveillant."
+              "S'initier à la pratique du jeu vidéo dans un cadre encadré et bienveillant.",
             ],
           },
           {
@@ -508,7 +628,7 @@ export const events: Event[] = [
           },
           {
             type: "title",
-            title: 'Une sélection thématique : Mystère et Investigation',
+            title: "Une sélection thématique : Mystère et Investigation",
           },
           {
             type: "paragraph",
@@ -521,7 +641,7 @@ export const events: Event[] = [
             items: [
               "Tomb Raider : Pour l'aventure, la recherche d'indices et l'exploration de mystères anciens.",
               "Among Us : Le phénomène de déduction sociale où chaque joueur doit mener l'enquête pour démasquer l'imposteur.",
-              "Et bien d'autres titres orientés \"énigmes`\" pour stimuler l'esprit d'analyse des visiteurs."
+              "Et bien d'autres titres orientés \"énigmes`\" pour stimuler l'esprit d'analyse des visiteurs.",
             ],
           },
           {
@@ -610,12 +730,19 @@ export const events: Event[] = [
     gameId: ["mariokart_world"],
     color: "#1E8E2B",
     location: "Église Sainte-Marguerite, 4 Pl. de la Marne, Sains-en-Gohelle",
-    weezeventCode: "<a title=\"Logiciel billetterie en ligne\"   href=\"https://weezevent.com/?c=sys_widget\"   class=\"weezevent-widget-integration\"   data-src=\"https://widget.weezevent.com/ticket/E1712193/?code=23061&locale=fr-FR&width_auto=1&color_primary=00AEEF\"   data-width=\"650\"   data-height=\"600\"   data-id=\"1712193\"   data-resize=\"1\"   data-width_auto=\"1\"   data-noscroll=\"0\"   data-use-container=\"yes\"   data-type=\"neo\"   target=\"_blank\">Billetterie Weezevent</a><script type=\"text/javascript\" src=\"https://widget.weezevent.com/weez.js\"></script>",
+    weezeventCode:
+      '<a title="Logiciel billetterie en ligne"   href="https://weezevent.com/?c=sys_widget"   class="weezevent-widget-integration"   data-src="https://widget.weezevent.com/ticket/E1712193/?code=23061&locale=fr-FR&width_auto=1&color_primary=00AEEF"   data-width="650"   data-height="600"   data-id="1712193"   data-resize="1"   data-width_auto="1"   data-noscroll="0"   data-use-container="yes"   data-type="neo"   target="_blank">Billetterie Weezevent</a><script type="text/javascript" src="https://widget.weezevent.com/weez.js"></script>',
     registrationOpen: true,
     isCancelled: true,
-    description: [
+    description: [],
+    freeplayGames: [
+      "mariokart_world",
+      "fc25",
+      "fortnite",
+      "rocket_league",
+      "fall_guys",
+      "valorant",
     ],
-    freeplayGames: ["mariokart_world", "fc25", "fortnite", "rocket_league", "fall_guys", "valorant" ],
   },
 ];
 
