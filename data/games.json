@@ -7,9 +7,20 @@
       "bgType": "gradient",
       "color1": "#FDED31",
       "color2": "#43e2e7",
-      "logo": "/assets/logos/games/just_dance_dark_gray.svg",
-      "img": "/assets/img/games/just_dance_personnages.webp",
-      "bgImg": "/assets/img/games/just_dance_game.webp"
+      "logo": "/assets/img/games/just_dance_logo.png",
+      "img": "/assets/img/games/just_dance_characters.png",
+      "bgImg": "/assets/img/games/just_dance_game.png"
+    },
+    {
+      "id": "fortnite",
+      "name": "Fortnite",
+      "blockType": "block",
+      "bgType": "gradient",
+      "color1": "#007cbe",
+      "color2": "#43e2e7",
+      "logo": "/assets/img/games/fortnite_logo.png",
+      "img": "/assets/img/games/fortnite_characters.png",
+      "bgImg": "/assets/img/games/fortnite_game.png"
     },
     {
       "id": "luigi_mansion_3",
@@ -18,9 +29,9 @@
       "bgType": "color",
       "color1": "#000000",
       "color2": "",
-      "logo": "/assets/logos/games/luigis_mansion_3_logo.webp",
+      "logo": "/assets/img/games/luigis_mansion_3_logo.png",
       "img": "/assets/img/games/luigis_mansion_3_characters.png",
-      "bgImg": "/assets/img/games/luigis_mansion_3_game.jpg"
+      "bgImg": "/assets/img/games/luigis_mansion_3_game.png"
     },
     {
       "id": "super_mario_galaxy_2",
@@ -29,9 +40,9 @@
       "bgType": "gradient",
       "color1": "#F2150A",
       "color2": "#185ECA",
-      "logo": "/assets/logos/games/super_mario_galaxy_2_logo.webp",
-      "img": "/assets/img/games/super_mario_galaxy_2_character.png",
-      "bgImg": "/assets/img/games/super_mario_galaxy_2_game.webp"
+      "logo": "/assets/img/games/super_mario_galaxy_2_logo.png",
+      "img": "/assets/img/games/super_mario_galaxy_2_characters.png",
+      "bgImg": "/assets/img/games/super_mario_galaxy_2_game.png"
     },
     {
       "id": "detective_pikachu_returns",
@@ -40,59 +51,62 @@
       "bgType": "color",
       "color1": "#E0C023",
       "color2": "",
-      "logo": "/assets/logos/games/detective_pikachu_logo.webp",
+      "logo": "/assets/img/games/detective_pikachu_logo.png",
       "img": "/assets/img/games/detective_pikachu_characters.png",
-      "bgImg": "/assets/img/games/detective_pikachu_game.webp"
+      "bgImg": "/assets/img/games/detective_pikachu_game.png"
     },
     {
       "id": "firewatch",
       "name": "Firewatch",
-      "blockType": "text",
-      "bgType": "",
-      "color1": "",
-      "color2": "",
-      "logo": "",
-      "img": ""
+      "blockType": "block",
+      "bgType": "gradient",
+      "color1": "#CB2D3E",
+      "color2": "#ff6c40",
+      "logo": "/assets/img/games/firewatch_logo.png",
+      "bgImg": "/assets/img/games/firewatch_game.png"
     },
     {
       "id": "riven",
       "name": "Riven",
-      "blockType": "text",
-      "bgType": "",
-      "color1": "",
+      "blockType": "block",
+      "bgType": "color",
+      "color1": "#0e0e0e",
       "color2": "",
-      "logo": "",
-      "img": ""
+      "logo": "/assets/img/games/riven_logo.png",
+      "bgImg": "/assets/img/games/riven_game.png"
     },
     {
       "id": "the_secret_of_monkey_island",
       "name": "The Secret of Monkey Island",
-      "blockType": "text",
-      "bgType": "",
-      "color1": "",
-      "color2": "",
-      "logo": "",
-      "img": ""
+      "blockType": "block",
+      "bgType": "gradient",
+      "color1": "#F27119",
+      "color2": "#0D1336",
+      "logo": "/assets/img/games/the_secret_of_monkey_island_logo.png",
+      "img": "/assets/img/games/the_secret_of_monkey_island_characters.png",
+      "bgImg": "/assets/img/games/the_secret_of_monkey_island_game.png"
     },
     {
       "id": "la_noire",
       "name": "L.A. Noire",
-      "blockType": "text",
-      "bgType": "",
-      "color1": "",
-      "color2": "",
-      "logo": "",
-      "img": ""
+      "blockType": "block",
+      "bgType": "gradient",
+      "color1": "#FC9507",
+      "color2": "#000000",
+      "logo": "/assets/img/games/la_noire_logo.png",
+      "img": "/assets/img/games/la_noire_characters.png",
+      "bgImg": "/assets/img/games/la_noire_game.png"
     },
     {
       "id": "heavy_rain",
       "name": "Heavy Rain",
-      "blockType": "text",
-      "bgType": "",
-      "color1": "",
+      "blockType": "block",
+      "bgType": "color",
+      "color1": "#000000",
       "color2": "",
-      "logo": "",
-      "img": ""
+      "logo": "/assets/img/games/heavy_rain_logo.png",
+      "img": "/assets/img/games/heavy_rain_characters.png",
+      "bgImg": "/assets/img/games/heavy_rain_game.png"
     },
     {
       "id": "the_vanishing_of_ethan_carter",
@@ -234,17 +248,6 @@
       "color2": "",
       "logo": "",
       "img": ""
-    },
-    {
-      "id": "fortnite",
-      "name": "Fortnite",
-      "blockType": "block",
-      "bgType": "gradient",
-      "color1": "#007cbe",
-      "color2": "#43e2e7",
-      "logo": "/assets/logos/games/fortnite_white_desaxe_left.svg",
-      "img": "/assets/img/games/fortnite_skins.webp",
-      "bgImg": "/assets/img/games/fortnite_game.webp"
     },
     {
       "id": "tombraider",
