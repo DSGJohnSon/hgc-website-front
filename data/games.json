@@ -14,32 +14,35 @@
     {
       "id": "luigi_mansion_3",
       "name": "Luigi’s Mansion 3",
-      "blockType": "text",
-      "bgType": "",
-      "color1": "",
+      "blockType": "block",
+      "bgType": "color",
+      "color1": "#000000",
       "color2": "",
-      "logo": "",
-      "img": ""
+      "logo": "/assets/logos/games/luigis_mansion_3_logo.webp",
+      "img": "/assets/img/games/luigis_mansion_3_characters.png",
+      "bgImg": "/assets/img/games/luigis_mansion_3_game.jpg"
     },
     {
       "id": "super_mario_galaxy_2",
       "name": "Super Mario Galaxy 2",
-      "blockType": "text",
-      "bgType": "",
-      "color1": "",
-      "color2": "",
-      "logo": "",
-      "img": ""
+      "blockType": "block",
+      "bgType": "gradient",
+      "color1": "#F2150A",
+      "color2": "#185ECA",
+      "logo": "/assets/logos/games/super_mario_galaxy_2_logo.webp",
+      "img": "/assets/img/games/super_mario_galaxy_2_character.png",
+      "bgImg": "/assets/img/games/super_mario_galaxy_2_game.webp"
     },
     {
       "id": "detective_pikachu_returns",
       "name": "Detective Pikachu Returns",
-      "blockType": "text",
-      "bgType": "",
-      "color1": "",
+      "blockType": "block",
+      "bgType": "color",
+      "color1": "#E0C023",
       "color2": "",
-      "logo": "",
-      "img": ""
+      "logo": "/assets/logos/games/detective_pikachu_logo.webp",
+      "img": "/assets/img/games/detective_pikachu_characters.png",
+      "bgImg": "/assets/img/games/detective_pikachu_game.webp"
     },
     {
       "id": "firewatch",
