@@ -111,7 +111,7 @@ export const events: Event[] = [
     ],
     weezeventCode:
       '<a title="Logiciel billetterie en ligne"   href="https://weezevent.com/?c=sys_widget"   class="weezevent-widget-integration"   data-src="https://widget.weezevent.com/ticket/E1796197/?code=39841&locale=fr-FR&width_auto=1&color_primary=00AEEF"   data-width="650"   data-height="600"   data-id="1796197"   data-resize="1"   data-width_auto="1"   data-noscroll="0"   data-use-container="yes"   data-type="neo"   target="_blank">Billetterie Weezevent</a><script type="text/javascript" src="https://widget.weezevent.com/weez.js"></script>',
-      registrationOpen: false,
+      registrationOpen: true,
     partners: [
       {
         alt: "Ville de Lens",
