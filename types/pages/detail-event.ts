@@ -71,6 +71,7 @@ export type Event = {
     src: string;
   }[];
   freeplayGames: string[];
+  randomizeFreeplayGames?: boolean;
   isCancelled?: boolean;
 };
 

@@ -108,6 +108,7 @@ export default async function EventDetailPage({ params, searchParams }: PageProp
             registrationOpen={effectiveRegistrationOpen}
             partners={event.partners}
             freeplayGames={event.freeplayGames}
+            randomizeFreeplayGames={event.randomizeFreeplayGames}
             isCancelled={event.isCancelled}
           />
 

@@ -95,6 +95,7 @@ const GameCard: React.FC<GameCardProps> = ({ game }) => {
 
 interface FreeplaySectionProps {
   games: string[];
+  randomizeGames?: boolean;
   highlightColor: string;
   compact?: boolean;
 }
@@ -110,6 +111,7 @@ const shuffleGames = (games: Game[]): Game[] => {
 
 const FreeplaySection: React.FC<FreeplaySectionProps> = ({
   games: gameIds,
+  randomizeGames = false,
   highlightColor,
   compact = false,
 }) => {
@@ -130,8 +132,13 @@ const FreeplaySection: React.FC<FreeplaySectionProps> = ({
   const [displayGames, setDisplayGames] = useState<Game[]>(resolvedGames);
 
   useEffect(() => {
-    setDisplayGames(shuffleGames(resolvedGames));
-  }, [resolvedGames]);
+    if (randomizeGames) {
+      setDisplayGames(shuffleGames(resolvedGames));
+      return;
+    }
+
+    setDisplayGames(resolvedGames);
+  }, [resolvedGames, randomizeGames]);
 
   const autoplayRef = useRef(
     Autoplay({

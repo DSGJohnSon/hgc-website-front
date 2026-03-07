@@ -38,6 +38,7 @@ interface EventInfoProps {
   registrationOpen?: boolean;
   partners?: Event["partners"];
   freeplayGames?: Event["freeplayGames"];
+  randomizeFreeplayGames?: boolean;
   isCancelled?: boolean;
 }
 
@@ -55,6 +56,7 @@ const EventInfo: React.FC<EventInfoProps> = ({
   registrationOpen = false,
   partners,
   freeplayGames,
+  randomizeFreeplayGames = false,
   isCancelled = false,
 }) => {
   const { openDialog } = useWeezeventDialog();
@@ -402,6 +404,7 @@ const EventInfo: React.FC<EventInfoProps> = ({
             {freeplayGames && freeplayGames.length > 0 && (
               <FreeplaySection
                 games={freeplayGames}
+                randomizeGames={randomizeFreeplayGames}
                 highlightColor={highlightColor}
                 compact={true}
               />
