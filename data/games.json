@@ -111,102 +111,112 @@
     {
       "id": "the_vanishing_of_ethan_carter",
       "name": "The Vanishing of Ethan Carter",
-      "blockType": "text",
-      "bgType": "",
-      "color1": "",
+      "blockType": "block",
+      "bgType": "color",
+      "color1": "#ffffff",
       "color2": "",
-      "logo": "",
-      "img": ""
+      "logo": "/assets/img/games/vanishing_of_ethan_carter_logo.png",
+      "img": "/assets/img/games/vanishing_of_ethan_carter_characters.png",
+      "bgImg": "/assets/img/games/vanishing_of_ethan_carter_game.png"
     },
     {
       "id": "agatha_christie_2",
       "name": "Agatha Christie - Le Crime de l'Orient-Express",
-      "blockType": "text",
-      "bgType": "",
-      "color1": "",
+      "blockType": "block",
+      "bgType": "color",
+      "color1": "#9A824A",
       "color2": "",
-      "logo": "",
-      "img": ""
+      "logo": "/assets/img/games/agatha_christie_crime_orient_express_logo.png",
+      "bgImg": "/assets/img/games/agatha_christie_crime_orient_express_game.png",
+      "img": "/assets/img/games/agatha_christie_crime_orient_express_characters.png"
     },
     {
       "id": "oxenfree_2",
       "name": "Oxenfree 2",
-      "blockType": "text",
-      "bgType": "",
-      "color1": "",
+      "blockType": "block",
+      "bgType": "color",
+      "color1": "#124C4A",
       "color2": "",
-      "logo": "",
-      "img": ""
+      "logo": "/assets/img/games/oxenfree_2_logo.png",
+      "img": "/assets/img/games/oxenfree_2_characters.png",
+      "bgImg": "/assets/img/games/oxenfree_2_game.png"
     },
     {
       "id": "syberia",
       "name": "Syberia 1 & 2",
-      "blockType": "text",
-      "bgType": "",
-      "color1": "",
+      "blockType": "block",
+      "bgType": "color",
+      "color1": "#f3f3f3",
       "color2": "",
-      "logo": "",
-      "img": ""
+      "logo": "/assets/img/games/syberia_logo.png",
+      "img": "/assets/img/games/syberia_characters.png",
+      "bgImg": "/assets/img/games/syberia_game.png"
     },
     {
       "id": "life_is_strange_2",
       "name": "Life is Strange 2",
-      "blockType": "text",
-      "bgType": "",
-      "color1": "",
+      "blockType": "block",
+      "bgType": "color",
+      "color1": "transparent",
       "color2": "",
-      "logo": "",
-      "img": ""
+      "logo": "/assets/img/games/life_is_strange_2_logo.png",
+      "img": "/assets/img/games/life_is_strange_2_characters.png",
+      "bgImg": "/assets/img/games/life_is_strange_2_game.png"
     },
     {
       "id": "twin_mirror",
       "name": "Twin Mirror",
-      "blockType": "text",
-      "bgType": "",
-      "color1": "",
+      "blockType": "block",
+      "bgType": "color",
+      "color1": "#00000010",
       "color2": "",
-      "logo": "",
-      "img": ""
+      "logo": "/assets/img/games/twin_mirror_logo.png",
+      "img": "/assets/img/games/twin_mirror_characters.png",
+      "bgImg": "/assets/img/games/twin_mirror_game.png"
     },
     {
       "id": "secret_neighbor",
       "name": "Secret Neighbor",
-      "blockType": "text",
-      "bgType": "",
+      "blockType": "block",
+      "bgType": "color",
       "color1": "",
       "color2": "",
-      "logo": "",
-      "img": ""
+      "logo": "/assets/img/games/secret_neightbor_logo.png",
+      "img": "/assets/img/games/secret_neightbor_characters.png",
+      "bgImg": "/assets/img/games/secret_neightbor_game.png"
     },
     {
       "id": "clair_obscur_expedition_33",
       "name": "Clair Obscur: Expedition 33",
-      "blockType": "text",
-      "bgType": "",
+      "blockType": "block",
+      "bgType": "color",
       "color1": "",
       "color2": "",
-      "logo": "",
-      "img": ""
+      "logo": "/assets/img/games/clair_obscur_logo.png",
+      "img": "/assets/img/games/clair_obscur_characters.png",
+      "bgImg": "/assets/img/games/clair_obscur_game.png"
     },
     {
       "id": "sherlock_holmes_crimes_punishments",
       "name": "Sherlock Holmes: Crimes & Punishments",
-      "blockType": "text",
-      "bgType": "",
+      "blockType": "block",
+      "bgType": "color",
       "color1": "",
       "color2": "",
-      "logo": "",
-      "img": ""
+      "logo": "/assets/img/games/sherlock_holmes_crimes_punishments_logo.png",
+      "img": "/assets/img/games/sherlock_holmes_crimes_punishments_characters.png",
+      "bgImg": "/assets/img/games/sherlock_holmes_crimes_punishments_game.png"
     },
     {
       "id": "nintendo_switch_sports",
       "name": "Nintendo Switch Sports",
-      "blockType": "text",
-      "bgType": "",
-      "color1": "",
+      "blockType": "block",
+      "bgType": "color",
+      "color1": "#ffffff",
       "color2": "",
-      "logo": "",
-      "img": ""
+      "logo": "/assets/img/games/nintendo_switch_sports_logo.png",
+      "img": "/assets/img/games/nintendo_switch_sports_characters.png",
+      "bgImg": "/assets/img/games/nintendo_switch_sports_game.png"
     },
     {
       "id": "valorant",
@@ -215,79 +225,97 @@
       "bgType": "color",
       "color1": "#FF4655",
       "color2": "",
-      "logo": "/assets/logos/games/valorant_white.svg",
-      "img": "/assets/img/games/valorant_agents.webp",
+      "logo": "/assets/img/games/valorant_logo.png",
+      "img": "/assets/img/games/valorant_characters.png",
       "bgImg": "/assets/img/games/valorant_game.webp"
     },
     {
       "id": "fc25",
       "name": "FC 25",
-      "blockType": "text",
-      "bgType": "",
+      "blockType": "block",
+      "bgType": "color",
       "color1": "",
       "color2": "",
-      "logo": "",
-      "img": ""
+      "logo": "/assets/img/games/fc25_logo.png",
+      "img": "/assets/img/games/fc25_characters.png",
+      "bgImg": "/assets/img/games/fc25_game.png"
+    },
+    {
+      "id": "fc26",
+      "name": "FC 26",
+      "blockType": "block",
+      "bgType": "color",
+      "color1": "",
+      "color2": "",
+      "logo": "/assets/img/games/fc26_logo.png",
+      "img": "/assets/img/games/fc26_characters.png",
+      "bgImg": "/assets/img/games/fc26_game.png"
     },
     {
       "id": "mariokart8",
       "name": "Mario Kart 8",
-      "blockType": "text",
-      "bgType": "",
+      "blockType": "block",
+      "bgType": "color",
       "color1": "",
       "color2": "",
-      "logo": "",
-      "img": ""
+      "logo": "/assets/img/games/mk8_logo.png",
+      "img": "/assets/img/games/mk8_characters.png",
+      "bgImg": "/assets/img/games/mk8_game.png"
     },
     {
       "id": "mariokart_world",
       "name": "Mario Kart World",
-      "blockType": "text",
-      "bgType": "",
+      "blockType": "block",
+      "bgType": "color",
       "color1": "",
       "color2": "",
-      "logo": "",
-      "img": ""
+      "logo": "/assets/img/games/mk_world_logo.png",
+      "img": "/assets/img/games/mk_world_characters.png",
+      "bgImg": "/assets/img/games/mk_world_game.png"
     },
     {
       "id": "tombraider",
       "name": "Tomb Raider",
-      "blockType": "text",
-      "bgType": "",
-      "color1": "",
+      "blockType": "block",
+      "bgType": "color",
+      "color1": "#ffffff",
       "color2": "",
-      "logo": "",
-      "img": ""
+      "logo": "/assets/img/games/tomb_raider_logo.png",
+      "img": "/assets/img/games/tomb_raider_characters.png",
+      "bgImg": "/assets/img/games/tomb_raider_game.png"
     },
     {
       "id": "amongus",
       "name": "Among Us",
-      "blockType": "text",
-      "bgType": "",
+      "blockType": "block",
+      "bgType": "color",
       "color1": "",
       "color2": "",
-      "logo": "",
-      "img": ""
+      "logo": "/assets/img/games/among_us_logo.png",
+      "img": "/assets/img/games/among_us_characters.png",
+      "bgImg": "/assets/img/games/among_us_game.png"
     },
     {
       "id": "rocket_league",
       "name": "Rocket League",
-      "blockType": "text",
-      "bgType": "",
+      "blockType": "block",
+      "bgType": "color",
       "color1": "",
       "color2": "",
-      "logo": "",
-      "img": ""
+      "logo": "/assets/img/games/rocket_league_logo.png",
+      "img": "/assets/img/games/rocket_league_characters.png",
+      "bgImg": "/assets/img/games/rocket_league_game.png"
     },
     {
       "id": "fall_guys",
       "name": "Fall Guys",
-      "blockType": "text",
-      "bgType": "",
+      "blockType": "block",
+      "bgType": "color",
       "color1": "",
       "color2": "",
-      "logo": "",
-      "img": ""
+      "logo": "/assets/img/games/fall_guys_logo.png",
+      "img": "/assets/img/games/fall_guys_characters.png",
+      "bgImg": "/assets/img/games/fall_guys_game.png"
     }
   ]
 }

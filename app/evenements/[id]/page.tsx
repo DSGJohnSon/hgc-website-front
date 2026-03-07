@@ -5,9 +5,6 @@ import categoriesData from "@/data/categories.json";
 import { prepareEvents } from "@/lib/eventUtils";
 import EventHero from "./components/EventHero";
 import EventInfo from "./components/EventInfo";
-import Partners from "@/components/sections/Partners";
-import FreeplaySection from "./components/FreeplaySection";
-import EventCTASection from "./components/EventCTASection";
 import EventCarousel from "@/components/sections/EventCarousel";
 import FloatingRegister from "./components/FloatingRegister";
 
@@ -33,12 +30,25 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const categoryName = category ? category.name : "Événement";
 
   const descriptionText = Array.isArray(event.description)
-    ? (event.description[0] as any)?.content?.[0]?.paragraphs?.[0]
+    ? (() => {
+        const firstBlock = event.description[0];
+        if (!firstBlock || firstBlock.type !== "text") {
+          return undefined;
+        }
+
+        const firstParagraph = firstBlock.content.find(
+          (item) => item.type === "paragraph",
+        );
+
+        return firstParagraph?.paragraphs?.[0];
+      })()
     : undefined;
 
   return {
     title: `${event.title} | ${categoryName} - Holiday Geek Cup`,
-    description: descriptionText || `Découvrez l'événement ${event.title} organisé par Holiday Geek Cup. ${event.location ? `Lieu : ${event.location}.` : ""}`,
+    description:
+      descriptionText ||
+      `Découvrez l'événement ${event.title} organisé par Holiday Geek Cup. ${event.location ? `Lieu : ${event.location}.` : ""}`,
   };
 }
 
@@ -61,7 +71,9 @@ export default async function EventDetailPage({ params, searchParams }: PageProp
   const categoryName = category ? category.name : "Événement";
 
   // If event is cancelled, registration is not open
-  const effectiveRegistrationOpen = event.isCancelled ? false : (event.registrationOpen ?? false);
+  const effectiveRegistrationOpen = event.isCancelled
+    ? false
+    : (event.registrationOpen ?? false);
 
   // Filter other events for carousel
   const otherEvents = prepareEvents(eventsData, id, 10);
@@ -87,40 +99,17 @@ export default async function EventDetailPage({ params, searchParams }: PageProp
             startDate={event.startDate}
             endDate={event.endDate}
             startTime={event.startTime}
+            endTime={event.endTime}
             location={event.location}
             highlightColor={event.color}
             transports={event.transports ? event.transports : undefined}
             weezeventCode={event.weezeventCode}
             eventTitle={event.title}
             registrationOpen={effectiveRegistrationOpen}
+            partners={event.partners}
+            freeplayGames={event.freeplayGames}
+            isCancelled={event.isCancelled}
           />
-
-          {event.partners && event.partners.length > 0 && (
-            <Partners
-              data={{
-                subtitle: "Ils soutiennent l'événement",
-                title: "Nos Partenaires",
-                logos: event.partners,
-              }}
-            />
-          )}
-
-          {event.freeplayGames && event.freeplayGames.length > 0 && (
-            <FreeplaySection
-              games={event.freeplayGames}
-              highlightColor={event.color}
-            />
-          )}
-
-          {event.weezeventCode && (
-            <EventCTASection
-              highlightColor={event.color}
-              registrationOpen={effectiveRegistrationOpen}
-              weezeventCode={event.weezeventCode}
-              eventTitle={event.title}
-              isCancelled={event.isCancelled}
-            />
-          )}
 
           {otherEvents.length > 0 && (
             <EventCarousel
@@ -130,6 +119,7 @@ export default async function EventDetailPage({ params, searchParams }: PageProp
                 events: otherEvents,
               }}
               loop={false}
+              subtitleColor={event.color}
             />
           )}
         </div>

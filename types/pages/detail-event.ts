@@ -11,6 +11,7 @@ export type Event = {
   startDate: string;
   endDate?: string;
   startTime?: string;
+  endTime?: string;
   cardThumbnail: string;
   heroBanner: string;
   heroBannerMobile: string;
@@ -83,7 +84,7 @@ export type Event = {
  */
 export type EventCard = Pick<
   Event,
-  "id" | "type" | "title" | "startDate" | "startTime" | "cardThumbnail" | "color"
+  "id" | "type" | "title" | "startDate" | "startTime" | "endTime" | "cardThumbnail" | "color"
 > & {
   startDate: string;
   endDate?: string;

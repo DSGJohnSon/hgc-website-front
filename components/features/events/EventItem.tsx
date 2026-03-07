@@ -21,6 +21,7 @@ const EventItem: React.FC<EventItemProps> = ({
   startDate,
   endDate,
   startTime,
+  endTime,
   cardThumbnail,
   location,
   isOngoing,
@@ -178,6 +179,24 @@ const EventItem: React.FC<EventItemProps> = ({
             </span>
           </div>
 
+          {/* Hour if defined */}
+          {startTime && !endTime && (
+            <div className="flex items-center gap-2 text-gray-200">
+              <LuClock size={14} style={{ color: highlightColor }} />
+              <span className="font-rajdhani text-sm font-semibold uppercase tracking-wide">
+                {startTime}
+              </span>
+            </div>
+          )}
+          {startTime && endTime && (
+            <div className="flex items-center gap-2 text-gray-200">
+              <LuClock size={14} style={{ color: highlightColor }} />
+              <span className="font-rajdhani text-sm font-semibold uppercase tracking-wide">
+                de {startTime} à {endTime}
+              </span>
+            </div>
+          )}
+
           {/* Game Badges */}
           {games.length > 0 && (
             <div className="flex flex-wrap gap-2 pt-1">
@@ -190,10 +209,12 @@ const EventItem: React.FC<EventItemProps> = ({
                   {game.name}
                 </div>
               ))}
+              {games.length > 3 && (
               <div className="bg-white/5 border border-white/10 rounded-full px-3 py-1 font-rajdhani text-[10px] text-gray-300 flex items-center gap-1.5 hover:bg-white/10 transition-colors">
                 <LuGamepad2 size={12} style={{ color: highlightColor }} />+{" "}
                 {games.length - 3}
               </div>
+              )}
             </div>
           )}
         </div>

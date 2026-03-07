@@ -21,12 +21,16 @@ interface EventCarouselProps {
   data: EventCarouselData;
   className?: string;
   loop?: boolean;
+  subtitleColor?: string;
 }
+
+type IdOrRef = string | { id: string };
 
 const EventCarousel: React.FC<EventCarouselProps> = ({ 
   data, 
   className,
   loop = true,
+  subtitleColor,
 }) => {
   const { title, subtitle, events } = data;
 
@@ -40,29 +44,32 @@ const EventCarousel: React.FC<EventCarouselProps> = ({
   );
 
   // Map game IDs and category IDs to full objects
-  const eventsWithGamesAndCategories: EventCardProps[] = events.map(
-    (event) => ({
+  const eventsWithGamesAndCategories: EventCardProps[] = events.map((event) => {
+    const gameRefs = (event.games ?? []) as IdOrRef[];
+    const categoryRefs = (event.categories ?? []) as IdOrRef[];
+
+    return {
       ...event,
-      games: (event.games as any)?.map((gameIdOrObj: any) => {
-        // Handle if it's already an object or just an ID string
-        const gameId = typeof gameIdOrObj === 'string' ? gameIdOrObj : gameIdOrObj.id;
+      games: gameRefs.map((gameIdOrObj) => {
+        const gameId =
+          typeof gameIdOrObj === "string" ? gameIdOrObj : gameIdOrObj.id;
         const game = gamesData.games.find((g) => g.id === gameId);
         return game
           ? { id: game.id, name: game.name }
           : { id: gameId, name: "Unknown" };
       }),
-      categories: (event.categories as any)?.map((categoryIdOrObj: any) => {
-        // Handle if it's already an object or just an ID string
-        const categoryId = typeof categoryIdOrObj === 'string' ? categoryIdOrObj : categoryIdOrObj.id;
-        const category = categoriesData.categories.find(
-          (c) => c.id === categoryId
-        );
+      categories: categoryRefs.map((categoryIdOrObj) => {
+        const categoryId =
+          typeof categoryIdOrObj === "string"
+            ? categoryIdOrObj
+            : categoryIdOrObj.id;
+        const category = categoriesData.categories.find((c) => c.id === categoryId);
         return category
           ? { id: category.id, name: category.name }
           : { id: categoryId, name: "Unknown" };
       }),
-    })
-  );
+    };
+  });
 
   return (
     <section
@@ -71,7 +78,10 @@ const EventCarousel: React.FC<EventCarouselProps> = ({
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-8 md:mb-12 space-y-2 md:space-y-4">
-          <p className="text-theme2 font-rajdhani uppercase tracking-wider text-sm sm:text-base font-semibold">
+          <p
+            className="text-theme2 font-rajdhani uppercase tracking-wider text-sm sm:text-base font-semibold"
+            style={subtitleColor ? { color: subtitleColor } : undefined}
+          >
             {subtitle}
           </p>
           <h2 className="font-goldman text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white uppercase px-4">

@@ -2,6 +2,53 @@ import { Event } from "@/types/pages/detail-event";
 
 export const events: Event[] = [
   {
+    id: "tournoi-fortnite-lestrem-2026",
+    type: "both",
+    title: "Tournoi Fortnite lestrem",
+    startDate: "2026-04-19",
+    startTime: "14h00",
+    endTime: "22h00",
+    cardThumbnail:
+      "/assets/img/events/tournoi-fortnite-lestrem-2026/thumbnail_tournoi_fortnite_lestrem_2026.png",
+    heroBanner:
+      "/assets/img/events/tournoi-fortnite-lestrem-2026/banner_tournoi_fortnite_lestrem_2026_desktop.png",
+    heroBannerMobile:
+      "/assets/img/events/tournoi-fortnite-lestrem-2026/banner_tournoi_fortnite_lestrem_2026_mobile.png",
+    location: "Espace Culturel Jean de la Fontaine – 301 Allée Pierre Macquart, 62136 Lestrem",
+    gameId: [
+      "fortnite",
+    ],
+    color: "#6E3045",
+    isCancelled: false,
+    description: [
+      {
+        type: "text",
+        content: [
+          {
+            type: "paragraph",
+            paragraphs: [
+              "Le dimanche 19 avril, l'Espace Culturel Jean de la Fontaine accueille un tournoi sur Fortnite ultra compétitif avec 100 joueurs pour un cashprize de 1 300€ comprenant une PS5, une Nintendo Switch et 300€ de cartes cadeaux.",
+              "Pas là pour le tournoi ? Pas de souci ! Un espace Free Play est dispo sur place pour jouer entre amis et profiter de l'ambiance toute la journée.",
+              "Le tout pour seulement 1€ pour l’accès au tournoi. Zéro excuse pour pas venir"
+            ],
+          },
+        ],
+      },
+    ],
+    freeplayGames: [
+      "all"
+    ],
+    weezeventCode:
+      '<a title="Logiciel billetterie en ligne" href="https://weezevent.com/?c=sys_widget" class="weezevent-widget-integration" data-src="https://widget.weezevent.com/ticket/E1803771/?code=42919&locale=fr-FR&width_auto=1&color_primary=00AEEF" data-width="650" data-height="600" data-id="1803771" data-resize="1" data-width_auto="1" data-noscroll="0" data-use-container="yes" data-type="neo" target="_blank">Billetterie Weezevent</a><script type="text/javascript" src="https://widget.weezevent.com/weez.js"></script>',
+      registrationOpen: true,
+    partners: [
+      {
+        alt: "Ville de Lestrem (62)",
+        src: "/assets/logos/partners/logo-ville-lestrem.svg",
+      },
+    ],
+  },
+  {
     id: "polar-lens-2026",
     type: "event",
     title: "Polar Lens 2026",

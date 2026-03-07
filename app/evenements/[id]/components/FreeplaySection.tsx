@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { LuGamepad2, LuArrowLeft, LuArrowRight } from "react-icons/lu";
 import { Stories, StoriesContent, Story } from "@/components/stories-carousel";
 import { CarouselPrevious, CarouselNext } from "@/components/carousel";
@@ -22,7 +22,7 @@ const GameCard: React.FC<GameCardProps> = ({ game }) => {
   if (game.blockType === "block") {
     return (
       <div
-        className="group relative rounded-2xl p-6 gap-4  transition-all duration-300 h-full border-2 border-white/10 box-border"
+        className="group relative rounded-2xl p-6 gap-4 transition-all duration-300 h-full border-2 border-white/10 box-border"
         style={{
           background:
             game.bgType === "gradient"
@@ -36,8 +36,12 @@ const GameCard: React.FC<GameCardProps> = ({ game }) => {
             alt={game.name}
             width={500}
             height={500}
-            className={cn("w-1/2 group-hover:w-[55%] transition-all duration-500 z-10",
-              game.img && game.img !== "" ? "absolute top-1/2 -translate-y-1/2" : "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2")}
+            className={cn(
+              "w-1/2 group-hover:w-[55%] transition-all duration-500 z-10",
+              game.img && game.img !== ""
+                ? "absolute top-1/2 -translate-y-1/2"
+                : "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2",
+            )}
           />
         ) : (
           <h4 className="font-rajdhani font-bold text-white text-xl uppercase tracking-wider text-center group-hover:text-white transition-colors">
@@ -66,46 +70,68 @@ const GameCard: React.FC<GameCardProps> = ({ game }) => {
         )}
       </div>
     );
-  } else {
-    return (
-      <div className="group relative bg-gray-900/40 border border-white/5 rounded-2xl p-6 flex flex-col items-center justify-center gap-4 hover:border-white/20 transition-all duration-300 backdrop-blur-sm overflow-hidden h-full">
-        {/* Background Highlight */}
-        <div
-          className="absolute -bottom-12 -right-12 w-24 h-24 rounded-full blur-3xl opacity-0 group-hover:opacity-20 transition-opacity duration-500"
-          style={{ backgroundColor: game.color1 || "var(--theme-color)" }}
-        />
-
-        <div className="p-4 rounded-xl bg-white/5 border border-white/10 group-hover:scale-110 transition-transform duration-500">
-          <LuGamepad2
-            className="w-8 h-8"
-            style={{ color: game.color1 || "var(--theme-color)" }}
-          />
-        </div>
-
-        <h4 className="font-rajdhani font-bold text-white text-xl uppercase tracking-wider text-center group-hover:text-white transition-colors">
-          {game.name}
-        </h4>
-      </div>
-    );
   }
+
+  return (
+    <div className="group relative bg-gray-900/40 border border-white/5 rounded-2xl p-6 flex flex-col items-center justify-center gap-4 hover:border-white/20 transition-all duration-300 backdrop-blur-sm overflow-hidden h-full">
+      <div
+        className="absolute -bottom-12 -right-12 w-24 h-24 rounded-full blur-3xl opacity-0 group-hover:opacity-20 transition-opacity duration-500"
+        style={{ backgroundColor: game.color1 || "var(--theme-color)" }}
+      />
+
+      <div className="p-4 rounded-xl bg-white/5 border border-white/10 group-hover:scale-110 transition-transform duration-500">
+        <LuGamepad2
+          className="w-8 h-8"
+          style={{ color: game.color1 || "var(--theme-color)" }}
+        />
+      </div>
+
+      <h4 className="font-rajdhani font-bold text-white text-xl uppercase tracking-wider text-center group-hover:text-white transition-colors">
+        {game.name}
+      </h4>
+    </div>
+  );
 };
 
 interface FreeplaySectionProps {
-  games: string[]; // These are now IDs
+  games: string[];
   highlightColor: string;
+  compact?: boolean;
 }
+
+const shuffleGames = (games: Game[]): Game[] => {
+  const shuffled = [...games];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+};
 
 const FreeplaySection: React.FC<FreeplaySectionProps> = ({
   games: gameIds,
   highlightColor,
+  compact = false,
 }) => {
-  // Resolve IDs to Game objects
-  const resolvedGames = gameIds
-    .map((id) => {
-      const game = gamesData.games.find((g) => g.id === id);
-      return game || null;
-    })
-    .filter(Boolean) as Game[];
+  const resolvedGames = useMemo(() => {
+    const hasAllOnly = gameIds.length === 1 && gameIds[0] === "all";
+    if (hasAllOnly) {
+      return gamesData.games;
+    }
+
+    return gameIds
+      .map((id) => {
+        const game = gamesData.games.find((g) => g.id === id);
+        return game || null;
+      })
+      .filter(Boolean) as Game[];
+  }, [gameIds]);
+
+  const [displayGames, setDisplayGames] = useState<Game[]>(resolvedGames);
+
+  useEffect(() => {
+    setDisplayGames(shuffleGames(resolvedGames));
+  }, [resolvedGames]);
 
   const autoplayRef = useRef(
     Autoplay({
@@ -116,21 +142,31 @@ const FreeplaySection: React.FC<FreeplaySectionProps> = ({
   );
 
   return (
-    <section className="py-20 bg-transparent">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-12 space-y-4">
+    <section className={cn("bg-transparent", compact ? "py-10" : "py-20")}>
+      <div className={cn(compact ? "w-full" : "container mx-auto px-4")}>
+        <div
+          className={cn(
+            "space-y-4",
+            compact ? "mb-8 text-center" : "text-center mb-12",
+          )}
+        >
           <p
             className="text-theme2 font-rajdhani uppercase tracking-widest text-sm font-semibold"
             style={{ color: highlightColor }}
           >
             Incontournables
           </p>
-          <h2 className="font-goldman text-4xl sm:text-5xl text-white uppercase tracking-tight">
+          <h2
+            className={cn(
+              "font-goldman text-white uppercase tracking-tight",
+              compact ? "text-3xl sm:text-4xl" : "text-4xl sm:text-5xl",
+            )}
+          >
             Nos jeux en Freeplay
           </h2>
         </div>
 
-        {resolvedGames.length > 4 ? (
+        {displayGames.length > 4 ? (
           <div className="w-full">
             <Stories
               plugins={[autoplayRef.current]}
@@ -140,8 +176,8 @@ const FreeplaySection: React.FC<FreeplaySectionProps> = ({
               }}
               className="w-full"
             >
-              <StoriesContent className="gap-16 p-4">
-                {resolvedGames.map((game: Game, index: number) => (
+              <StoriesContent className={cn(compact ? "gap-8 py-2" : "gap-16 p-4")}>
+                {displayGames.map((game: Game, index: number) => (
                   <Story
                     key={index}
                     className="w-70! sm:w-[320px]! md:w-100! aspect-2/1 bg-transparent shadow-none hover:scale-103 transition-transform duration-300"
@@ -150,7 +186,7 @@ const FreeplaySection: React.FC<FreeplaySectionProps> = ({
                   </Story>
                 ))}
               </StoriesContent>
-              <div className="flex w-full justify-end gap-4 mt-8">
+              <div className={cn("flex w-full justify-end gap-4", compact ? "mt-4" : "mt-8")}>
                 <CarouselPrevious
                   size="carouselTrophies"
                   variant="carouselTrophies"
@@ -169,9 +205,17 @@ const FreeplaySection: React.FC<FreeplaySectionProps> = ({
             </Stories>
           </div>
         ) : (
-          <div className="flex flex-wrap justify-center gap-16 max-w-6xl mx-auto">
-            {resolvedGames.map((game: Game, index: number) => (
-              <div key={index} className="w-75 sm:w-87.5 aspect-2/1">
+          <div
+            className={cn(
+              "flex flex-wrap justify-center mx-auto",
+              compact ? "gap-8 max-w-full" : "gap-16 max-w-6xl",
+            )}
+          >
+            {displayGames.map((game: Game, index: number) => (
+              <div
+                key={index}
+                className={cn("aspect-2/1", compact ? "w-70 sm:w-80" : "w-75 sm:w-87.5")}
+              >
                 <GameCard game={game} />
               </div>
             ))}
