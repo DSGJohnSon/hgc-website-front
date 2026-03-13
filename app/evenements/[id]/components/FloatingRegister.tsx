@@ -27,14 +27,18 @@ const FloatingRegister: React.FC<FloatingRegisterProps> = ({
   isCancelled = false,
 }) => {
   const [isVisible, setIsVisible] = useState(false);
+  const [autoOpenDialog, setAutoOpenDialog] = useState(shouldOpenRegister || false);
   const { openDialog } = useWeezeventDialog();
 
   // Auto-open dialog if register parameter is present
   useEffect(() => {
-    if (shouldOpenRegister && weezeventCode && registrationOpen) {
+    if (autoOpenDialog && weezeventCode && registrationOpen) {
       openDialog(weezeventCode, eventTitle);
+      setAutoOpenDialog(false);
+    } else {
+      setAutoOpenDialog(false); // Reset to prevent future auto-opens on re-render
     }
-  }, [shouldOpenRegister, weezeventCode, registrationOpen, eventTitle, openDialog]);
+  }, [autoOpenDialog, weezeventCode, registrationOpen, eventTitle, openDialog]);
 
   useEffect(() => {
     const handleScroll = () => {
