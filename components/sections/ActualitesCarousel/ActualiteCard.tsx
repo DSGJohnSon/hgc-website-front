@@ -15,6 +15,7 @@ const ActualiteCard: React.FC<ActualiteCardProps> = ({
   id,
   title,
   subtitle,
+  date,
   content = [],
   image,
   cta,
@@ -34,7 +35,7 @@ const ActualiteCard: React.FC<ActualiteCardProps> = ({
     <div className={cn("w-full", className)}>
       <div
         className={cn(
-          "grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center",
+          "grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center cursor-crosshair",
           imagePosition === "left" && "lg:grid-flow-dense",
         )}
       >
@@ -61,6 +62,11 @@ const ActualiteCard: React.FC<ActualiteCardProps> = ({
             imagePosition === "left" && "lg:col-start-2",
           )}
         >
+          {/* DATE */}
+          <p className="text-theme2 font-rajdhani uppercase tracking-wider text-sm md:text-base font-semibold">
+            {new Date(date).toLocaleDateString("fr-FR")}
+          </p>
+
           {/* Subtitle */}
           {subtitle && (
             <p className="text-theme2 font-rajdhani uppercase tracking-wider text-sm md:text-base font-semibold">
@@ -127,6 +133,7 @@ const ActualiteCard: React.FC<ActualiteCardProps> = ({
                   variant="primary"
                   size="md"
                   href={cta.url}
+                  isExternal={cta.isExternal}
                   asLink={true}
                   textUpperCase={true}
                 >

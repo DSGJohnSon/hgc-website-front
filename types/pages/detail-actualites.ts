@@ -3,6 +3,7 @@
 // ============================================
 export type Actualities = {
   id: string;
+  date: string; // ISO format date (e.g., "2026-02-01")
   title: string;
   subtitle?: string;
   content: {

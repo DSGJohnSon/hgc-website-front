@@ -128,13 +128,13 @@ export default function Home() {
           return (
             <React.Fragment key={`fragment-${index}`}>
               {renderSection(section, index)}
-              {/* <ActualitesCarousel
+              <ActualitesCarousel
                 data={{
                   title: "ACTUALITÉS",
                   subtitle: "À LA UNE",
                   actualites: actualitesData,
                 }}
-              /> */}
+              />
             </React.Fragment>
           );
         }

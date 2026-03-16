@@ -17,6 +17,7 @@ export interface ButtonProps
   className?: string;
   href?: string;
   asLink?: boolean;
+  isExternal?: boolean;
   textUpperCase?: boolean;
 }
 
@@ -29,6 +30,7 @@ const Button: React.FC<ButtonProps> = ({
   className = "",
   href,
   asLink = false,
+  isExternal = false,
   textUpperCase = false,
   ...props
 }) => {
@@ -102,7 +104,7 @@ const Button: React.FC<ButtonProps> = ({
 
   if (asLink && href) {
     return (
-      <Link href={href} className={combinedStyles}>
+      <Link href={href} target={isExternal ? "_blank" : ""} className={combinedStyles}>
         {variant.startsWith("border") ? (
           <span className={borderInnerStyles}>{content}</span>
         ) : (

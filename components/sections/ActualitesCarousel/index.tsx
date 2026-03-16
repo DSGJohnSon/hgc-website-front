@@ -45,8 +45,8 @@ const ActualitesCarousel: React.FC<ActualitesCarouselProps> = ({
     };
   }, [api, onSelect]);
 
-  // Show only the 4 most recent actualites
-  const recentActualites = actualites.slice(0, 4);
+  // Show only the 10 most recent actualites
+  const recentActualites = actualites.slice(0, 10);
 
   if (recentActualites.length === 0) return null;
 
