@@ -74,6 +74,8 @@ const ActualitesCarousel: React.FC<ActualitesCarouselProps> = ({
               loop: false,
               slidesToScroll: 1,
               align: "start",
+              dragFree: false,
+              skipSnaps: false,
             }}
           >
             <StoriesContent className="gap-8 lg:gap-0 items-center">
