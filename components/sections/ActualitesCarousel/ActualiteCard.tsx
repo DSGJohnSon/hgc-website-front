@@ -32,7 +32,7 @@ const ActualiteCard: React.FC<ActualiteCardProps> = ({
   const imagePosition = image.position || "right";
 
   return (
-    <div className={cn("w-full", className)}>
+    <div className={cn("w-full pl-4", className)}>
       <div
         className={cn(
           "grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center cursor-crosshair",
