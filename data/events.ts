@@ -2,6 +2,51 @@ import { Event } from "@/types/pages/detail-event";
 
 export const events: Event[] = [
   {
+    id: "pathe-mario-galaxy-2026",
+    type: "event",
+    title: "Pathé Mario Galaxy",
+    startDate: "2026-04-04",
+    startTime: "13h00",
+    endTime: "20h00",
+    cardThumbnail:
+      "/assets/img/events/pathe-mario-galaxy-2026/pathe-mario-galaxy-2026_thumbnail.png",
+    heroBanner:
+      "/assets/img/events/pathe-mario-galaxy-2026/pathe-mario-galaxy-2026_desktop.png",
+    heroBannerMobile:
+      "/assets/img/events/pathe-mario-galaxy-2026/pathe-mario-galaxy-2026_mobile.png",
+    location:
+      "Cinéma Pathé Liévin – Rue François Courtin, Liévin",
+    gameId: ["super_mario_galaxy_2"],
+    color: "#C31B50",
+    isCancelled: false,
+    description: [
+      {
+        type: "text",
+        content: [
+          {
+            type: "paragraph",
+            paragraphs: [
+              "Holiday Geek Cup et Pathé présentent le Pathé Mario Galaxy ! Venez profiter d'une journée gaming en accès libre au Cinéma Pathé de Liévin, le samedi 4 avril de 13h à 20h. Jouez à une sélection de jeux Mario en accès libre, et profitez des séances du film Mario Galaxy le film tout au long de la journée.",
+            ],
+          },
+        ],
+      },
+    ],
+    freeplayGames: [
+      "super_mario_galaxy_2",
+    ],
+    randomizeFreeplayGames: false,
+    weezeventCode:
+      '<a title="Logiciel billetterie en ligne\"   href=\"https://weezevent.com/?c=sys_widget\"   class=\"weezevent-widget-integration\"   data-src=\"https://widget.weezevent.com/ticket/E1875811/?code=2526&locale=fr-FR&width_auto=1&color_primary=00AEEF\"   data-width=\"650\"   data-height=\"600\"   data-id=\"1875811\"   data-resize=\"1\"   data-width_auto=\"1\"   data-noscroll=\"0\"   data-use-container=\"yes\"   data-type=\"neo\"   target=\"_blank\">Billetterie Weezevent</a><script type=\"text/javascript\" src=\"https://widget.weezevent.com/weez.js\"></script>',
+    registrationOpen: true,
+    partners: [
+      {
+        alt: "Pathé",
+        src: "/assets/logos/partners/logo-pathe.png",
+      },
+    ],
+  },
+  {
     id: "tournoi-fortnite-lestrem-2026",
     type: "both",
     title: "Tournoi Fortnite lestrem",
