@@ -34,6 +34,46 @@
       "bgImg": "/assets/img/games/luigis_mansion_3_game.png"
     },
     {
+      "id": "new_super_mario_bros",
+      "name": "(New) Super Mario Bros",
+      "blockType": "text"
+    },
+    {
+      "id": "new_super_mario_bros_2",
+      "name": "(New) Super Mario Bros 2",
+      "blockType": "text"
+    },
+    {
+      "id": "new_super_mario_bros_u_deluxe",
+      "name": "(New) Super Mario Bros U - Deluxe",
+      "blockType": "text"
+    },
+    {
+      "id": "super_mario_maker_2",
+      "name": "Super Mario Maker 2",
+      "blockType": "text"
+    },
+    {
+      "id": "mario_kart_wii",
+      "name": "Mario Kart Wii",
+      "blockType": "text"
+    },
+    {
+      "id": "mariokart_live",
+      "name": "Mario Kart Live - Home Circuit",
+      "blockType": "text"
+    },
+    {
+      "id": "super_mario_odyssey",
+      "name": "Super Mario Odyssey",
+      "blockType": "text"
+    },
+    {
+      "id": "super_mario_galaxy_1",
+      "name": "Super Mario Galaxy",
+      "blockType": "text"
+    },
+    {
       "id": "super_mario_galaxy_2",
       "name": "Super Mario Galaxy 2",
       "blockType": "block",

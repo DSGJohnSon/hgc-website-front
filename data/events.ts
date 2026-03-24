@@ -33,7 +33,17 @@ export const events: Event[] = [
       },
     ],
     freeplayGames: [
+      "super_mario_galaxy_1",
       "super_mario_galaxy_2",
+      "super_mario_odyssey",
+      "mariokart_live",
+      "new_super_mario_bros",
+      "new_super_mario_bros_2",
+      "new_super_mario_bros_u_deluxe",
+      "super_mario_maker_2",
+      "mario_kart_wii",
+      "mariokart_world",
+
     ],
     randomizeFreeplayGames: false,
     weezeventCode:
