@@ -110,7 +110,7 @@ export const actualites: Actualities[] = [
         type: "list",
         items: [
           "Ancienne adresse : 84 rue Paul Bert, 62300 Lens",
-          "Nouvelle adresse : 45 rue François Gauthier, 62300 Lens",
+          "Nouvelle adresse : Microfolie, 13D Rte de Béthune, 62300 Lens",
         ],
       },
       {

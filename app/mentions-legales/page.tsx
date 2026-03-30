@@ -40,8 +40,7 @@ export default function MentionsLegalesPage() {
                 </p>
                 <ul className="list-disc list-inside ml-4 space-y-1">
                   <li>
-                    <span className="font-bold">Siège social :</span> 45 rue
-                    François Gauthier, 62300 Lens
+                    <span className="font-bold">Siège social :</span> Microfolie, 13D Rte de Béthune, 62300 Lens
                   </li>
                   <li>
                     <span className="font-bold">Email :</span>{" "}
