@@ -65,7 +65,7 @@ export function prepareEvents(
       const priorityB = getPriority(b);
       if (priorityA !== priorityB) return priorityA - priorityB;
       // Then by date (closest first)
-      return new Date(a.startDate).getTime() - new Date(b.startDate).getTime();
+      return new Date(b.startDate).getTime() - new Date(a.startDate).getTime();
     });
 
   if (limit) {

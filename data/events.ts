@@ -844,36 +844,37 @@ export const events: Event[] = [
     ],
     freeplayGames: ["tombraider", "amongus"],
   },
-  {
-    id: "tournoi-sains-en-gohelle-2026",
-    type: "both",
-    title: "Tournoi SAINS-EN-GOHELLE",
-    startDate: "2026-02-21",
-    startTime: "14:00",
-    cardThumbnail:
-      "/assets/img/events/tournoi-sains-en-gohelle-2026/thumbnail_tournoi-sains-en-gohelle-2026.png",
-    heroBanner:
-      "/assets/img/events/tournoi-sains-en-gohelle-2026/banner_tournoi-sains-en-gohelle-2026_desktop.png",
-    heroBannerMobile:
-      "/assets/img/events/tournoi-sains-en-gohelle-2026/banner_tournoi-sains-en-gohelle-2026_mobile.png",
-    categoryId: [],
-    gameId: ["mariokart_world"],
-    color: "#1E8E2B",
-    location: "Église Sainte-Marguerite, 4 Pl. de la Marne, Sains-en-Gohelle",
-    weezeventCode:
-      '<a title="Logiciel billetterie en ligne"   href="https://weezevent.com/?c=sys_widget"   class="weezevent-widget-integration"   data-src="https://widget.weezevent.com/ticket/E1712193/?code=23061&locale=fr-FR&width_auto=1&color_primary=00AEEF"   data-width="650"   data-height="600"   data-id="1712193"   data-resize="1"   data-width_auto="1"   data-noscroll="0"   data-use-container="yes"   data-type="neo"   target="_blank">Billetterie Weezevent</a><script type="text/javascript" src="https://widget.weezevent.com/weez.js"></script>',
-    registrationOpen: true,
-    isCancelled: true,
-    description: [],
-    freeplayGames: [
-      "mariokart_world",
-      "fc25",
-      "fortnite",
-      "rocket_league",
-      "fall_guys",
-      "valorant",
-    ],
-  },
+  // EVENTS MASQUES DU SITE WEB A LA DEMANDE DU CLIENT
+  // {
+  //   id: "tournoi-sains-en-gohelle-2026",
+  //   type: "both",
+  //   title: "Tournoi SAINS-EN-GOHELLE",
+  //   startDate: "2026-02-21",
+  //   startTime: "14:00",
+  //   cardThumbnail:
+  //     "/assets/img/events/tournoi-sains-en-gohelle-2026/thumbnail_tournoi-sains-en-gohelle-2026.png",
+  //   heroBanner:
+  //     "/assets/img/events/tournoi-sains-en-gohelle-2026/banner_tournoi-sains-en-gohelle-2026_desktop.png",
+  //   heroBannerMobile:
+  //     "/assets/img/events/tournoi-sains-en-gohelle-2026/banner_tournoi-sains-en-gohelle-2026_mobile.png",
+  //   categoryId: [],
+  //   gameId: ["mariokart_world"],
+  //   color: "#1E8E2B",
+  //   location: "Église Sainte-Marguerite, 4 Pl. de la Marne, Sains-en-Gohelle",
+  //   weezeventCode:
+  //     '<a title="Logiciel billetterie en ligne"   href="https://weezevent.com/?c=sys_widget"   class="weezevent-widget-integration"   data-src="https://widget.weezevent.com/ticket/E1712193/?code=23061&locale=fr-FR&width_auto=1&color_primary=00AEEF"   data-width="650"   data-height="600"   data-id="1712193"   data-resize="1"   data-width_auto="1"   data-noscroll="0"   data-use-container="yes"   data-type="neo"   target="_blank">Billetterie Weezevent</a><script type="text/javascript" src="https://widget.weezevent.com/weez.js"></script>',
+  //   registrationOpen: true,
+  //   isCancelled: true,
+  //   description: [],
+  //   freeplayGames: [
+  //     "mariokart_world",
+  //     "fc25",
+  //     "fortnite",
+  //     "rocket_league",
+  //     "fall_guys",
+  //     "valorant",
+  //   ],
+  // },
 ];
 
 export default events;
