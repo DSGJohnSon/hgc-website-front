@@ -31,69 +31,69 @@ export const actualites: Actualities[] = [
   //       '<a title="Logiciel billetterie en ligne" href="https://weezevent.com/?c=sys_widget"   class="weezevent-widget-integration"   data-src="https://widget.weezevent.com/ticket/E1638551/?code=21051&locale=fr-FR&width_auto=1&color_primary=00AEEF"   data-width="650"   data-height="600"   data-id="1638551"   data-resize="1"   data-width_auto="1"   data-noscroll="0"   data-use-container="yes"   data-type="neo"   target="_blank">Billetterie Weezevent</a><script type="text/javascript" src="https://widget.weezevent.com/weez.js"></script>',
   //   },
   // },
-  // Social Cup 2026
-  {
-    id: "social-cup-2026",
-    date: "2026-03-16",
-    title: "Votez pour nous",
-    content: [
-      {
-        type: "paragraph",
-        paragraphs: [
-          "Grande nouvelle : Holiday Geek Cup est sélectionnée pour la finale de la Social Cup 2026, la coupe de France des jeunes de 18 à 30 ans qui agissent pour un monde plus durable et solidaire !",
-          "Créée en 2014 et co-fondée par makesense, La Banque Postale et KissKissBankBank, la Social Cup accompagne chaque année des projets à impact positif en leur offrant visibilité, accompagnement et force de frappe. Cette année, son partenaire majeur est Ulule.",
-"La finale aura lieu le mardi 24 mars 2026 à partir de 18h30 chez makesense, au 11 Rue Biscornet, 75012 Paris.",
-        ],
-      },
-      {
-        type: "title",
-        title: "Vous pouvez nous soutenir de deux façons :",
-      },
-      {
-        type: "list",
-        items: [
-          "🗳️ Voter pour nous en ligne sur Ulule : boost.ulule.com/socialcup12",
-          "🎟️ Venir nous encourager à la finale : chiche.makesense.org",
-        ],
-      },
-      {
-        type : "paragraph",
-        paragraphs: [
-          "Chaque vote compte et nous rapproche de la victoire. Merci pour votre soutien ! 💜",
-        ],
-      }
-    ],
-    cta: {
-      type: "standard",
-      isExternal: true,
-      label: "Voter pour nous sur Ulule",
-      url: "https://boost.ulule.com/socialcup12",
-    },
-    image: {
-      src: "/assets/img/actus/social_cup_2026.png",
-      alt: "Social Cup 2026",
-      position: "left",
-    },
-  },
-  //Evenement au RC Lens
-  {
-    id: "event-rc-lens",
-    date: "2026-03-16",
-    title: "Nouvel événement avec le RC Lens",
-    content: [
-      {
-        type: "paragraph",
-        paragraphs: [
-          "Quelque chose se prépare du côté de Bollaert. Le RC Lens en collaboration avec Holiday Geek Cup travaille en silence, mais une annonce importante ne devrait plus tarder. Affaire à suivre de très près…",
-        ],
-      },
-    ],
-    image: {
-      src: "/assets/img/actus/rc-lens-partenariat.jpg",
-      alt: "Partenariat avec le RC Lens",
-      position: "left",
-    },
-  },  
+  // Social Cup 2026 - MASQUÉ
+//   {
+//     id: "social-cup-2026",
+//     date: "2026-03-16",
+//     title: "Votez pour nous",
+//     content: [
+//       {
+//         type: "paragraph",
+//         paragraphs: [
+//           "Grande nouvelle : Holiday Geek Cup est sélectionnée pour la finale de la Social Cup 2026, la coupe de France des jeunes de 18 à 30 ans qui agissent pour un monde plus durable et solidaire !",
+//           "Créée en 2014 et co-fondée par makesense, La Banque Postale et KissKissBankBank, la Social Cup accompagne chaque année des projets à impact positif en leur offrant visibilité, accompagnement et force de frappe. Cette année, son partenaire majeur est Ulule.",
+// "La finale aura lieu le mardi 24 mars 2026 à partir de 18h30 chez makesense, au 11 Rue Biscornet, 75012 Paris.",
+//         ],
+//       },
+//       {
+//         type: "title",
+//         title: "Vous pouvez nous soutenir de deux façons :",
+//       },
+//       {
+//         type: "list",
+//         items: [
+//           "🗳️ Voter pour nous en ligne sur Ulule : boost.ulule.com/socialcup12",
+//           "🎟️ Venir nous encourager à la finale : chiche.makesense.org",
+//         ],
+//       },
+//       {
+//         type : "paragraph",
+//         paragraphs: [
+//           "Chaque vote compte et nous rapproche de la victoire. Merci pour votre soutien ! 💜",
+//         ],
+//       }
+//     ],
+//     cta: {
+//       type: "standard",
+//       isExternal: true,
+//       label: "Voter pour nous sur Ulule",
+//       url: "https://boost.ulule.com/socialcup12",
+//     },
+//     image: {
+//       src: "/assets/img/actus/social_cup_2026.png",
+//       alt: "Social Cup 2026",
+//       position: "left",
+//     },
+//   },
+  //Evenement au RC Lens - MASQUÉ
+  // {
+  //   id: "event-rc-lens",
+  //   date: "2026-03-16",
+  //   title: "Nouvel événement avec le RC Lens",
+  //   content: [
+  //     {
+  //       type: "paragraph",
+  //       paragraphs: [
+  //         "Quelque chose se prépare du côté de Bollaert. Le RC Lens en collaboration avec Holiday Geek Cup travaille en silence, mais une annonce importante ne devrait plus tarder. Affaire à suivre de très près…",
+  //       ],
+  //     },
+  //   ],
+  //   image: {
+  //     src: "/assets/img/actus/rc-lens-partenariat.jpg",
+  //     alt: "Partenariat avec le RC Lens",
+  //     position: "left",
+  //   },
+  // },  
   // Nouveau siège social
   {
     id: "nouveau-siege-social",
@@ -120,9 +120,15 @@ export const actualites: Actualities[] = [
           "Les partenaires et contacts sont invités à mettre à jour leurs informations. De nouvelles annonces suivront prochainement.",
         ],
       },
+      {
+        type: "paragraph",
+        paragraphs: [
+          "Ce siège social servira à proposer de nouveaux formats d’événements en 2026.",
+        ],
+      },
     ],
     image: {
-      src: "/assets/img/actus/nouveaux-locaux.webp",
+      src: "/assets/img/actus/nouveaux-locaux.png",
       alt: "Nouveaux locaux de Holiday Geek Cup",
       position: "left",
     },
