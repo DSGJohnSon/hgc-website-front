@@ -60,8 +60,18 @@
       ]
     },
     {
-      "label": "RÈGLEMENT",
-      "href": "/reglement"
+      "label": "RESSOURCES",
+      "href": "#",
+      "submenu": [
+        {
+          "label": "Règlement",
+          "href": "/reglement"
+        },
+        {
+          "label": "Documents Officiels",
+          "href": "/documents"
+        }
+      ]
     },
     {
       "label": "CONTACT",
